@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 06 Mar 2025 13:15:35 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 06 Mar 2025 13:32:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -139,6 +139,14 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 </ol>
 <div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
 <p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Flameshot]]></title>
+            <guid>3bb210255f994544b59b17f349d97672</guid>
+            <pubDate>Mon, 17 Feb 2025 13:51:22 GMT</pubDate>
+            <content:encoded><![CDATA[<p>GitHub</p>
+<p><a title="https://github.com/flameshot-org/flameshot" href="https://github.com/flameshot-org/flameshot">https://github.com/flameshot-org/flameshot</a></p>
 ]]></content:encoded>
         </item>
         <item>
