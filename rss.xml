@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title></title>
+        <link>undefined</link>
+        <description>undefined</description>
+        <lastBuildDate>Thu, 06 Mar 2025 12:41:44 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[GoldenDict配置搜狗翻译]]></title>
+            <guid>c244ec57827646a8a224636c15d96b09</guid>
+            <pubDate>Tue, 04 Mar 2025 12:25:31 GMT</pubDate>
+            <content:encoded><![CDATA[<ol>
+<li>编写python脚本，保存SogouTranslatorGD.py，放入指定目录下</li>
+</ol>
+<div><pre class="hljs"><code><span class="hljs-comment">#!/usr/bin/python3</span>
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> chardet
+<span class="hljs-keyword">from</span> html <span class="hljs-keyword">import</span> unescape
+<span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urljoin, quote
+<span class="hljs-keyword">import</span> io
+<span class="hljs-keyword">import</span> random
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_page</span>(<span class="hljs-params">url</span>):
+    <span class="hljs-comment"># 生成7到16之间的随机整数</span>
+    ios_version = random.randint(<span class="hljs-number">11</span>, <span class="hljs-number">17</span>)
+    <span class="hljs-comment"># 生成80到130之间的随机整数</span>
+    num2 = random.randint(<span class="hljs-number">118</span>, <span class="hljs-number">126</span>)
+    headers = {
+        <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">f'Mozilla/5.0 (iPhone; CPU iPhone OS <span class="hljs-subst">{ios_version}</span> like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) iOS/<span class="hljs-subst">{num2}</span>.0.6312.52 Mobile Safari/604.1'</span>,
+        <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>
+    }
+    request = urllib.request.Request(url, headers=headers)
+    response = urllib.request.urlopen(request)
+    html = response.read()
+    response.close()
+    <span class="hljs-keyword">return</span> html
+css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
+.programs_html .tab-trans-main .dict .module+.module {
+    border-top-color: none !important;
+    border-top: 3px dashed #6f6f6c;
+}
+
+.programs_html .tab-trans-main .dict .module h3 {
+    color: rgb(229 149 33) !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.programs_html .header-wap-new,
+.programs_html .select-area,
+.programs_html .sort-select,
+.programs_html .sgui-content,
+.programs_html .trans-to .pronounce-box,
+.programs_html .operate-btn-box,
+.programs_html .footer-wap,
+.programs_html .loading-pc,
+.programs_html .input-area .btn-clear,
+.programs_html #encyclopedia,
+.programs_html .empty-space {
+    display: none !important;
+}
+
+.programs_html .trans-box {
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: #2A82DA 0px 16px 40px 0px !important;
+}
+
+.programs_html .trans-main a {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.programs_html .word-details-card .word-details-con .word {
+    color: rgb(235, 98, 45) !important;
+}
+
+.programs_html .content-wrap {
+    padding-top: 0 !important;
+}
+
+.programs_html #trans-input,
+.programs_html #trans-result {
+    color: rgb(134, 170, 204) !important;
+    font-size: 16px !important;
+}
+
+.programs_html .input-area #trans-input {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding-left: 10px !important;
+    height: auot !important;
+}
+
+.programs_html .input-area .btn-clear {
+    display: none !important;
+}
+&lt;/style&gt;"""</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sys.argv) &lt; <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Usage: python script.py &lt;url&gt;"</span>)
+        <span class="hljs-keyword">return</span>
+
+    <span class="hljs-comment"># 从命令行参数获取 URL 并进行编码</span>
+    url = <span class="hljs-string">' '</span>.join(sys.argv[<span class="hljs-number">1</span>:])
+    encoded_url = quote(url, safe=<span class="hljs-string">':/?&amp;='</span>)
+
+    <span class="hljs-keyword">try</span>:
+        html = get_page(encoded_url)
+        result = chardet.detect(html)
+        encoding = result[<span class="hljs-string">'encoding'</span>]
+        
+        <span class="hljs-comment"># 解码 HTML 内容</span>
+        decoded_html = unescape(html.decode(encoding, <span class="hljs-string">'ignore'</span>))
+
+        <span class="hljs-comment"># 将相对链接转换为绝对链接</span>
+        decoded_html = decoded_html.replace(<span class="hljs-string">'href="//'</span>, <span class="hljs-string">'href="https://'</span>)
+        decoded_html = decoded_html.replace(<span class="hljs-string">'src="//'</span>, <span class="hljs-string">'src="https://'</span>)
+
+        <span class="hljs-comment"># 设置 stdout 为 UTF-8 编码</span>
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=<span class="hljs-string">'utf-8'</span>)
+        
+        <span class="hljs-comment"># 直接打印获取的内容</span>
+        <span class="hljs-built_in">print</span>(decoded_html)
+        <span class="hljs-built_in">print</span>(css)
+    <span class="hljs-keyword">except</span> urllib.error.HTTPError <span class="hljs-keyword">as</span> e:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Downloading the page <span class="hljs-subst">{url}</span> failed with error code <span class="hljs-subst">{e.code}</span>.'</span>)
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'An error occurred: <span class="hljs-subst">{e}</span>'</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()</code></pre></div>
+<ol start="2">
+<li>在GoldenDict中添加“程序类词典”，命令行格式为</li>
+</ol>
+<div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
+<p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[地球上10大最好养的小型冷水观赏鱼]]></title>
+            <guid>f366c291e2c045829bf9c70a2052ee94</guid>
+            <pubDate>Sun, 06 Dec 2020 06:21:12 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="地球上10大最好养的小型冷水观赏鱼金鱼和锦鲤上榜你养了吗">地球上10大最好养的小型冷水观赏鱼，金鱼和锦鲤上榜，你养了吗？</h1>
+<p>2019-02-18 17:18</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/f6fa40dac29a4ee0b7728e9cfc48b82e.jpeg" /></p>
+<p>1、金鱼：金鱼是生活中一种比较常见的冷水观赏鱼，这种鱼的色彩缤纷品种繁多，适合群养的一种观赏性很强的鱼类，金鱼有金玉满堂的鱼类在中国也是比较受欢迎的，对水温适应能力很强。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/0fa521d5dc5442e59c9fec38bcd85273.jpeg" /></p>
+<p>2、观背青鳉：观背青鳉是一种通过人工对野生青鳉的选育和杂交以及提纯等方式培育出来的新品种，是一种小型的冷水观赏鱼。体形比较的色彩多变观赏性价值高，这种鱼的品种很多而且比较好饲养，适合生活在15℃到30℃左右的温度生活。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/20d60bc2700e49278034b17da308007d.jpeg" /></p>
+<p>3、爬岩鳅：爬岩鳅是一种小型的观赏鱼，这种鱼的一般吸附于石块上生活，是一种杂食性鱼类。主要是吃藻类、红虫、异形饲料生存，饲养水温不超过28度就可以了。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/5b2f5fad2fe046839a7eb7a3d0407477.jpeg" /></p>
+<p>4、锦鲤：锦鲤是十分美丽的冷水观赏鱼，这种鱼色彩艳丽花纹多变，具有很强的观赏价值。锦鲤的品种比较多适合群养喜欢群游，对水的适应能力比较强，适合生活在硬度低的水质环境中，锦鲤吃细小藻类和人工合成颗粒饵料以及高等水生植物碎片等。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/0b26024ec61749ef8151b26446a5f820.jpeg" /></p>
+<p>5、中国斗鱼：中国斗鱼常见的一种冷水观赏鱼，喜欢生活在浅水洼或水草茂密的岸边。色彩艳丽的外形还是比较美丽的，可以饲养的冷水观赏鱼，适合生活在24℃到27℃左右的水温环境中，以昆虫幼体和鱼虫以及干饵料等为食。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/db829f55357849779fd3a259e204f715.jpeg" /></p>
+<p>6、狮子头：狮子头是一种长得十分美丽的金鱼，这种鱼外形比较独特而且性情也是比较温顺的，很多人喜欢养饲养狮子头金鱼。狮子头色彩缤纷身体的颜色艳丽，是观赏性很强的一种小型观赏鱼。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/d9776d870cbf41a1b3a64f35a094bf3f.jpeg" /></p>
+<p>7、龙睛：龙睛金鱼属于金鱼中龙种，这种鱼的外形比较漂亮，眼睛比较大赢得很多人的喜欢。这种鱼体态苗条，尾柄细长尾巴非常的漂亮，体现了一种原始的美。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/00e5609f654340d28ec0a2a4196dc84f.jpeg" /></p>
+<p>8、蝶尾：蝶尾也是一种比较好看的冷水观赏鱼，这种鱼的眼睛很大，尾部比较发达就像一只蝴蝶特别美丽。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/d2adc46486e445cba7bb27194d9659df.jpeg" /></p>
+<p>9、兰寿：兰寿一直赢得很多养鱼爱好者的青睐，是全球观赏鱼中出现的比较早的一种冷水观赏鱼，被称为金鱼之王，一般生活在亚洲地区，有不同的品种。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/f63975a43b064edf86cffcbb913dd66c.jpeg" /></p>
+<p>10、珍珠鳞金鱼：珍珠鳞金鱼是一种外形长得比较美的小型冷水观赏鱼，身体是那种鼓鼓的很好看。这种鱼可以饲养在鱼缸里面观赏性很强，有不同的品种，如红珍珠鳞、草青珍珠鳞以及五花珍珠鳞、蓝狮头珍珠鳞等。</p>
+]]></content:encoded>
+        </item>
+    </channel>
+</rss>

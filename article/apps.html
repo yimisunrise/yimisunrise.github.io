@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+
+    <title>GoldenDict配置搜狗翻译 - YIMI‘s Blog</title>
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <div class="main">
+      <nav class="navigation">
+        <a href="/">YIMI‘s Blog</a>
+      </nav>
+      <article>
+        <header>
+          <h1 class="article-title">GoldenDict配置搜狗翻译</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1741091131025"
+                  >2025-03-04 20:25</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1741091653142"
+                  >2025-03-04 20:34</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              <span class="keyword">软件</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li>编写python脚本，保存SogouTranslatorGD.py，放入指定目录下</li>
+</ol>
+<div><pre class="hljs"><code><span class="hljs-comment">#!/usr/bin/python3</span>
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> chardet
+<span class="hljs-keyword">from</span> html <span class="hljs-keyword">import</span> unescape
+<span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urljoin, quote
+<span class="hljs-keyword">import</span> io
+<span class="hljs-keyword">import</span> random
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_page</span>(<span class="hljs-params">url</span>):
+    <span class="hljs-comment"># 生成7到16之间的随机整数</span>
+    ios_version = random.randint(<span class="hljs-number">11</span>, <span class="hljs-number">17</span>)
+    <span class="hljs-comment"># 生成80到130之间的随机整数</span>
+    num2 = random.randint(<span class="hljs-number">118</span>, <span class="hljs-number">126</span>)
+    headers = {
+        <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">f'Mozilla/5.0 (iPhone; CPU iPhone OS <span class="hljs-subst">{ios_version}</span> like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) iOS/<span class="hljs-subst">{num2}</span>.0.6312.52 Mobile Safari/604.1'</span>,
+        <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>
+    }
+    request = urllib.request.Request(url, headers=headers)
+    response = urllib.request.urlopen(request)
+    html = response.read()
+    response.close()
+    <span class="hljs-keyword">return</span> html
+css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
+.programs_html .tab-trans-main .dict .module+.module {
+    border-top-color: none !important;
+    border-top: 3px dashed #6f6f6c;
+}
+
+.programs_html .tab-trans-main .dict .module h3 {
+    color: rgb(229 149 33) !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.programs_html .header-wap-new,
+.programs_html .select-area,
+.programs_html .sort-select,
+.programs_html .sgui-content,
+.programs_html .trans-to .pronounce-box,
+.programs_html .operate-btn-box,
+.programs_html .footer-wap,
+.programs_html .loading-pc,
+.programs_html .input-area .btn-clear,
+.programs_html #encyclopedia,
+.programs_html .empty-space {
+    display: none !important;
+}
+
+.programs_html .trans-box {
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: #2A82DA 0px 16px 40px 0px !important;
+}
+
+.programs_html .trans-main a {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.programs_html .word-details-card .word-details-con .word {
+    color: rgb(235, 98, 45) !important;
+}
+
+.programs_html .content-wrap {
+    padding-top: 0 !important;
+}
+
+.programs_html #trans-input,
+.programs_html #trans-result {
+    color: rgb(134, 170, 204) !important;
+    font-size: 16px !important;
+}
+
+.programs_html .input-area #trans-input {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding-left: 10px !important;
+    height: auot !important;
+}
+
+.programs_html .input-area .btn-clear {
+    display: none !important;
+}
+&lt;/style&gt;"""</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sys.argv) &lt; <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Usage: python script.py &lt;url&gt;"</span>)
+        <span class="hljs-keyword">return</span>
+
+    <span class="hljs-comment"># 从命令行参数获取 URL 并进行编码</span>
+    url = <span class="hljs-string">' '</span>.join(sys.argv[<span class="hljs-number">1</span>:])
+    encoded_url = quote(url, safe=<span class="hljs-string">':/?&amp;='</span>)
+
+    <span class="hljs-keyword">try</span>:
+        html = get_page(encoded_url)
+        result = chardet.detect(html)
+        encoding = result[<span class="hljs-string">'encoding'</span>]
+        
+        <span class="hljs-comment"># 解码 HTML 内容</span>
+        decoded_html = unescape(html.decode(encoding, <span class="hljs-string">'ignore'</span>))
+
+        <span class="hljs-comment"># 将相对链接转换为绝对链接</span>
+        decoded_html = decoded_html.replace(<span class="hljs-string">'href="//'</span>, <span class="hljs-string">'href="https://'</span>)
+        decoded_html = decoded_html.replace(<span class="hljs-string">'src="//'</span>, <span class="hljs-string">'src="https://'</span>)
+
+        <span class="hljs-comment"># 设置 stdout 为 UTF-8 编码</span>
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=<span class="hljs-string">'utf-8'</span>)
+        
+        <span class="hljs-comment"># 直接打印获取的内容</span>
+        <span class="hljs-built_in">print</span>(decoded_html)
+        <span class="hljs-built_in">print</span>(css)
+    <span class="hljs-keyword">except</span> urllib.error.HTTPError <span class="hljs-keyword">as</span> e:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Downloading the page <span class="hljs-subst">{url}</span> failed with error code <span class="hljs-subst">{e.code}</span>.'</span>)
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'An error occurred: <span class="hljs-subst">{e}</span>'</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()</code></pre></div>
+<ol start="2">
+<li>在GoldenDict中添加“程序类词典”，命令行格式为</li>
+</ol>
+<div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
+<p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
