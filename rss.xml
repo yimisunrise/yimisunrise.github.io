@@ -4,9 +4,17 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 06 Mar 2025 14:11:42 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 Mar 2025 06:53:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[JoplinFolderTransport]]></title>
+            <guid>faf5ad1a7f8b42ab84d9d57d8cd68d56</guid>
+            <pubDate>Sat, 08 Mar 2025 06:52:24 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="joplin目录传输器">Joplin目录传输器</h1>
+<p>一款在Joplin中可以通过笔记本目录快速跳转至系统中的指定目录,以此将系统文件夹与笔记本进行关联,提升工作管理效率.</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[GoldenDict配置搜狗翻译]]></title>
             <guid>c244ec57827646a8a224636c15d96b09</guid>
