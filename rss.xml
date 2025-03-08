@@ -4,15 +4,17 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 08 Mar 2025 06:53:56 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 Mar 2025 15:59:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
-            <title><![CDATA[JoplinFolderTransport]]></title>
+            <title><![CDATA[JoplinFolderMapping插件]]></title>
             <guid>faf5ad1a7f8b42ab84d9d57d8cd68d56</guid>
             <pubDate>Sat, 08 Mar 2025 06:52:24 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="joplin目录传输器">Joplin目录传输器</h1>
-<p>一款在Joplin中可以通过笔记本目录快速跳转至系统中的指定目录,以此将系统文件夹与笔记本进行关联,提升工作管理效率.</p>
+            <content:encoded><![CDATA[<h1 id="描述">描述</h1>
+<p>一款在Joplin中将笔记本目录映射至系统中指定根目录下同路径目录的插件,可以是实现从Joplin笔记本跳转之系统目录，有助于提升系统内文件的合理化管理，从而提升工作效率。</p>
+<h1 id="github">Github</h1>
+<p><a title="https://github.com/yimisunrise/joplin-folder-mapping" href="https://github.com/yimisunrise/joplin-folder-mapping">https://github.com/yimisunrise/joplin-folder-mapping</a></p>
 ]]></content:encoded>
         </item>
         <item>
