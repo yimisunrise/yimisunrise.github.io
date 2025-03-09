@@ -4,15 +4,18 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sun, 09 Mar 2025 15:10:13 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Mar 2025 15:23:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
-            <title><![CDATA[JoplinFolderMapping插件]]></title>
+            <title><![CDATA[Joplin目录映射插件]]></title>
             <guid>faf5ad1a7f8b42ab84d9d57d8cd68d56</guid>
             <pubDate>Sat, 08 Mar 2025 06:52:24 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="描述">描述</h1>
-<p>一款在Joplin中将笔记本目录映射至系统中指定根目录下同路径目录的插件,可以实现从Joplin笔记本跳转之系统文件夹，可帮助我们将笔记目录的管理与系统中文件夹的管理进行结合，从而提升工作效率。</p>
+            <content:encoded><![CDATA[<h1 id="link-joplin目录映射插件">🔗 Joplin目录映射插件</h1>
+<p><strong>突破笔记与文件系统的次元壁，构建一体化数字工作流</strong><br />
+<em>支持Windows/macOS/Linux系统深度整合</em></p>
+<hr />
+<p>一款在Joplin中将笔记本目录映射至系统中指定根目录下同路径目录的插件，可以实现从Joplin笔记本跳转之系统文件夹，可帮助我们将笔记目录的管理与系统中文件夹的管理进行结合，从而提升工作效率。</p>
 <h1 id="github">Github</h1>
 <p><a title="https://github.com/yimisunrise/joplin-folder-mapping" href="https://github.com/yimisunrise/joplin-folder-mapping">https://github.com/yimisunrise/joplin-folder-mapping</a></p>
 <h1 id="效果截图">效果截图</h1>
