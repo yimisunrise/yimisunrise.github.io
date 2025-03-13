@@ -1167,29 +1167,98 @@ template {
   }
 }
 .blogs-list-block li {
-  display: flex;
   list-style-type: none;
   margin-bottom: 20px;
 }
 
-.annual-block {
+/* Timeline Styles */
+.timeline-block {
+  position: relative;
   margin-bottom: 50px;
+  padding-left: 30px;
 }
 
-.annual-block-headline {
+.timeline-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 2px;
+  height: 100%;
+  background: #e0e0e0;
+}
+
+.timeline-headline {
   display: block;
   font-size: 20px;
   margin-bottom: 30px;
   font-family: 'Lucida Console', 'Liberation Mono', Menlo, Monaco, Roboto, apple-system,
     'Helvetica Neue', Arial, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
     'WenQuanYi Micro Hei', sans-serif;
+  color: #333;
 }
 
-.annual-block-title {
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -33px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ff001f;
+}
+
+.timeline-content {
+  padding: 10px 20px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  position: relative;
+}
+
+.timeline-date {
+  display: block;
+  font-family: 'Lucida Console', 'Liberation Mono', Menlo, Monaco, Roboto, apple-system,
+    'Helvetica Neue', Arial, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif;
+  color: #666;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.timeline-title {
   font-family: apple-system, 'Helvetica Neue', Arial, 'Helvetica Neue', 'PingFang SC',
     'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
   color: #000;
   text-decoration: none;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.timeline-keywords {
+  margin-top: 10px;
+}
+
+.timeline-keywords .keyword {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666;
+  margin-right: 5px;
 }
 .annual-block-title.is-dir {
   text-decoration: dotted underline;
