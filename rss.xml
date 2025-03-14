@@ -4,9 +4,170 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 14 Mar 2025 05:19:16 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Mar 2025 12:36:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[MarkText图文教程]]></title>
+            <guid>3316d2c7ca994ee3a2bc825ec8426f11</guid>
+            <pubDate>Fri, 14 Mar 2025 12:20:46 GMT</pubDate>
+            <content:encoded><![CDATA[<p>以下是一篇关于使用 <strong>MarkText</strong> 的图文教程，以简洁易懂的方式帮助你快速上手这款强大的 Markdown 编辑器。</p>
+<hr />
+<h3 id="marktext-图文教程轻松编写优雅的-markdown-文档">MarkText 图文教程：轻松编写优雅的 Markdown 文档</h3>
+<h4 id="一-什么是-marktext">一、什么是 MarkText？</h4>
+<p><strong>MarkText</strong> 是一款免费开源的 Markdown 编辑器，支持实时预览、多种主题、数学公式、流程图等功能。界面简洁，适合写作、笔记、技术文档等场景。</p>
+<p><strong>适用人群</strong>：</p>
+<ul>
+<li>需要高效编写 Markdown 的用户</li>
+<li>希望摆脱复杂工具栏、专注内容的创作者</li>
+<li>需要导出 PDF/HTML 的技术写作者</li>
+</ul>
+<hr />
+<h4 id="二-安装-marktext">二、安装 MarkText</h4>
+<ol>
+<li>
+<p><strong>下载地址</strong><br />
+访问官网 <a title="https://www.marktext.cc/" href="https://www.marktext.cc/">https://www.marktext.cc/</a>，选择对应系统的版本（Windows/macOS/Linux）。<br />
+GitHub地址：<a title="https://github.com/marktext/marktext" href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a>
+<img src="/_resources/0555e746f22d44fa8f4eec5bbf3937c9.png" /></p>
+</li>
+<li>
+<p><strong>安装步骤</strong></p>
+<ul>
+<li><strong>Windows</strong>：双击 <code>.exe</code> 文件，按提示安装。</li>
+<li><strong>macOS</strong>：拖拽 <code>.dmg</code> 文件到「应用程序」文件夹。</li>
+<li><strong>Linux</strong>：解压后运行 <code>./marktext-x86_64.AppImage</code>。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="三-界面与基础操作">三、界面与基础操作</h4>
+<ol>
+<li>
+<p><strong>主界面概览</strong>
+<img src="/_resources/a62a91b765d445a6ac2bafd869ea0779.png" /></p>
+<ul>
+<li><strong>左侧</strong>：文件目录树（需手动打开文件夹）</li>
+<li><strong>中间</strong>：编辑区（支持实时预览）</li>
+<li><strong>右侧</strong>：无干扰写作模式（按 <code>Ctrl+/</code> 切换）</li>
+</ul>
+</li>
+<li>
+<p><strong>新建与保存文件</strong></p>
+<ul>
+<li>快捷键：<code>Ctrl+N</code> 新建，<code>Ctrl+S</code> 保存为 <code>.md</code> 文件。</li>
+<li>支持自动保存（需在设置中开启）。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="四-markdown-基础语法演示">四、Markdown 基础语法演示</h4>
+<p>MarkText 支持通用 Markdown 语法，以下为常用示例：</p>
+<ol>
+<li><strong>标题与文字格式</strong></li>
+</ol>
+<div><pre class="hljs"><code>   # 一级标题
+   ## 二级标题
+   <span class="hljs-strong">**加粗**</span> <span class="hljs-emphasis">*斜体*</span> ~~删除线~~</code></pre></div>
+<p><img src="/_resources/14761a9f29be499b9825abc5af2a773b.png" /></p>
+<ol start="2">
+<li><strong>列表与任务</strong></li>
+</ol>
+<div><pre class="hljs"><code><span class="hljs-bullet">   -</span> 无序列表
+<span class="hljs-bullet">   1.</span> 有序列表
+<span class="hljs-bullet">   -</span> [ ] 未完成任务
+<span class="hljs-bullet">   -</span> [x] 已完成任务</code></pre></div>
+<p><img src="/_resources/125b3d3de590449f9cf4d8bd692d1322.png" /></p>
+<ol start="3">
+<li><strong>插入图片与链接</strong></li>
+</ol>
+<div><pre class="hljs"><code>   ![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片路径</span>)
+   [<span class="hljs-string">链接文字</span>](<span class="hljs-link">https://example.com</span>)</code></pre></div>
+<ul>
+<li>直接拖拽图片到编辑区可自动插入！
+<img src="/_resources/19a5cdb5ab4d4b6c9ee063f544676f0e.png" /></li>
+</ul>
+<hr />
+<h4 id="五-高级功能">五、高级功能</h4>
+<ol>
+<li><strong>数学公式（LaTeX）</strong><br />
+用 <code>$$</code> 包裹公式：</li>
+</ol>
+<div><pre class="hljs"><code>$$
+E = mc^2
+$$</code></pre></div>
+<p><img src="/_resources/a388e4361f1e4d55830b62815d6480f9.png" /></p>
+<ol start="2">
+<li><strong>流程图与图表</strong><br />
+使用代码块标记语言（需手动启用）：</li>
+</ol>
+<div><pre class="hljs"><code><span class="hljs-code">```mermaid
+graph LR
+A[开始] --&gt; B{条件}
+B --&gt;|是| C[执行]
+B --&gt;|否| D[结束]
+```</span></code></pre></div>
+<p><img src="/_resources/1a1b8bf4c3fe4ae3a5c2f6692a752e47.png" /></p>
+<hr />
+<h4 id="六-导出与分享">六、导出与分享</h4>
+<ol>
+<li><strong>导出为 PDF/HTML</strong>
+<ul>
+<li>点击菜单栏 <code>File</code> → <code>Export</code> → 选择格式（PDF/HTML）。</li>
+<li><strong>PDF 导出效果</strong>：</li>
+</ul>
+</li>
+</ol>
+<p><img src="/_resources/7b461ee3943c468d94605d62065ab4b8.png" /></p>
+<ol start="2">
+<li><strong>直接复制 HTML</strong><br />
+按 <code>Ctrl+Shift+C</code> 复制带样式的 HTML 代码，可直接粘贴到网站。</li>
+</ol>
+<hr />
+<h4 id="七-个性化设置">七、个性化设置</h4>
+<ol>
+<li>
+<p><strong>更换主题</strong><br />
+<code>Preferences</code> → <code>Theme</code> → 选择深色/浅色/自定义主题。</p>
+</li>
+<li>
+<p><strong>快捷键自定义</strong><br />
+在 <code>Keybindings</code> 中修改常用操作的快捷键。</p>
+</li>
+</ol>
+<hr />
+<h4 id="八-小结与推荐">八、小结与推荐</h4>
+<p><strong>MarkText 优点</strong>：
+✅ 实时预览，写作流畅<br />
+✅ 开源免费，无广告<br />
+✅ 支持高级语法（公式、流程图）</p>
+<p><strong>适用场景</strong>：技术文档、个人博客、课堂笔记、开源项目 README。</p>
+<hr />
+<h4 id="九-常见问题faq">九、常见问题（FAQ）</h4>
+<ol>
+<li>
+<p><strong>如何解决中文输入法兼容问题？</strong></p>
+<ul>
+<li>升级到最新版本或切换为英文输入法临时解决。</li>
+</ul>
+</li>
+<li>
+<p><strong>文件保存在哪里？</strong></p>
+<ul>
+<li>默认保存路径为手动打开的文件夹，建议先指定工作目录。</li>
+</ul>
+</li>
+<li>
+<p><strong>如何导入现有 Markdown 文件？</strong></p>
+<ul>
+<li>直接拖拽文件到编辑区，或通过 <code>File</code> → <code>Open</code> 打开。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p>通过这篇教程，你可以快速掌握 MarkText 的核心功能。开始享受沉浸式的 Markdown 写作吧！ 🚀</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Flameshot截图工具图文教程]]></title>
             <guid>b1d9cfabf61a45e68af4e9d2fc45f921</guid>
@@ -296,17 +457,6 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 </ol>
 <div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
 <p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[MarkText]]></title>
-            <guid>131442f09f9148df91ef20f61bc435d9</guid>
-            <pubDate>Tue, 22 Feb 2022 00:55:19 GMT</pubDate>
-            <content:encoded><![CDATA[<p>Markdown文档编辑工具</p>
-<p>官网</p>
-<p><a title="https://marktext.app/" href="https://marktext.app/">https://marktext.app/</a></p>
-<p>GitHub</p>
-<p><a title="https://github.com/marktext/marktext" href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a></p>
 ]]></content:encoded>
         </item>
         <item>
