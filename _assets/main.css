@@ -350,7 +350,7 @@ template {
 .header-title {
   font-size: 24px;
   font-weight: bold;
-  color: #111;
+  color: #e53e3e;
   text-decoration: none;
 }
 
@@ -373,7 +373,7 @@ template {
 }
 
 .header-nav a:hover {
-  color: #ff001f;
+  color: #e53e3e;
 }
 
 .main {
@@ -478,7 +478,7 @@ template {
 
 .homepage-navigation a:hover {
   color: #fff;
-  background-color: #111;
+  background-color: #e53e3e;
   border-color: #111;
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
@@ -1249,7 +1249,7 @@ template {
   left: 6px;
   width: 2px;
   height: 100%;
-  background: #e0e0e0;
+  background: #e53e3e;
 }
 
 .timeline-headline {
@@ -1278,8 +1278,8 @@ template {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #fff;
-  border: 3px solid #0366d6;
+  background: #e53e3e;
+  border: 3px solid #e53e3e;
 }
 
 .timeline-content {
@@ -1305,6 +1305,7 @@ template {
   font-weight: 500;
   display: block;
   margin-bottom: 10px;
+  font-size: larger;
 }
 
 .timeline-keywords {
@@ -1313,11 +1314,11 @@ template {
 
 .timeline-keywords .keyword {
   display: inline-block;
-  background: #e0e0e0;
+  background: #2b6cb0;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 12px;
-  color: #666;
+  color: #fff;
   margin-right: 5px;
 }
 .annual-block-title.is-dir {
@@ -1335,7 +1336,7 @@ template {
   width: 3em;
   padding-left: 100%;
   margin: 50px 0 100px -3em;
-  color: #000;
+  color: #e53e3e;
 }
 
 .error {
@@ -1351,5 +1352,5 @@ template {
 .error a {
   font-family: var(--font-mono);
   text-decoration: underline dotted;
-  color: #777777;
+  color: #2b6cb0;
 }
