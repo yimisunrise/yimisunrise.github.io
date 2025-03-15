@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 15 Mar 2025 15:50:28 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Mar 2025 15:59:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -291,7 +291,7 @@ B --&gt;|否| D[结束]
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Flameshot截图工具图文教程]]></title>
+            <title><![CDATA[Flameshot开源截图工具图文教程]]></title>
             <guid>b1d9cfabf61a45e68af4e9d2fc45f921</guid>
             <pubDate>Fri, 14 Mar 2025 05:10:15 GMT</pubDate>
             <content:encoded><![CDATA[<h2 id="目录">目录</h2>
@@ -427,7 +427,7 @@ sudo pacman -S flameshot</code></pre></div>
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Joplin系统文件夹映射插件🔗]]></title>
+            <title><![CDATA[Joplin插件：一键将笔记目录管理与系统文件夹管理深度结合]]></title>
             <guid>faf5ad1a7f8b42ab84d9d57d8cd68d56</guid>
             <pubDate>Sat, 08 Mar 2025 06:52:24 GMT</pubDate>
             <content:encoded><![CDATA[<p><strong>突破笔记与文件系统的次元壁，构建一体化数字工作流</strong></p>
@@ -448,7 +448,7 @@ sudo pacman -S flameshot</code></pre></div>
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[GoldenDict配置搜狗翻译]]></title>
+            <title><![CDATA[GoldenDict开源词典配置搜狗翻译]]></title>
             <guid>c244ec57827646a8a224636c15d96b09</guid>
             <pubDate>Tue, 04 Mar 2025 12:25:31 GMT</pubDate>
             <content:encoded><![CDATA[<ol>
