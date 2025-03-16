@@ -479,7 +479,7 @@ template {
 .homepage-navigation a:hover {
   color: #fff;
   background-color: #e53e3e;
-  border-color: #111;
+  border-color: #ffffff;
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
   -webkit-transition: all 0.3s ease;
@@ -1289,6 +1289,10 @@ template {
   position: relative;
 }
 
+.timeline-content:hover {
+  background: #dfdede;
+}
+
 .timeline-date {
   display: block;
   font-family: var(--font-mono);
@@ -1314,7 +1318,7 @@ template {
 
 .timeline-keywords .keyword {
   display: inline-block;
-  background: #2b6cb0;
+  background: #cbcccd;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 12px;
