@@ -1,0 +1,24 @@
+/* 粒子容器 */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #f0f0f08a; /* 浅灰色背景 */
+}
+
+/* 粒子样式 */
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: #c0c0c0; /* 比背景稍深的灰色 */
+  font-size: 12px;
+  font-family: monospace;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: all 0.3s ease-out;
+}
