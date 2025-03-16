@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background-color: #f0f0f08a; /* 浅灰色背景 */
+  background-color: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(245, 245, 245, 0.97) 100%); /* 浅灰色背景 */
 }
 
 /* 粒子样式 */
@@ -14,7 +14,7 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  color: #c0c0c0; /* 比背景稍深的灰色 */
+  color: #c0c0c0ee; /* 比背景稍深的灰色 */
   font-size: 12px;
   font-family: monospace;
   user-select: none;
