@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sun, 16 Mar 2025 07:19:15 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Mar 2025 02:06:54 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -259,8 +259,8 @@ B --&gt;|否| D[结束]
 </ol>
 <hr />
 <h4 id="八-小结与推荐">八、小结与推荐</h4>
-<p><strong>MarkText 优点</strong>：
-✅ 实时预览，写作流畅<br />
+<p><strong>MarkText 优点</strong>：</p>
+<p>✅ 实时预览，写作流畅<br />
 ✅ 开源免费，无广告<br />
 ✅ 支持高级语法（公式、流程图）</p>
 <p><strong>适用场景</strong>：技术文档、个人博客、课堂笔记、开源项目 README。</p>
