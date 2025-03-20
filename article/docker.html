@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>Docker镜像加速配置 - YIMI&#39;s Blog</title>
+    <meta name="keywords" content="博客文章">
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">Docker镜像加速配置</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1739448334523"
+                  >2025-02-13 20:05</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1742478440428"
+                  >2025-03-20 21:47</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              
+              <span class="keyword">博客文章</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><p>DaoCloud 提供了公共的 Docker Hub 镜像加速服务，无需注册即可使用。</p>
+<h2 id="一-加速地址">一、加速地址</h2>
+<p><a title="https://docker.m.daocloud.io" href="https://docker.m.daocloud.io">https://docker.m.daocloud.io</a></p>
+<h2 id="二-配置方法">二、配置方法</h2>
+<h3 id="1-修改配置文件">1、修改配置文件</h3>
+<p>在 Docker 配置文件中（如 <code>/etc/docker/daemon.json</code>）添加：</p>
+<div><pre class="hljs"><code><span class="hljs-punctuation">{</span><span class="hljs-attr">"registry-mirrors"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"https://docker.m.daocloud.io"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">}</span></code></pre></div>
+<h3 id="2-重启-docker-服务">2、重启 Docker 服务</h3>
+<div><pre class="hljs"><code>sudo systemctl daemon-reload
+sudo systemctl restart docker</code></pre></div>
+</div>
+      </article>
+    </div>
+  </body>
+</html>

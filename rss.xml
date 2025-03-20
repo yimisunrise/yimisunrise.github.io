@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 19 Mar 2025 02:06:54 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Mar 2025 13:47:54 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -579,6 +579,22 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 </ol>
 <div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
 <p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Docker镜像加速配置]]></title>
+            <guid>4507feed2cc74362a68d3af70a58dee5</guid>
+            <pubDate>Thu, 13 Feb 2025 12:05:34 GMT</pubDate>
+            <content:encoded><![CDATA[<p>DaoCloud 提供了公共的 Docker Hub 镜像加速服务，无需注册即可使用。</p>
+<h2 id="一-加速地址">一、加速地址</h2>
+<p><a title="https://docker.m.daocloud.io" href="https://docker.m.daocloud.io">https://docker.m.daocloud.io</a></p>
+<h2 id="二-配置方法">二、配置方法</h2>
+<h3 id="1-修改配置文件">1、修改配置文件</h3>
+<p>在 Docker 配置文件中（如 <code>/etc/docker/daemon.json</code>）添加：</p>
+<div><pre class="hljs"><code><span class="hljs-punctuation">{</span><span class="hljs-attr">"registry-mirrors"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"https://docker.m.daocloud.io"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">}</span></code></pre></div>
+<h3 id="2-重启-docker-服务">2、重启 Docker 服务</h3>
+<div><pre class="hljs"><code>sudo systemctl daemon-reload
+sudo systemctl restart docker</code></pre></div>
 ]]></content:encoded>
         </item>
         <item>
