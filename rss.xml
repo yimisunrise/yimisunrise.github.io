@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 20 Mar 2025 13:47:54 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Mar 2025 02:49:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -595,6 +595,39 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 <h3 id="2-重启-docker-服务">2、重启 Docker 服务</h3>
 <div><pre class="hljs"><code>sudo systemctl daemon-reload
 sudo systemctl restart docker</code></pre></div>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[BF飞控模式详解]]></title>
+            <guid>35a7fe9d2fff434392d825c0a8bd8c59</guid>
+            <pubDate>Thu, 12 Aug 2021 15:59:07 GMT</pubDate>
+            <content:encoded><![CDATA[<p><strong><span style="color:red" class="jop-noMdConv">ARM<span class="jop-noMdConv"></span></span></strong>：武装,备战; 打开…的保险; 准备发射。即飞机的解锁开关。开启后飞行器解锁,随时准备起飞。</p>
+<p><strong><span style="color:red" class="jop-noMdConv">ANGLE<span class="jop-noMdConv"></span></span></strong>：角度模式或称自稳模式。此模式下摇杆映射的是飞机的角度。打杆的幅度越大，飞机的侧倾角度越大，摇杆归中，飞行器也回到水平。（用户可在PID Tuning Tab - Angle/Horizon - Angle Limit中设置角度）</p>
+<p><strong><span style="color:red" class="jop-noMdConv">HORIZON<span class="jop-noMdConv"></span></span></strong>：界限模式或称半自稳模式。此模式下，在一定角度内，如＜30°时是ANGLE模式，在＞30°时是ACRO模式，且界限不是突变的，是渐变的。（用户可在PID Tuning Tab - Angle/Horizon - Angle Limit中设置角度）</p>
+<p><strong><span style="color:red" class="jop-noMdConv">HEADFREE<span class="jop-noMdConv"></span></span></strong>：Head Free无头模式。即无论多旋翼飞行器的物理机头朝向如何，都始终以你设置的机头为机头，这对第三人称视角飞行非常友好。该模式需要与HEADADJ配合使用。</p>
+<p><strong>FAILSAFE</strong>：通过一个开关开启。即手动模拟飞行器失去遥控信号，使飞机进入失控保护姿态。失控保护有三种机制——“drop”掉落、“land”降落及“GPS RESCUE”GPS救援模式。通常是在测试Failsafe机制时使用。 更具体的说明请参考其他有关“FAILSAFE”的资料。</p>
+<p><strong>GPS RESCUE</strong>：GPS救援模式。启用后当拨下开关，启动GPS救援模式（需要安装GPS并且在Configuration Tab中成功设置后才会跳出该选项）。飞机以救援机制返回起飞点。请注意该模式不能翻译成自动返航模式，该模式与DJI的自动返航有着质的不一致。DJI的自动返航机制是：当飞行器收到指令，原地垂直上升至一定高度然后以该高度返航，到达家的位置垂直降落。而Betaflight里的“GPS RESCUE”简单理解则是：当飞行器收到指令，则飞行器朝向家的方向直线“砸”向飞手，飞手在眼镜上观察到飞行器在安全距离后夺取控制权手动控制飞行器手动飞行。更具体的说明请参考其他有关“GPS RESCUED“的资料。该模式具有一定的危险性，在人员密集处请慎用！</p>
+<p><strong>HEADADJ</strong>：Head Adjustment设置新的机头朝向。</p>
+<p><strong><span style="color:red" class="jop-noMdConv">BEEPER<span class="jop-noMdConv"></span></span></strong>：使蜂鸣器鸣叫，便于炸机时找飞机。</p>
+<p><strong><span style="color:red" class="jop-noMdConv">LEDLOW<span class="jop-noMdConv"></span></span></strong>：LED LOW。打开或关闭LED。</p>
+<p><strong>OSD DISABLE SW</strong>：OSD disable switch。打开或者关闭OSD。</p>
+<p><strong>TELEMETRY</strong>：打开或关闭遥测数据。遥测可以理解成数据回传，可将飞行速度、高度、电池电压、飞行时间等回传至遥控或回传接收端。需要支持遥测的遥控器和接收机支持。</p>
+<p><strong>BLACKBOX</strong>：打开或关闭黑匣子数据记录。同常识中我们新闻中经常听到的客机的黑匣子一样，飞行器的黑匣子支持记录飞行器的各种飞行参数，以便后期分析。更具体的说明请参考其他有关“Betaflight Blackbox Explorer"资料。</p>
+<p><strong>FPV ANGLE MIX</strong>：FPV摄像头混合机制。众所周知穿越机的摄像头并非水平安装，而是朝上一个角度。所以摄像头角度轴线和机身轴线有一个角度。那么问题来了——通常YAW杆围绕飞行器的垂直轴转弯，这就是为什么当你在RATE模式下向前飞行并仅使用YAW进行180度转弯时，你最终会向上看并向后飞行。在ANGLE模式下，这也会产生一种称为旋转的效果，其中转弯不平滑，不保持水平线。在RATE模式下，飞手通过使用ROLL和YAW杆来协调旋转并保持姿态（水平线）来补偿此效果。</p>
+<p>此时FPV ANGLE MIX模式就起作用了：该机制计算维持协调YAW转弯所需的额外ROLL命令，使YAW轴绕垂直轴相对于地面转动。</p>
+<p>在RATE模式下，它允许飞手在不改变机器姿态的情况下只进行完美的偏航。由于PID控制不是即时响应，可能会有轻微漂移，但对于RATE模式的初学者来说仍然更容易导航。</p>
+<p>在ANGLE模式下，它还可以使偏航变得更平滑，完全没有旋转。这是因为FPV ANGLE MIX模式在打ROLL/PITCH时引入了前馈控制并且自然而且无延迟地保持姿态。</p>
+<p><strong>BLACKBOX ERASE(&gt;30s)</strong>：清除黑匣子数据。一般的飞控当记录黑匣子的内存满了之后就不再记录，此时需要一个开关将黑匣子数据清除。该开关按下后，等待约30s，黑匣子数据即被清除。</p>
+<p><strong>CAMERA CONTROL</strong>：相机控制。很抱歉我不知道这个功能是做什么用的。此功能几乎不用，有兴趣的朋友可自行研究。</p>
+<p><strong><span style="color:red" class="jop-noMdConv">FLIP OVER AFTER CRASH<span class="jop-noMdConv"></span></span></strong>：俗称“反乌龟模式”。当飞机炸鸡180°翻转着地时，该功能可让一侧的两个电机反转，使得飞行器翻回正常姿态。该功能需要支持Dshot协议的电调配合才能使用。更具体的说明请参考其他有关“反乌龟模式”的资料。</p>
+<p><strong><span style="color:red" class="jop-noMdConv">PREARM<span class="jop-noMdConv"></span></span></strong>：Pre Arm预解锁功能。为了防止解锁键误按，多设置一个开关键，可以简单理解为同时打开PREARM和ARM时飞行器才能解锁，这样有效防止误碰解锁开关造成的安全事故。更具体的说明请参考其他有关“PREARM”的资料。</p>
+<p><strong>BEEP GPS SATELLITE COUNT</strong>：蜂鸣器蜂鸣GPS卫星数量。该选项只有成功设置GPS后才会出现。</p>
+<p><strong>VTX PIT MODE</strong>：进入图传PIT模式。图传PIT模式是图传一种防止在他人飞行中上电干扰他人飞行的模式，该模式可以以近乎0功率运行，同时你只有在及近的距离内（一般小于20cm内）才能收到图传信号。更具体的说明请参考其他有关图传“PIT模式”的资料。</p>
+<p><strong>PARALYZE</strong>：瘫痪模式。多人比赛时，当炸鸡时为了防止解锁坠毁的飞机造成危险，激活PARALYZE后，它会关闭图传和接收机，以避免干扰可能仍在飞行的其他飞行员。要关闭该功能，只能通过拔下电池来重置它。</p>
+<p><strong>ACRO TRAINER</strong>：具有角度限制的ACRO模式。专为初学者设计，旨在学习ACRO模式。</p>
+<p><strong>DISABLE VTX CONTROL</strong>：禁用图传控制功能。许多图传支持OSD协议调参的功能。该开关控制启用或禁用该功能。更具体的说明请参考其他有关“OSD图传调参”的资料。</p>
+<p><strong>LAUNCH CONTROL</strong>：一键弹射功能。该功能允许飞行器启动时瞬间以某个油门点弹射起飞。更具体的说明请参考其他有关“弹射起飞“的资料。</p>
+<p><strong>ANTI-GRAVITY</strong>：反重力模式。反重力模式并不是让飞行器不受地心引力。很显然，只要在地球上的物体不可能不受地心引力影响。在这里，Anti-Gravity是一种飞行PID机制。当飞手快速变换油门时，它会减少“下降”（突然的PITCH轴下降）。 所以当油门变化很大时，要补偿这一点，基本上要提高I term的增益，I term将在其余的飞行中保持不变。该功能需要在Configuration中配置后才会在Mode Tab中出现。</p>
 ]]></content:encoded>
         </item>
         <item>
