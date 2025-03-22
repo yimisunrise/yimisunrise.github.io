@@ -4,9 +4,32 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 22 Mar 2025 02:49:32 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Mar 2025 03:24:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[BF地面站中修改电机顺序]]></title>
+            <guid>a8f8e65636034c0991d7a524dff11e0d</guid>
+            <pubDate>Sat, 22 Mar 2025 03:04:02 GMT</pubDate>
+            <content:encoded><![CDATA[<ol>
+<li>
+<p>打开BF调参软件，连接飞控后在命令行中输入resource（资源），找到你想要更改的选项，如将3号电调和4号电调对调，输入resource MOTOR 3 none点击回车键，再输入save回车,重新连接后再次进入resource后可以看到3号电调已经去除；</p>
+</li>
+<li>
+<p>输入resource MOTOR 4 A11（A11就是3号电调之前的编号）点击回车键，再输入save回车；</p>
+</li>
+</ol>
+<p><img src="/_resources/5be0d919153245b486167c78f77dca2b.png" /></p>
+<p><img src="/_resources/75d778a1eac945b1a871e92a1c8c27a5.png" /></p>
+<p><img src="/_resources/5fbcd731acf3428fa8f68accd11bc3d9.png" /></p>
+<ol start="3">
+<li>重新连接后再次进入resource，可以看到4号电调已经更换到3号电调的端口，输入resource MOTOR 3 A12点击回车键，再输入save回车，重新连接后再次进入resource查看是否已经更换成功，如果不小心将端口搞乱，重新刷固件后即可恢复，或者提前先备份一份文件，点击CLI命令行页面右下角的保存文件，保存到电脑即可。</li>
+</ol>
+<p><img src="/_resources/4e1a3944be23420a9da3a3214410d79f.png" /></p>
+<p><img src="/_resources/03bb2d211bdd472bb08a2b3d1adc8ce9.png" /></p>
+<p><img src="/_resources/158687432b9246e0a2f76866cca7dd19.png" /></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Joplin开源笔记软件图文教程]]></title>
             <guid>ffcfd41ed14d43f39bef1bc07adafaf3</guid>
@@ -598,7 +621,7 @@ sudo systemctl restart docker</code></pre></div>
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[BF飞控模式详解]]></title>
+            <title><![CDATA[BF固件飞控模式详解]]></title>
             <guid>35a7fe9d2fff434392d825c0a8bd8c59</guid>
             <pubDate>Thu, 12 Aug 2021 15:59:07 GMT</pubDate>
             <content:encoded><![CDATA[<p><strong><span style="color:red" class="jop-noMdConv">ARM<span class="jop-noMdConv"></span></span></strong>：武装,备战; 打开…的保险; 准备发射。即飞机的解锁开关。开启后飞行器解锁,随时准备起飞。</p>

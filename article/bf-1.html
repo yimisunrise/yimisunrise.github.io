@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>BF地面站中修改电机顺序 - YIMI&#39;s Blog</title>
+    <meta name="keywords" content="航模,穿越机">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">BF地面站中修改电机顺序</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1742612642330"
+                  >2025-03-22 11:04</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1742612749788"
+                  >2025-03-22 11:05</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              
+              <span class="keyword">航模</span>
+              
+              <span class="keyword">穿越机</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><ol>
+<li>
+<p>打开BF调参软件，连接飞控后在命令行中输入resource（资源），找到你想要更改的选项，如将3号电调和4号电调对调，输入resource MOTOR 3 none点击回车键，再输入save回车,重新连接后再次进入resource后可以看到3号电调已经去除；</p>
+</li>
+<li>
+<p>输入resource MOTOR 4 A11（A11就是3号电调之前的编号）点击回车键，再输入save回车；</p>
+</li>
+</ol>
+<p><img src="/_resources/5be0d919153245b486167c78f77dca2b.png" /></p>
+<p><img src="/_resources/75d778a1eac945b1a871e92a1c8c27a5.png" /></p>
+<p><img src="/_resources/5fbcd731acf3428fa8f68accd11bc3d9.png" /></p>
+<ol start="3">
+<li>重新连接后再次进入resource，可以看到4号电调已经更换到3号电调的端口，输入resource MOTOR 3 A12点击回车键，再输入save回车，重新连接后再次进入resource查看是否已经更换成功，如果不小心将端口搞乱，重新刷固件后即可恢复，或者提前先备份一份文件，点击CLI命令行页面右下角的保存文件，保存到电脑即可。</li>
+</ol>
+<p><img src="/_resources/4e1a3944be23420a9da3a3214410d79f.png" /></p>
+<p><img src="/_resources/03bb2d211bdd472bb08a2b3d1adc8ce9.png" /></p>
+<p><img src="/_resources/158687432b9246e0a2f76866cca7dd19.png" /></p>
+</div>
+      </article>
+    </div>
+  </body>
+</html>
