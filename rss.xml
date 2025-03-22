@@ -4,9 +4,78 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 22 Mar 2025 03:24:02 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Mar 2025 06:58:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[2.5寸PCB重山AT32圈圈机]]></title>
+            <guid>5f49f2733af34a9da801f3dd6aa5cb24</guid>
+            <pubDate>Sat, 22 Mar 2025 04:07:12 GMT</pubDate>
+            <content:encoded><![CDATA[<p>本机2.5寸穿越机的机架主体结构，采用 PCB 结合 3D 打印圈的设计方案。我的目标是以最经济的方式，打造出一款对我而言最为便捷且稳定的小飞机。它具有以下几个显著特点：炸机成本低，配件复用度高，飞行稳定性佳，安全性强。</p>
+<h2 id="配置">配置</h2>
+<h3 id="飞控">飞控</h3>
+<ul>
+<li>重山AT32 F435RGT7飞控</li>
+<li>价格：约 120元 / 个</li>
+</ul>
+<h3 id="电调">电调</h3>
+<ul>
+<li>Aocoda-RC MINI</li>
+<li>价格：约 120元 / 个</li>
+</ul>
+<h3 id="图传">图传</h3>
+<ul>
+<li>5.8G EWRF模拟图传接收</li>
+<li>价格：约 70元 / 个</li>
+</ul>
+<h3 id="电机">电机</h3>
+<ul>
+<li>104白菜电机</li>
+<li>价格：约 12元 / 个， 4个 48元</li>
+</ul>
+<h3 id="接收">接收</h3>
+<ul>
+<li>2.4G ELRS DIY接收机</li>
+<li>价格：约 25元 / 个</li>
+</ul>
+<h3 id="机架">机架</h3>
+<ul>
+<li>2.5寸CPB仿怪像机架</li>
+<li>价格：0元 / 个 （嘉立创免费制作）</li>
+<li>3D打印圈圈整套</li>
+<li>价格：约 48元 / 套 （嘉立创3D打印，材料: 8001（半透） SLA光固化打印）</li>
+<li></li>
+</ul>
+<h3 id="桨叶">桨叶</h3>
+<ul>
+<li>2345三叶桨</li>
+<li>价格：约 20元 / 20个</li>
+</ul>
+<h3 id="其它">其它</h3>
+<ul>
+<li>螺柱
+<ul>
+<li>0.8mm x 4</li>
+<li>10mm x 6</li>
+</ul>
+</li>
+<li>螺丝</li>
+<li>螺帽</li>
+</ul>
+<h2 id="价格">价格</h2>
+<p>总计：约450元 / 套</p>
+<h2 id="重量">重量</h2>
+<ul>
+<li>单机重量：146g</li>
+<li>带电重量：218g （850mAh电池）</li>
+</ul>
+<h2 id="展示">展示</h2>
+<p><img src="/_resources/6f834d5ae2b245b6aba2ffc3d7fc9a7f.jpg" /></p>
+<p><img src="/_resources/cd99ad526cdb423ea92bac6922aadb76.jpg" /></p>
+<p><img src="/_resources/50a885c152f348fe8358d269913bc3fc.jpg" /></p>
+<p><img src="/_resources/a9aa7607ccf44be6971b290030660afa.jpg" /></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[BF地面站中修改电机顺序]]></title>
             <guid>a8f8e65636034c0991d7a524dff11e0d</guid>
