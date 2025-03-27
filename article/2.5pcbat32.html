@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/_assets/background/tech.css" />
 <script src="/_assets/background/tech.js"></script>
     <title>2.5寸双层PCB重山AT32圈圈机 - YIMI&#39;s Blog</title>
+    <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
     <meta name="keywords" content="航模,穿越机,DIY">
   </head>
   <body>
@@ -131,15 +132,66 @@
 </ul>
 <h2 id="改进计划">改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-22" checked="checked" /><label id="cb-label-md-checkbox-22" for="md-checkbox-22" class="checkbox-label-checked">@完成 //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-76" checked="checked" /><label id="cb-label-md-checkbox-76" for="md-checkbox-76" class="checkbox-label-checked">@完成 //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" /></p>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-23" /><label id="cb-label-md-checkbox-23" for="md-checkbox-23" class="checkbox-label-unchecked">重新设计上层PCB，添加贴片BB响和可编程LED灯</label></div></li>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-24" /><label id="cb-label-md-checkbox-24" for="md-checkbox-24" class="checkbox-label-unchecked">切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-77" /><label id="cb-label-md-checkbox-77" for="md-checkbox-77" class="checkbox-label-unchecked">重新设计上层PCB，添加贴片BB响和可编程LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-78" /><label id="cb-label-md-checkbox-78" for="md-checkbox-78" class="checkbox-label-unchecked">切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 </div>
       </article>
     </div>
+    <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+          try {
+            // 创建图片容器
+            const viewerContainer = document.createElement('div');
+            viewerContainer.className = 'image-viewer-container';
+            
+            // 复制所有图片到容器
+            const images = articleContent.querySelectorAll('img');
+            images.forEach(img => {
+              const clone = img.cloneNode();
+              clone.src = img.src;
+              viewerContainer.appendChild(clone);
+            });
+
+            // 初始化Viewer并保存实例
+            const viewer = new Viewer(viewerContainer, {
+              inline: false,
+              button: true,
+              navbar: true,
+              title: false,
+              toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: true,
+                reset: true,
+                prev: true,
+                play: true,
+                next: true,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: true,
+                flipVertical: true,
+              }
+            });
+
+            // 点击原图时触发Viewer
+            images.forEach((img, index) => {
+              img.addEventListener('click', () => {
+                viewer.view(index);
+              });
+            });
+          } catch (e) {
+            console.error('Viewer initialization error:', e);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
