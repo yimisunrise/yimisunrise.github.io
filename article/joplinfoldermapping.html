@@ -81,8 +81,47 @@
       </article>
     </div>
     <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script src="/_assets/clipboardjs/clipboard.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .code-copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 2px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .code-block:hover .code-copy {
+        opacity: 1;
+      }
+    </style>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // 初始化代码复制功能
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(code => {
+          const pre = code.parentNode;
+          pre.classList.add('code-block');
+          
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy';
+          copyBtn.textContent = '复制';
+          copyBtn.setAttribute('data-clipboard-text', code.textContent);
+          pre.appendChild(copyBtn);
+        });
+
+        new ClipboardJS('.code-copy');
+
+        // 初始化图片查看器
         const articleContent = document.querySelector('.article-content');
         if (articleContent) {
           try {
