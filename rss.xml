@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 27 Mar 2025 15:02:57 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 27 Mar 2025 15:06:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -83,12 +83,12 @@
 </ul>
 <h2 id="改进计划">改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-88" checked="checked" /><label id="cb-label-md-checkbox-88" for="md-checkbox-88" class="checkbox-label-checked">@完成 //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-91" checked="checked" /><label id="cb-label-md-checkbox-91" for="md-checkbox-91" class="checkbox-label-checked">@完成 //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" /></p>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-89" /><label id="cb-label-md-checkbox-89" for="md-checkbox-89" class="checkbox-label-unchecked">重新设计上层PCB，添加贴片BB响和可编程LED灯</label></div></li>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-90" /><label id="cb-label-md-checkbox-90" for="md-checkbox-90" class="checkbox-label-unchecked">切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-92" /><label id="cb-label-md-checkbox-92" for="md-checkbox-92" class="checkbox-label-unchecked">重新设计上层PCB，添加贴片BB响和可编程LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-93" /><label id="cb-label-md-checkbox-93" for="md-checkbox-93" class="checkbox-label-unchecked">切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 ]]></content:encoded>
         </item>
