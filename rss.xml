@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 31 Mar 2025 06:29:40 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Apr 2025 02:53:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -135,20 +135,20 @@
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-0" checked="checked" /><label id="cb-label-md-checkbox-0" for="md-checkbox-0" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-1" /><label id="cb-label-md-checkbox-1" for="md-checkbox-1" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-2" /><label id="cb-label-md-checkbox-2" for="md-checkbox-2" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -611,14 +611,35 @@ sudo pacman -S flameshot</code></pre></div>
 <h1 id="github">Github</h1>
 <p><a title="https://github.com/yimisunrise/joplin-folder-mapping" href="https://github.com/yimisunrise/joplin-folder-mapping">https://github.com/yimisunrise/joplin-folder-mapping</a></p>
 <h1 id="效果截图">效果截图</h1>
-<h2 id="安装后的插件">安装后的插件</h2>
-<p><img src="/_resources/71e86a880fc9473d8e05412fff05b8a7.png" /></p>
-<h2 id="插件的配置">插件的配置</h2>
-<p><img src="/_resources/921dd48044a64a8aadeae0ec749d5166.png" /></p>
-<h2 id="插件的使用">插件的使用</h2>
-<p><img src="/_resources/36b2bd259e1d439781dd487b1cc1aab9.png" /></p>
-<h2 id="打开后的效果">打开后的效果</h2>
-<p><img src="/_resources/43df14b5215b438db49412d1228fb812.png" /></p>
+<h2 id="插件配置界面">插件配置界面</h2>
+<p><img src="/_resources/ebf711299fa741da8f9aaf2f480cb716.png" /></p>
+<h2 id="显示系统文件">显示系统文件</h2>
+<p>选中笔记本目录=&gt;可查看该目录对应系统文件夹下的文件</p>
+<p><img src="/_resources/4bfa5c9a01054b6ea331e323d78f2e5e.png" /></p>
+<h2 id="打开选中目录">打开选中目录</h2>
+<p>笔记本目录右键点击=&gt;可直接打开目录对应的文件夹</p>
+<p><img src="/_resources/198087b3340a40e7ac9b28f79c4807db.png" /></p>
+<h1 id="插件安装">插件安装</h1>
+<h2 id="joplin中安装">Joplin中安装</h2>
+<blockquote>
+<p>提示：因 <code>城墙</code> 的原因，需要 <code>梯子</code> 才能搜索安装</p>
+</blockquote>
+<ol>
+<li>在Joplin中“工具=》选项=》插件”，搜索框中输入 <code>Folder Mapping</code> ，如下图：</li>
+</ol>
+<p><img src="/_resources/dac619c713a640899c7d373c51ceead9.png" /></p>
+<ol start="2">
+<li>在搜索出的结果中找到插件，点击 <code>安装</code> 即可。</li>
+</ol>
+<h2 id="本地安装">本地安装</h2>
+<ol>
+<li>将插件下载到本地目录</li>
+</ol>
+<p><a type="application/x-tar" href="/_resources/c109b5294b3045f4acf9fd999761eef0.tar">store.yimi.joplin-folder-mapping_v1.0.3.jpl</a></p>
+<ol start="2">
+<li>在Joplin中“工具=》选项=》插件=》管理您的插件=》从文件安装”，如下图：</li>
+</ol>
+<p><img src="/_resources/1dc35eaa8819494cbe69244a85a3c3a4.png" /></p>
 ]]></content:encoded>
         </item>
         <item>
