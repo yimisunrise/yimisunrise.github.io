@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sat, 19 Apr 2025 04:53:08 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Apr 2025 00:14:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -135,20 +135,20 @@
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-6" checked="checked" /><label id="cb-label-md-checkbox-6" for="md-checkbox-6" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-7" /><label id="cb-label-md-checkbox-7" for="md-checkbox-7" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-8" /><label id="cb-label-md-checkbox-8" for="md-checkbox-8" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -323,9 +323,8 @@
 <ol>
 <li>
 <p><strong>下载地址</strong><br />
-访问官网 <a title="https://www.marktext.cc/" href="https://www.marktext.cc/">https://www.marktext.cc/</a>，选择对应系统的版本（Windows/macOS/Linux）。<br />
-GitHub地址：<a title="https://github.com/marktext/marktext" href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a>
-<img src="/_resources/0555e746f22d44fa8f4eec5bbf3937c9.png" /></p>
+访问官网 <a title="https://www.marktext.cc/%EF%BC%8C%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%88Windows/macOS/Linux%EF%BC%89%E3%80%82" href="https://www.marktext.cc/%EF%BC%8C%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%88Windows/macOS/Linux%EF%BC%89%E3%80%82">https://www.marktext.cc/，选择对应系统的版本（Windows/macOS/Linux）。</a><br />
+GitHub地址：<a title="https://github.com/marktext/marktext" href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a> <img src="/_resources/0555e746f22d44fa8f4eec5bbf3937c9.png" /></p>
 </li>
 <li>
 <p><strong>安装步骤</strong></p>
@@ -340,8 +339,7 @@ GitHub地址：<a title="https://github.com/marktext/marktext" href="https://git
 <h4 id="三-界面与基础操作">三、界面与基础操作</h4>
 <ol>
 <li>
-<p><strong>主界面概览</strong>
-<img src="/_resources/a62a91b765d445a6ac2bafd869ea0779.png" /></p>
+<p><strong>主界面概览</strong> <img src="/_resources/a62a91b765d445a6ac2bafd869ea0779.png" /></p>
 <ul>
 <li><strong>左侧</strong>：文件目录树（需手动打开文件夹）</li>
 <li><strong>中间</strong>：编辑区（支持实时预览）</li>
@@ -379,10 +377,8 @@ GitHub地址：<a title="https://github.com/marktext/marktext" href="https://git
 </ol>
 <div><pre class="hljs"><code>   ![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片路径</span>)
    [<span class="hljs-string">链接文字</span>](<span class="hljs-link">https://example.com</span>)</code></pre></div>
-<ul>
-<li>直接拖拽图片到编辑区可自动插入！
-<img src="/_resources/19a5cdb5ab4d4b6c9ee063f544676f0e.png" /></li>
-</ul>
+<p>直接拖拽图片到编辑区可自动插入！</p>
+<p><img src="/_resources/19a5cdb5ab4d4b6c9ee063f544676f0e.png" /></p>
 <hr />
 <h4 id="五-高级功能">五、高级功能</h4>
 <ol>
@@ -401,67 +397,62 @@ $$</code></pre></div>
 graph LR
 A[开始] --&gt; B{条件}
 B --&gt;|是| C[执行]
-B --&gt;|否| D[结束]
-```</span></code></pre></div>
-<p><img src="/_resources/1a1b8bf4c3fe4ae3a5c2f6692a752e47.png" /></p>
-<hr />
-<h4 id="六-导出与分享">六、导出与分享</h4>
-<ol>
-<li><strong>导出为 PDF/HTML</strong>
-<ul>
-<li>点击菜单栏 <code>File</code> → <code>Export</code> → 选择格式（PDF/HTML）。</li>
-<li><strong>PDF 导出效果</strong>：</li>
-</ul>
-</li>
-</ol>
-<p><img src="/_resources/7b461ee3943c468d94605d62065ab4b8.png" /></p>
-<ol start="2">
-<li><strong>直接复制 HTML</strong><br />
-按 <code>Ctrl+Shift+C</code> 复制带样式的 HTML 代码，可直接粘贴到网站。</li>
-</ol>
-<hr />
-<h4 id="七-个性化设置">七、个性化设置</h4>
-<ol>
-<li>
-<p><strong>更换主题</strong><br />
-<code>Preferences</code> → <code>Theme</code> → 选择深色/浅色/自定义主题。</p>
-</li>
-<li>
-<p><strong>快捷键自定义</strong><br />
-在 <code>Keybindings</code> 中修改常用操作的快捷键。</p>
-</li>
-</ol>
-<hr />
-<h4 id="八-小结与推荐">八、小结与推荐</h4>
-<p><strong>MarkText 优点</strong>：</p>
-<p>✅ 实时预览，写作流畅<br />
-✅ 开源免费，无广告<br />
-✅ 支持高级语法（公式、流程图）</p>
-<p><strong>适用场景</strong>：技术文档、个人博客、课堂笔记、开源项目 README。</p>
-<hr />
-<h4 id="九-常见问题faq">九、常见问题（FAQ）</h4>
-<ol>
-<li>
-<p><strong>如何解决中文输入法兼容问题？</strong></p>
-<ul>
-<li>升级到最新版本或切换为英文输入法临时解决。</li>
-</ul>
-</li>
-<li>
-<p><strong>文件保存在哪里？</strong></p>
-<ul>
-<li>默认保存路径为手动打开的文件夹，建议先指定工作目录。</li>
-</ul>
-</li>
-<li>
-<p><strong>如何导入现有 Markdown 文件？</strong></p>
-<ul>
-<li>直接拖拽文件到编辑区，或通过 <code>File</code> → <code>Open</code> 打开。</li>
-</ul>
-</li>
-</ol>
-<hr />
-<p>通过这篇教程，你可以快速掌握 MarkText 的核心功能。开始享受沉浸式的 Markdown 写作吧！ 🚀</p>
+B --&gt;|否| D[结束]</span></code></pre></div>
+<div><pre class="hljs"><code>![<span class="hljs-string">0e0900706d6a5a3aae0257a2ae8e4fc1.png</span>](<span class="hljs-link">:/1a1b8bf4c3fe4ae3a5c2f6692a752e47</span>)
+
+<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
+
+<span class="hljs-section">#### 六、导出与分享</span>
+
+<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**导出为 PDF/HTML**</span>
+<span class="hljs-bullet">    -</span> 点击菜单栏 <span class="hljs-code">`File`</span> → <span class="hljs-code">`Export`</span> → 选择格式（PDF/HTML）。
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**PDF 导出效果**</span>：
+
+![<span class="hljs-string">b01c707656784db208f5ff1f42a7a8c7.png</span>](<span class="hljs-link">:/7b461ee3943c468d94605d62065ab4b8</span>)
+
+<span class="hljs-bullet">2.</span>  <span class="hljs-strong">**直接复制 HTML**</span>  
+<span class="hljs-code">    按 `Ctrl+Shift+C` 复制带样式的 HTML 代码，可直接粘贴到网站。
+</span>
+<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
+
+<span class="hljs-section">#### 七、个性化设置</span>
+
+<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**更换主题**</span>  
+<span class="hljs-code">    `Preferences` → `Theme` → 选择深色/浅色/自定义主题。
+    
+2.  **快捷键自定义**  
+    在 `Keybindings` 中修改常用操作的快捷键。
+    
+</span>
+<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
+
+<span class="hljs-section">#### 八、小结与推荐</span>
+
+<span class="hljs-strong">**MarkText 优点**</span>：
+
+✅ 实时预览，写作流畅  
+✅ 开源免费，无广告  
+✅ 支持高级语法（公式、流程图）
+
+<span class="hljs-strong">**适用场景**</span>：技术文档、个人博客、课堂笔记、开源项目 README。
+
+<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
+
+<span class="hljs-section">#### 九、常见问题（FAQ）</span>
+
+<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**如何解决中文输入法兼容问题？**</span>
+<span class="hljs-code">    
+    - 升级到最新版本或切换为英文输入法临时解决。
+2.  **文件保存在哪里？**
+    
+    - 默认保存路径为手动打开的文件夹，建议先指定工作目录。
+3.  **如何导入现有 Markdown 文件？**
+    
+    - 直接拖拽文件到编辑区，或通过 `File` → `Open` 打开。
+</span>
+<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
+
+通过这篇教程，你可以快速掌握 MarkText 的核心功能。开始享受沉浸式的 Markdown 写作吧！ 🚀</code></pre></div>
 ]]></content:encoded>
         </item>
         <item>
