@@ -4,9 +4,389 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 21 Apr 2025 00:14:47 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Jun 2025 04:06:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[CRON表达式]]></title>
+            <guid>2d6b413bcb7c449b8eeeaa841fa59dba</guid>
+            <pubDate>Tue, 03 Jun 2025 12:12:03 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="cron-表达式参考手册"><strong>CRON 表达式参考手册</strong></h1>
+<p>本手册涵盖 <strong>标准 Unix CRON</strong> 和 <strong>扩展 CRON（支持秒）</strong> 的语法、示例及不同系统的支持情况，适用于 Linux、Spring、Quartz 等调度任务配置。</p>
+<hr />
+<h2 id="1-cron-表达式基础"><strong>1. CRON 表达式基础</strong></h2>
+<h3 id="11-标准-unix-cron56-字段不支持秒"><strong>1.1 标准 Unix CRON（5/6 字段，不支持秒）</strong></h3>
+<p><strong>语法：</strong></p>
+<div><pre class="hljs"><code>* * * * * <span class="hljs-selector-attr">[command]</span>
+│ │ │ │ │
+│ │ │ │ └── 星期几 (<span class="hljs-number">0</span>-<span class="hljs-number">6</span>, <span class="hljs-number">0</span>=周日)
+│ │ │ └──── 月份 (<span class="hljs-number">1</span>-<span class="hljs-number">12</span>)
+│ │ └────── 日 (<span class="hljs-number">1</span>-<span class="hljs-number">31</span>)
+│ └──────── 小时 (<span class="hljs-number">0</span>-<span class="hljs-number">23</span>)
+└────────── 分钟 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)</code></pre></div>
+<p><strong>示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>* * * * *</code></td>
+<td>每分钟执行</td>
+</tr>
+<tr>
+<td><code>*/5 * * * *</code></td>
+<td>每 5 分钟执行</td>
+</tr>
+<tr>
+<td><code>0 * * * *</code></td>
+<td>每小时执行（整点）</td>
+</tr>
+<tr>
+<td><code>0 3 * * *</code></td>
+<td>每天 3:00 AM 执行</td>
+</tr>
+<tr>
+<td><code>0 0 * * 0</code></td>
+<td>每周日午夜执行</td>
+</tr>
+<tr>
+<td><code>0 0 1 * *</code></td>
+<td>每月 1 号执行</td>
+</tr>
+<tr>
+<td><code>0 9-17 * * 1-5</code></td>
+<td>工作日（周一到周五）9AM-5PM 每小时执行</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="12-扩展-cron支持秒7-字段"><strong>1.2 扩展 CRON（支持秒，7 字段）</strong></h3>
+<p><strong>语法（如 Spring/Quartz）：</strong></p>
+<div><pre class="hljs"><code>* * * * * * * <span class="hljs-selector-attr">[command]</span>
+│ │ │ │ │ │ │
+│ │ │ │ │ │ └── 年（可选）
+│ │ │ │ │ └──── 星期几 (<span class="hljs-number">0</span>-<span class="hljs-number">6</span>, <span class="hljs-number">0</span>=周日)
+│ │ │ │ └────── 月份 (<span class="hljs-number">1</span>-<span class="hljs-number">12</span>)
+│ │ │ └──────── 日 (<span class="hljs-number">1</span>-<span class="hljs-number">31</span>)
+│ │ └────────── 小时 (<span class="hljs-number">0</span>-<span class="hljs-number">23</span>)
+│ └──────────── 分钟 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)
+└────────────── 秒 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)</code></pre></div>
+<p><strong>示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*/10 * * * * *</code></td>
+<td>每 10 秒执行</td>
+</tr>
+<tr>
+<td><code>0 */30 * * * *</code></td>
+<td>每 30 分钟执行（整点 + 30 分）</td>
+</tr>
+<tr>
+<td><code>0 0 * * * *</code></td>
+<td>每小时整点执行</td>
+</tr>
+<tr>
+<td><code>0 30 9 * * *</code></td>
+<td>每天 9:30 AM 执行</td>
+</tr>
+<tr>
+<td><code>0 0 12 * * ?</code></td>
+<td>每天中午 12 点执行（Quartz 风格）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-特殊字符说明"><strong>2. 特殊字符说明</strong></h2>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>任意值</td>
+<td><code>* * * * *</code>（每分钟）</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>多个值</td>
+<td><code>0 3,15 * * *</code>（3AM 和 3PM）</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>范围</td>
+<td><code>0 9-17 * * *</code>（9AM-5PM 每小时）</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>间隔</td>
+<td><code>*/5 * * * *</code>（每 5 分钟）</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>不指定（仅用于日/周）</td>
+<td><code>0 0 * * ?</code>（每天午夜）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-不同系统的-cron-支持"><strong>3. 不同系统的 CRON 支持</strong></h2>
+<table>
+<thead>
+<tr>
+<th>系统/工具</th>
+<th>是否支持秒</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linux Cron</strong></td>
+<td>❌ 不支持</td>
+<td><code>* * * * *</code></td>
+</tr>
+<tr>
+<td><strong>Spring Cron</strong></td>
+<td>✅ 支持</td>
+<td><code>0/10 * * * * *</code>（每 10 秒）</td>
+</tr>
+<tr>
+<td><strong>Quartz Scheduler</strong></td>
+<td>✅ 支持</td>
+<td><code>0 */2 * * * ?</code>（每 2 分钟）</td>
+</tr>
+<tr>
+<td><strong>AWS CloudWatch</strong></td>
+<td>❌ 不支持</td>
+<td><code>rate(5 minutes)</code></td>
+</tr>
+<tr>
+<td><strong>Kubernetes CronJob</strong></td>
+<td>❌ 不支持</td>
+<td><code>*/5 * * * *</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-常见任务示例"><strong>4. 常见任务示例</strong></h2>
+<h3 id="41-标准-unix-cron"><strong>4.1 标准 Unix CRON</strong></h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每 30 分钟执行</td>
+<td><code>*/30 * * * *</code></td>
+</tr>
+<tr>
+<td>每天 3:15 AM 执行</td>
+<td><code>15 3 * * *</code></td>
+</tr>
+<tr>
+<td>每周一 8:00 AM 执行</td>
+<td><code>0 8 * * 1</code></td>
+</tr>
+<tr>
+<td>每月 1 号 0:00 执行</td>
+<td><code>0 0 1 * *</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-扩展-cron支持秒"><strong>4.2 扩展 CRON（支持秒）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每 15 秒执行</td>
+<td><code>*/15 * * * * *</code></td>
+</tr>
+<tr>
+<td>每 2 小时的第 30 分钟执行</td>
+<td><code>0 30 */2 * * *</code></td>
+</tr>
+<tr>
+<td>每天 10:30:45 PM 执行</td>
+<td><code>45 30 22 * * *</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-如何在-linux-实现秒级任务"><strong>5. 如何在 Linux 实现秒级任务？</strong></h2>
+<p>标准 <strong>Linux Cron</strong> 不支持秒，但可以通过以下方式模拟：</p>
+<h3 id="方法-1使用-sleep"><strong>方法 1：使用 <code>sleep</code></strong></h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 每 30 秒执行一次（每分钟运行 2 次）</span>
+* * * * * /path/to/<span class="hljs-built_in">command</span>
+* * * * * sleep 30; /path/to/<span class="hljs-built_in">command</span></code></pre></div>
+<h3 id="方法-2使用-watch"><strong>方法 2：使用 <code>watch</code></strong></h3>
+<div><pre class="hljs"><code>watch -n 30 /path/to/<span class="hljs-built_in">command</span></code></pre></div>
+<hr />
+<h2 id="6-总结"><strong>6. 总结</strong></h2>
+<ul>
+<li><strong>标准 Unix CRON</strong>（5/6 字段）不支持秒，适用于 Linux 定时任务。</li>
+<li><strong>扩展 CRON</strong>（7 字段）支持秒，适用于 Spring、Quartz 等调度框架。</li>
+<li>不同系统对 CRON 的支持不同，需根据环境选择合适的表达式。</li>
+</ul>
+<p><strong>推荐工具：</strong></p>
+<ul>
+<li><strong>Linux 定时任务</strong> → 标准 <code>crontab</code></li>
+<li><strong>Java/Spring 任务</strong> → <code>@Scheduled(cron = "0/10 * * * * *")</code></li>
+<li><strong>高级调度</strong> → <strong>Quartz Scheduler</strong></li>
+</ul>
+<hr />
+<p><strong>📌 提示：</strong> 在线 CRON 表达式生成器：</p>
+<ul>
+<li><a title="https://crontab.guru/" href="https://crontab.guru/">Crontab Guru</a>（标准 CRON）</li>
+<li><a title="https://www.freeformatter.com/cron-expression-generator-quartz.html" href="https://www.freeformatter.com/cron-expression-generator-quartz.html">Spring Cron Generator</a>（支持秒）</li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[APT 和 DPKG 常用操作命令]]></title>
+            <guid>d3802d6aada544aa9077fbe4e2f1605c</guid>
+            <pubDate>Tue, 27 May 2025 11:03:22 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="apt-和-dpkg-常用操作命令手册"><strong>APT 和 DPKG 常用操作命令手册</strong></h1>
+<p>APT（Advanced Package Tool）和 DPKG（Debian Package）是 Debian/Ubuntu 系统中最常用的包管理工具。</p>
+<ul>
+<li><strong>APT</strong>：高级工具，用于在线安装、升级、管理依赖。</li>
+<li><strong>DPKG</strong>：底层工具，直接操作 <code>.deb</code> 包，不处理依赖关系。</li>
+</ul>
+<hr />
+<h2 id="1-apt-常用命令"><strong>1. APT 常用命令</strong></h2>
+<h3 id="11-更新软件包列表"><strong>1.1 更新软件包列表</strong></h3>
+<div><pre class="hljs"><code>sudo apt update            <span class="hljs-comment"># 更新可用软件包列表（不升级软件）</span></code></pre></div>
+<h3 id="12-升级软件包"><strong>1.2 升级软件包</strong></h3>
+<div><pre class="hljs"><code>sudo apt upgrade           <span class="hljs-comment"># 升级所有可升级的软件包（不删除旧包）</span>
+sudo apt full-upgrade      <span class="hljs-comment"># 升级并处理依赖冲突（可能删除旧包）</span>
+sudo apt dist-upgrade      <span class="hljs-comment"># 同 full-upgrade（Ubuntu/Debian 推荐）</span></code></pre></div>
+<h3 id="13-安装软件"><strong>1.3 安装软件</strong></h3>
+<div><pre class="hljs"><code>sudo apt install &lt;package&gt;          <span class="hljs-comment"># 安装指定软件包</span>
+sudo apt install &lt;package&gt;=&lt;version&gt; <span class="hljs-comment"># 安装特定版本</span>
+sudo apt install &lt;package1&gt; &lt;package2&gt; <span class="hljs-comment"># 安装多个软件</span></code></pre></div>
+<h3 id="14-卸载软件"><strong>1.4 卸载软件</strong></h3>
+<div><pre class="hljs"><code>sudo apt remove &lt;package&gt;           <span class="hljs-comment"># 卸载软件但保留配置文件</span>
+sudo apt purge &lt;package&gt;            <span class="hljs-comment"># 卸载并删除配置文件（彻底清理）</span>
+sudo apt remove --purge &lt;package&gt;    <span class="hljs-comment"># 同上（purge 的另一种写法）</span></code></pre></div>
+<h3 id="15-清理无用包"><strong>1.5 清理无用包</strong></h3>
+<div><pre class="hljs"><code>sudo apt autoremove          <span class="hljs-comment"># 删除不再需要的依赖包（保留配置）</span>
+sudo apt autoremove --purge  <span class="hljs-comment"># 删除依赖包及其配置文件</span>
+sudo apt clean               <span class="hljs-comment"># 删除所有已下载的 .deb 包（/var/cache/apt/archives）</span>
+sudo apt autoclean           <span class="hljs-comment"># 仅删除旧版本的 .deb 包</span></code></pre></div>
+<h3 id="16-搜索软件"><strong>1.6 搜索软件</strong></h3>
+<div><pre class="hljs"><code>apt search &lt;keyword&gt;         <span class="hljs-comment"># 搜索软件包（支持模糊匹配）</span>
+apt show &lt;package&gt;           <span class="hljs-comment"># 查看软件包详细信息</span>
+apt list --installed         <span class="hljs-comment"># 列出所有已安装的软件包</span>
+apt list --upgradable        <span class="hljs-comment"># 列出可升级的软件包</span></code></pre></div>
+<h3 id="17-修复依赖问题"><strong>1.7 修复依赖问题</strong></h3>
+<div><pre class="hljs"><code>sudo apt --fix-broken install  <span class="hljs-comment"># 修复依赖问题</span>
+sudo apt install -f           <span class="hljs-comment"># 同上</span></code></pre></div>
+<hr />
+<h2 id="2-dpkg-常用命令"><strong>2. DPKG 常用命令</strong></h2>
+<h3 id="21-安装-deb-包"><strong>2.1 安装 .deb 包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg -i &lt;package.deb&gt;    <span class="hljs-comment"># 安装本地 .deb 包（不处理依赖）</span>
+sudo apt install -f           <span class="hljs-comment"># 如果依赖缺失，用此命令修复</span></code></pre></div>
+<h3 id="22-卸载软件"><strong>2.2 卸载软件</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg -r &lt;package&gt;        <span class="hljs-comment"># 卸载软件（保留配置文件）</span>
+sudo dpkg -P &lt;package&gt;        <span class="hljs-comment"># 彻底卸载（删除软件和配置）</span></code></pre></div>
+<h3 id="23-查询软件包"><strong>2.3 查询软件包</strong></h3>
+<div><pre class="hljs"><code>dpkg -l                       <span class="hljs-comment"># 列出所有已安装的软件包</span>
+dpkg -l | grep &lt;keyword&gt;      <span class="hljs-comment"># 搜索已安装的包</span>
+dpkg -s &lt;package&gt;             <span class="hljs-comment"># 查看软件包状态</span>
+dpkg -L &lt;package&gt;             <span class="hljs-comment"># 列出软件包安装的文件</span>
+dpkg -S &lt;file&gt;                <span class="hljs-comment"># 查找某个文件属于哪个包</span></code></pre></div>
+<h3 id="24-解压-deb-包不安装"><strong>2.4 解压 .deb 包（不安装）</strong></h3>
+<div><pre class="hljs"><code>dpkg -x &lt;package.deb&gt; &lt;dir&gt;   <span class="hljs-comment"># 解压 .deb 包到指定目录</span>
+dpkg -e &lt;package.deb&gt; &lt;dir&gt;   <span class="hljs-comment"># 提取 .deb 的控制信息（DEBIAN/ 目录）</span></code></pre></div>
+<h3 id="25-修复损坏的包"><strong>2.5 修复损坏的包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg --configure -a      <span class="hljs-comment"># 尝试修复未完成的安装</span></code></pre></div>
+<hr />
+<h2 id="3-apt-和-dpkg-结合使用"><strong>3. APT 和 DPKG 结合使用</strong></h2>
+<h3 id="31-下载-deb-包但不安装"><strong>3.1 下载 .deb 包但不安装</strong></h3>
+<div><pre class="hljs"><code>apt download &lt;package&gt;        <span class="hljs-comment"># 下载 .deb 包到当前目录</span></code></pre></div>
+<h3 id="32-查看软件包的依赖"><strong>3.2 查看软件包的依赖</strong></h3>
+<div><pre class="hljs"><code>apt depends &lt;package&gt;         <span class="hljs-comment"># 查看依赖哪些包</span>
+apt rdepends &lt;package&gt;        <span class="hljs-comment"># 查看哪些包依赖它</span></code></pre></div>
+<h3 id="33-重新配置已安装的包"><strong>3.3 重新配置已安装的包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg-reconfigure &lt;package&gt;  <span class="hljs-comment"># 重新运行软件包的配置（如 tzdata）</span></code></pre></div>
+<hr />
+<h2 id="4-高级用法"><strong>4. 高级用法</strong></h2>
+<h3 id="41-锁定软件包版本防止自动升级"><strong>4.1 锁定软件包版本（防止自动升级）</strong></h3>
+<div><pre class="hljs"><code>sudo apt-mark hold &lt;package&gt;    <span class="hljs-comment"># 锁定版本</span>
+sudo apt-mark unhold &lt;package&gt;  <span class="hljs-comment"># 解除锁定</span>
+sudo apt-mark showhold          <span class="hljs-comment"># 查看锁定的包</span></code></pre></div>
+<h3 id="42-查看软件包日志"><strong>4.2 查看软件包日志</strong></h3>
+<div><pre class="hljs"><code>cat /var/<span class="hljs-built_in">log</span>/apt/history.log    <span class="hljs-comment"># 查看 APT 操作历史</span>
+cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="hljs-comment"># 查看 DPKG 操作历史</span></code></pre></div>
+<h3 id="43-强制降级软件包"><strong>4.3 强制降级软件包</strong></h3>
+<div><pre class="hljs"><code>sudo apt install &lt;package&gt;=&lt;version&gt;  <span class="hljs-comment"># 指定版本安装</span></code></pre></div>
+<h3 id="44-额外清理残留配置"><strong>4.4 额外清理残留配置</strong></h3>
+<p>即使使用 --purge，某些残留的配置文件可能仍会留在系统中。可以使用以下命令清理：</p>
+<div><pre class="hljs"><code>dpkg -l | grep <span class="hljs-string">'^rc'</span> | awk <span class="hljs-string">'{print $2}'</span> | sudo xargs dpkg --purge</code></pre></div>
+<hr />
+<h2 id="5-总结"><strong>5. 总结</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>功能</strong></th>
+<th><strong>APT 命令</strong></th>
+<th><strong>DPKG 命令</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>安装</strong></td>
+<td><code>apt install</code></td>
+<td><code>dpkg -i</code></td>
+</tr>
+<tr>
+<td><strong>卸载</strong></td>
+<td><code>apt remove/purge</code></td>
+<td><code>dpkg -r/-P</code></td>
+</tr>
+<tr>
+<td><strong>查询</strong></td>
+<td><code>apt list/show</code></td>
+<td><code>dpkg -l/-s</code></td>
+</tr>
+<tr>
+<td><strong>修复</strong></td>
+<td><code>apt -f install</code></td>
+<td><code>dpkg --configure -a</code></td>
+</tr>
+<tr>
+<td><strong>清理</strong></td>
+<td><code>apt autoremove</code></td>
+<td><code>dpkg -P</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>推荐使用 APT</strong>（自动处理依赖），<strong>DPKG 仅用于直接操作 .deb 包</strong>。</p>
+<p>希望这份手册能帮助你高效管理 Debian/Ubuntu 软件包！ 🚀</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[2.5寸双层PCB重山AT32圈圈机]]></title>
             <guid>5f49f2733af34a9da801f3dd6aa5cb24</guid>
@@ -135,20 +515,20 @@
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-6" checked="checked" /><label id="cb-label-md-checkbox-6" for="md-checkbox-6" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-7" /><label id="cb-label-md-checkbox-7" for="md-checkbox-7" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-8" /><label id="cb-label-md-checkbox-8" for="md-checkbox-8" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -784,67 +1164,6 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 <h3 id="2-重启-docker-服务">2、重启 Docker 服务</h3>
 <div><pre class="hljs"><code>sudo systemctl daemon-reload
 sudo systemctl restart docker</code></pre></div>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[BF固件飞控模式详解]]></title>
-            <guid>35a7fe9d2fff434392d825c0a8bd8c59</guid>
-            <pubDate>Thu, 12 Aug 2021 15:59:07 GMT</pubDate>
-            <content:encoded><![CDATA[<p><strong><span style="color:red" class="jop-noMdConv">ARM<span class="jop-noMdConv"></span></span></strong>：武装,备战; 打开…的保险; 准备发射。即飞机的解锁开关。开启后飞行器解锁,随时准备起飞。</p>
-<p><strong><span style="color:red" class="jop-noMdConv">ANGLE<span class="jop-noMdConv"></span></span></strong>：角度模式或称自稳模式。此模式下摇杆映射的是飞机的角度。打杆的幅度越大，飞机的侧倾角度越大，摇杆归中，飞行器也回到水平。（用户可在PID Tuning Tab - Angle/Horizon - Angle Limit中设置角度）</p>
-<p><strong><span style="color:red" class="jop-noMdConv">HORIZON<span class="jop-noMdConv"></span></span></strong>：界限模式或称半自稳模式。此模式下，在一定角度内，如＜30°时是ANGLE模式，在＞30°时是ACRO模式，且界限不是突变的，是渐变的。（用户可在PID Tuning Tab - Angle/Horizon - Angle Limit中设置角度）</p>
-<p><strong><span style="color:red" class="jop-noMdConv">HEADFREE<span class="jop-noMdConv"></span></span></strong>：Head Free无头模式。即无论多旋翼飞行器的物理机头朝向如何，都始终以你设置的机头为机头，这对第三人称视角飞行非常友好。该模式需要与HEADADJ配合使用。</p>
-<p><strong>FAILSAFE</strong>：通过一个开关开启。即手动模拟飞行器失去遥控信号，使飞机进入失控保护姿态。失控保护有三种机制——“drop”掉落、“land”降落及“GPS RESCUE”GPS救援模式。通常是在测试Failsafe机制时使用。 更具体的说明请参考其他有关“FAILSAFE”的资料。</p>
-<p><strong>GPS RESCUE</strong>：GPS救援模式。启用后当拨下开关，启动GPS救援模式（需要安装GPS并且在Configuration Tab中成功设置后才会跳出该选项）。飞机以救援机制返回起飞点。请注意该模式不能翻译成自动返航模式，该模式与DJI的自动返航有着质的不一致。DJI的自动返航机制是：当飞行器收到指令，原地垂直上升至一定高度然后以该高度返航，到达家的位置垂直降落。而Betaflight里的“GPS RESCUE”简单理解则是：当飞行器收到指令，则飞行器朝向家的方向直线“砸”向飞手，飞手在眼镜上观察到飞行器在安全距离后夺取控制权手动控制飞行器手动飞行。更具体的说明请参考其他有关“GPS RESCUED“的资料。该模式具有一定的危险性，在人员密集处请慎用！</p>
-<p><strong>HEADADJ</strong>：Head Adjustment设置新的机头朝向。</p>
-<p><strong><span style="color:red" class="jop-noMdConv">BEEPER<span class="jop-noMdConv"></span></span></strong>：使蜂鸣器鸣叫，便于炸机时找飞机。</p>
-<p><strong><span style="color:red" class="jop-noMdConv">LEDLOW<span class="jop-noMdConv"></span></span></strong>：LED LOW。打开或关闭LED。</p>
-<p><strong>OSD DISABLE SW</strong>：OSD disable switch。打开或者关闭OSD。</p>
-<p><strong>TELEMETRY</strong>：打开或关闭遥测数据。遥测可以理解成数据回传，可将飞行速度、高度、电池电压、飞行时间等回传至遥控或回传接收端。需要支持遥测的遥控器和接收机支持。</p>
-<p><strong>BLACKBOX</strong>：打开或关闭黑匣子数据记录。同常识中我们新闻中经常听到的客机的黑匣子一样，飞行器的黑匣子支持记录飞行器的各种飞行参数，以便后期分析。更具体的说明请参考其他有关“Betaflight Blackbox Explorer"资料。</p>
-<p><strong>FPV ANGLE MIX</strong>：FPV摄像头混合机制。众所周知穿越机的摄像头并非水平安装，而是朝上一个角度。所以摄像头角度轴线和机身轴线有一个角度。那么问题来了——通常YAW杆围绕飞行器的垂直轴转弯，这就是为什么当你在RATE模式下向前飞行并仅使用YAW进行180度转弯时，你最终会向上看并向后飞行。在ANGLE模式下，这也会产生一种称为旋转的效果，其中转弯不平滑，不保持水平线。在RATE模式下，飞手通过使用ROLL和YAW杆来协调旋转并保持姿态（水平线）来补偿此效果。</p>
-<p>此时FPV ANGLE MIX模式就起作用了：该机制计算维持协调YAW转弯所需的额外ROLL命令，使YAW轴绕垂直轴相对于地面转动。</p>
-<p>在RATE模式下，它允许飞手在不改变机器姿态的情况下只进行完美的偏航。由于PID控制不是即时响应，可能会有轻微漂移，但对于RATE模式的初学者来说仍然更容易导航。</p>
-<p>在ANGLE模式下，它还可以使偏航变得更平滑，完全没有旋转。这是因为FPV ANGLE MIX模式在打ROLL/PITCH时引入了前馈控制并且自然而且无延迟地保持姿态。</p>
-<p><strong>BLACKBOX ERASE(&gt;30s)</strong>：清除黑匣子数据。一般的飞控当记录黑匣子的内存满了之后就不再记录，此时需要一个开关将黑匣子数据清除。该开关按下后，等待约30s，黑匣子数据即被清除。</p>
-<p><strong>CAMERA CONTROL</strong>：相机控制。很抱歉我不知道这个功能是做什么用的。此功能几乎不用，有兴趣的朋友可自行研究。</p>
-<p><strong><span style="color:red" class="jop-noMdConv">FLIP OVER AFTER CRASH<span class="jop-noMdConv"></span></span></strong>：俗称“反乌龟模式”。当飞机炸鸡180°翻转着地时，该功能可让一侧的两个电机反转，使得飞行器翻回正常姿态。该功能需要支持Dshot协议的电调配合才能使用。更具体的说明请参考其他有关“反乌龟模式”的资料。</p>
-<p><strong><span style="color:red" class="jop-noMdConv">PREARM<span class="jop-noMdConv"></span></span></strong>：Pre Arm预解锁功能。为了防止解锁键误按，多设置一个开关键，可以简单理解为同时打开PREARM和ARM时飞行器才能解锁，这样有效防止误碰解锁开关造成的安全事故。更具体的说明请参考其他有关“PREARM”的资料。</p>
-<p><strong>BEEP GPS SATELLITE COUNT</strong>：蜂鸣器蜂鸣GPS卫星数量。该选项只有成功设置GPS后才会出现。</p>
-<p><strong>VTX PIT MODE</strong>：进入图传PIT模式。图传PIT模式是图传一种防止在他人飞行中上电干扰他人飞行的模式，该模式可以以近乎0功率运行，同时你只有在及近的距离内（一般小于20cm内）才能收到图传信号。更具体的说明请参考其他有关图传“PIT模式”的资料。</p>
-<p><strong>PARALYZE</strong>：瘫痪模式。多人比赛时，当炸鸡时为了防止解锁坠毁的飞机造成危险，激活PARALYZE后，它会关闭图传和接收机，以避免干扰可能仍在飞行的其他飞行员。要关闭该功能，只能通过拔下电池来重置它。</p>
-<p><strong>ACRO TRAINER</strong>：具有角度限制的ACRO模式。专为初学者设计，旨在学习ACRO模式。</p>
-<p><strong>DISABLE VTX CONTROL</strong>：禁用图传控制功能。许多图传支持OSD协议调参的功能。该开关控制启用或禁用该功能。更具体的说明请参考其他有关“OSD图传调参”的资料。</p>
-<p><strong>LAUNCH CONTROL</strong>：一键弹射功能。该功能允许飞行器启动时瞬间以某个油门点弹射起飞。更具体的说明请参考其他有关“弹射起飞“的资料。</p>
-<p><strong>ANTI-GRAVITY</strong>：反重力模式。反重力模式并不是让飞行器不受地心引力。很显然，只要在地球上的物体不可能不受地心引力影响。在这里，Anti-Gravity是一种飞行PID机制。当飞手快速变换油门时，它会减少“下降”（突然的PITCH轴下降）。 所以当油门变化很大时，要补偿这一点，基本上要提高I term的增益，I term将在其余的飞行中保持不变。该功能需要在Configuration中配置后才会在Mode Tab中出现。</p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[地球上10大最好养的小型冷水观赏鱼]]></title>
-            <guid>f366c291e2c045829bf9c70a2052ee94</guid>
-            <pubDate>Sun, 06 Dec 2020 06:21:12 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="地球上10大最好养的小型冷水观赏鱼金鱼和锦鲤上榜你养了吗">地球上10大最好养的小型冷水观赏鱼，金鱼和锦鲤上榜，你养了吗？</h1>
-<p>2019-02-18 17:18</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/f6fa40dac29a4ee0b7728e9cfc48b82e.jpeg" /></p>
-<p>1、金鱼：金鱼是生活中一种比较常见的冷水观赏鱼，这种鱼的色彩缤纷品种繁多，适合群养的一种观赏性很强的鱼类，金鱼有金玉满堂的鱼类在中国也是比较受欢迎的，对水温适应能力很强。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/0fa521d5dc5442e59c9fec38bcd85273.jpeg" /></p>
-<p>2、观背青鳉：观背青鳉是一种通过人工对野生青鳉的选育和杂交以及提纯等方式培育出来的新品种，是一种小型的冷水观赏鱼。体形比较的色彩多变观赏性价值高，这种鱼的品种很多而且比较好饲养，适合生活在15℃到30℃左右的温度生活。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/20d60bc2700e49278034b17da308007d.jpeg" /></p>
-<p>3、爬岩鳅：爬岩鳅是一种小型的观赏鱼，这种鱼的一般吸附于石块上生活，是一种杂食性鱼类。主要是吃藻类、红虫、异形饲料生存，饲养水温不超过28度就可以了。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/5b2f5fad2fe046839a7eb7a3d0407477.jpeg" /></p>
-<p>4、锦鲤：锦鲤是十分美丽的冷水观赏鱼，这种鱼色彩艳丽花纹多变，具有很强的观赏价值。锦鲤的品种比较多适合群养喜欢群游，对水的适应能力比较强，适合生活在硬度低的水质环境中，锦鲤吃细小藻类和人工合成颗粒饵料以及高等水生植物碎片等。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/0b26024ec61749ef8151b26446a5f820.jpeg" /></p>
-<p>5、中国斗鱼：中国斗鱼常见的一种冷水观赏鱼，喜欢生活在浅水洼或水草茂密的岸边。色彩艳丽的外形还是比较美丽的，可以饲养的冷水观赏鱼，适合生活在24℃到27℃左右的水温环境中，以昆虫幼体和鱼虫以及干饵料等为食。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/db829f55357849779fd3a259e204f715.jpeg" /></p>
-<p>6、狮子头：狮子头是一种长得十分美丽的金鱼，这种鱼外形比较独特而且性情也是比较温顺的，很多人喜欢养饲养狮子头金鱼。狮子头色彩缤纷身体的颜色艳丽，是观赏性很强的一种小型观赏鱼。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/d9776d870cbf41a1b3a64f35a094bf3f.jpeg" /></p>
-<p>7、龙睛：龙睛金鱼属于金鱼中龙种，这种鱼的外形比较漂亮，眼睛比较大赢得很多人的喜欢。这种鱼体态苗条，尾柄细长尾巴非常的漂亮，体现了一种原始的美。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/00e5609f654340d28ec0a2a4196dc84f.jpeg" /></p>
-<p>8、蝶尾：蝶尾也是一种比较好看的冷水观赏鱼，这种鱼的眼睛很大，尾部比较发达就像一只蝴蝶特别美丽。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/d2adc46486e445cba7bb27194d9659df.jpeg" /></p>
-<p>9、兰寿：兰寿一直赢得很多养鱼爱好者的青睐，是全球观赏鱼中出现的比较早的一种冷水观赏鱼，被称为金鱼之王，一般生活在亚洲地区，有不同的品种。</p>
-<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190218/f63975a43b064edf86cffcbb913dd66c.jpeg" /></p>
-<p>10、珍珠鳞金鱼：珍珠鳞金鱼是一种外形长得比较美的小型冷水观赏鱼，身体是那种鼓鼓的很好看。这种鱼可以饲养在鱼缸里面观赏性很强，有不同的品种，如红珍珠鳞、草青珍珠鳞以及五花珍珠鳞、蓝狮头珍珠鳞等。</p>
 ]]></content:encoded>
         </item>
     </channel>

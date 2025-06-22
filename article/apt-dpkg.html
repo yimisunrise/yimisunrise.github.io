@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>APT 和 DPKG 常用操作命令 - YIMI&#39;s Blog</title>
+    <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
+    <meta name="keywords" content="命令,工具">
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">APT 和 DPKG 常用操作命令</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1748343802543"
+                  >2025-05-27 19:03</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1748343970366"
+                  >2025-05-27 19:06</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              
+              <span class="keyword">命令</span>
+              
+              <span class="keyword">工具</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="apt-和-dpkg-常用操作命令手册"><strong>APT 和 DPKG 常用操作命令手册</strong></h1>
+<p>APT（Advanced Package Tool）和 DPKG（Debian Package）是 Debian/Ubuntu 系统中最常用的包管理工具。</p>
+<ul>
+<li><strong>APT</strong>：高级工具，用于在线安装、升级、管理依赖。</li>
+<li><strong>DPKG</strong>：底层工具，直接操作 <code>.deb</code> 包，不处理依赖关系。</li>
+</ul>
+<hr />
+<h2 id="1-apt-常用命令"><strong>1. APT 常用命令</strong></h2>
+<h3 id="11-更新软件包列表"><strong>1.1 更新软件包列表</strong></h3>
+<div><pre class="hljs"><code>sudo apt update            <span class="hljs-comment"># 更新可用软件包列表（不升级软件）</span></code></pre></div>
+<h3 id="12-升级软件包"><strong>1.2 升级软件包</strong></h3>
+<div><pre class="hljs"><code>sudo apt upgrade           <span class="hljs-comment"># 升级所有可升级的软件包（不删除旧包）</span>
+sudo apt full-upgrade      <span class="hljs-comment"># 升级并处理依赖冲突（可能删除旧包）</span>
+sudo apt dist-upgrade      <span class="hljs-comment"># 同 full-upgrade（Ubuntu/Debian 推荐）</span></code></pre></div>
+<h3 id="13-安装软件"><strong>1.3 安装软件</strong></h3>
+<div><pre class="hljs"><code>sudo apt install &lt;package&gt;          <span class="hljs-comment"># 安装指定软件包</span>
+sudo apt install &lt;package&gt;=&lt;version&gt; <span class="hljs-comment"># 安装特定版本</span>
+sudo apt install &lt;package1&gt; &lt;package2&gt; <span class="hljs-comment"># 安装多个软件</span></code></pre></div>
+<h3 id="14-卸载软件"><strong>1.4 卸载软件</strong></h3>
+<div><pre class="hljs"><code>sudo apt remove &lt;package&gt;           <span class="hljs-comment"># 卸载软件但保留配置文件</span>
+sudo apt purge &lt;package&gt;            <span class="hljs-comment"># 卸载并删除配置文件（彻底清理）</span>
+sudo apt remove --purge &lt;package&gt;    <span class="hljs-comment"># 同上（purge 的另一种写法）</span></code></pre></div>
+<h3 id="15-清理无用包"><strong>1.5 清理无用包</strong></h3>
+<div><pre class="hljs"><code>sudo apt autoremove          <span class="hljs-comment"># 删除不再需要的依赖包（保留配置）</span>
+sudo apt autoremove --purge  <span class="hljs-comment"># 删除依赖包及其配置文件</span>
+sudo apt clean               <span class="hljs-comment"># 删除所有已下载的 .deb 包（/var/cache/apt/archives）</span>
+sudo apt autoclean           <span class="hljs-comment"># 仅删除旧版本的 .deb 包</span></code></pre></div>
+<h3 id="16-搜索软件"><strong>1.6 搜索软件</strong></h3>
+<div><pre class="hljs"><code>apt search &lt;keyword&gt;         <span class="hljs-comment"># 搜索软件包（支持模糊匹配）</span>
+apt show &lt;package&gt;           <span class="hljs-comment"># 查看软件包详细信息</span>
+apt list --installed         <span class="hljs-comment"># 列出所有已安装的软件包</span>
+apt list --upgradable        <span class="hljs-comment"># 列出可升级的软件包</span></code></pre></div>
+<h3 id="17-修复依赖问题"><strong>1.7 修复依赖问题</strong></h3>
+<div><pre class="hljs"><code>sudo apt --fix-broken install  <span class="hljs-comment"># 修复依赖问题</span>
+sudo apt install -f           <span class="hljs-comment"># 同上</span></code></pre></div>
+<hr />
+<h2 id="2-dpkg-常用命令"><strong>2. DPKG 常用命令</strong></h2>
+<h3 id="21-安装-deb-包"><strong>2.1 安装 .deb 包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg -i &lt;package.deb&gt;    <span class="hljs-comment"># 安装本地 .deb 包（不处理依赖）</span>
+sudo apt install -f           <span class="hljs-comment"># 如果依赖缺失，用此命令修复</span></code></pre></div>
+<h3 id="22-卸载软件"><strong>2.2 卸载软件</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg -r &lt;package&gt;        <span class="hljs-comment"># 卸载软件（保留配置文件）</span>
+sudo dpkg -P &lt;package&gt;        <span class="hljs-comment"># 彻底卸载（删除软件和配置）</span></code></pre></div>
+<h3 id="23-查询软件包"><strong>2.3 查询软件包</strong></h3>
+<div><pre class="hljs"><code>dpkg -l                       <span class="hljs-comment"># 列出所有已安装的软件包</span>
+dpkg -l | grep &lt;keyword&gt;      <span class="hljs-comment"># 搜索已安装的包</span>
+dpkg -s &lt;package&gt;             <span class="hljs-comment"># 查看软件包状态</span>
+dpkg -L &lt;package&gt;             <span class="hljs-comment"># 列出软件包安装的文件</span>
+dpkg -S &lt;file&gt;                <span class="hljs-comment"># 查找某个文件属于哪个包</span></code></pre></div>
+<h3 id="24-解压-deb-包不安装"><strong>2.4 解压 .deb 包（不安装）</strong></h3>
+<div><pre class="hljs"><code>dpkg -x &lt;package.deb&gt; &lt;dir&gt;   <span class="hljs-comment"># 解压 .deb 包到指定目录</span>
+dpkg -e &lt;package.deb&gt; &lt;dir&gt;   <span class="hljs-comment"># 提取 .deb 的控制信息（DEBIAN/ 目录）</span></code></pre></div>
+<h3 id="25-修复损坏的包"><strong>2.5 修复损坏的包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg --configure -a      <span class="hljs-comment"># 尝试修复未完成的安装</span></code></pre></div>
+<hr />
+<h2 id="3-apt-和-dpkg-结合使用"><strong>3. APT 和 DPKG 结合使用</strong></h2>
+<h3 id="31-下载-deb-包但不安装"><strong>3.1 下载 .deb 包但不安装</strong></h3>
+<div><pre class="hljs"><code>apt download &lt;package&gt;        <span class="hljs-comment"># 下载 .deb 包到当前目录</span></code></pre></div>
+<h3 id="32-查看软件包的依赖"><strong>3.2 查看软件包的依赖</strong></h3>
+<div><pre class="hljs"><code>apt depends &lt;package&gt;         <span class="hljs-comment"># 查看依赖哪些包</span>
+apt rdepends &lt;package&gt;        <span class="hljs-comment"># 查看哪些包依赖它</span></code></pre></div>
+<h3 id="33-重新配置已安装的包"><strong>3.3 重新配置已安装的包</strong></h3>
+<div><pre class="hljs"><code>sudo dpkg-reconfigure &lt;package&gt;  <span class="hljs-comment"># 重新运行软件包的配置（如 tzdata）</span></code></pre></div>
+<hr />
+<h2 id="4-高级用法"><strong>4. 高级用法</strong></h2>
+<h3 id="41-锁定软件包版本防止自动升级"><strong>4.1 锁定软件包版本（防止自动升级）</strong></h3>
+<div><pre class="hljs"><code>sudo apt-mark hold &lt;package&gt;    <span class="hljs-comment"># 锁定版本</span>
+sudo apt-mark unhold &lt;package&gt;  <span class="hljs-comment"># 解除锁定</span>
+sudo apt-mark showhold          <span class="hljs-comment"># 查看锁定的包</span></code></pre></div>
+<h3 id="42-查看软件包日志"><strong>4.2 查看软件包日志</strong></h3>
+<div><pre class="hljs"><code>cat /var/<span class="hljs-built_in">log</span>/apt/history.log    <span class="hljs-comment"># 查看 APT 操作历史</span>
+cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="hljs-comment"># 查看 DPKG 操作历史</span></code></pre></div>
+<h3 id="43-强制降级软件包"><strong>4.3 强制降级软件包</strong></h3>
+<div><pre class="hljs"><code>sudo apt install &lt;package&gt;=&lt;version&gt;  <span class="hljs-comment"># 指定版本安装</span></code></pre></div>
+<h3 id="44-额外清理残留配置"><strong>4.4 额外清理残留配置</strong></h3>
+<p>即使使用 --purge，某些残留的配置文件可能仍会留在系统中。可以使用以下命令清理：</p>
+<div><pre class="hljs"><code>dpkg -l | grep <span class="hljs-string">'^rc'</span> | awk <span class="hljs-string">'{print $2}'</span> | sudo xargs dpkg --purge</code></pre></div>
+<hr />
+<h2 id="5-总结"><strong>5. 总结</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>功能</strong></th>
+<th><strong>APT 命令</strong></th>
+<th><strong>DPKG 命令</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>安装</strong></td>
+<td><code>apt install</code></td>
+<td><code>dpkg -i</code></td>
+</tr>
+<tr>
+<td><strong>卸载</strong></td>
+<td><code>apt remove/purge</code></td>
+<td><code>dpkg -r/-P</code></td>
+</tr>
+<tr>
+<td><strong>查询</strong></td>
+<td><code>apt list/show</code></td>
+<td><code>dpkg -l/-s</code></td>
+</tr>
+<tr>
+<td><strong>修复</strong></td>
+<td><code>apt -f install</code></td>
+<td><code>dpkg --configure -a</code></td>
+</tr>
+<tr>
+<td><strong>清理</strong></td>
+<td><code>apt autoremove</code></td>
+<td><code>dpkg -P</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>推荐使用 APT</strong>（自动处理依赖），<strong>DPKG 仅用于直接操作 .deb 包</strong>。</p>
+<p>希望这份手册能帮助你高效管理 Debian/Ubuntu 软件包！ 🚀</p>
+</div>
+      </article>
+    </div>
+    <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script src="/_assets/clipboardjs/clipboard.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .code-copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 2px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .code-block:hover .code-copy {
+        opacity: 1;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 初始化代码复制功能
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(code => {
+          const pre = code.parentNode;
+          pre.classList.add('code-block');
+          
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy';
+          copyBtn.textContent = '复制';
+          copyBtn.setAttribute('data-clipboard-text', code.textContent);
+          pre.appendChild(copyBtn);
+        });
+
+        // 创建Toast元素
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+
+        const clipboard = new ClipboardJS('.code-copy');
+        clipboard.on('success', function(e) {
+          toast.textContent = '复制成功!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+          e.clearSelection();
+        });
+        clipboard.on('error', function(e) {
+          toast.textContent = '复制失败，请手动选择后复制';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+
+        // 初始化图片查看器
+        const articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+          try {
+            // 创建图片容器
+            const viewerContainer = document.createElement('div');
+            viewerContainer.className = 'image-viewer-container';
+            
+            // 复制所有图片到容器
+            const images = articleContent.querySelectorAll('img');
+            images.forEach(img => {
+              const clone = img.cloneNode();
+              clone.src = img.src;
+              viewerContainer.appendChild(clone);
+            });
+
+            // 初始化Viewer并保存实例
+            const viewer = new Viewer(viewerContainer, {
+              inline: false,
+              button: true,
+              navbar: true,
+              title: false,
+              toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: true,
+                reset: true,
+                prev: true,
+                play: true,
+                next: true,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: true,
+                flipVertical: true,
+              }
+            });
+
+            // 点击原图时触发Viewer
+            images.forEach((img, index) => {
+              img.addEventListener('click', () => {
+                viewer.view(index);
+              });
+            });
+          } catch (e) {
+            console.error('Viewer initialization error:', e);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

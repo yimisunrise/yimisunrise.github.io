@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>CRON表达式 - YIMI&#39;s Blog</title>
+    <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
+    <meta name="keywords" content="cron,命令,运维">
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">CRON表达式</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1748952723656"
+                  >2025-06-03 20:12</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1748953059148"
+                  >2025-06-03 20:17</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              
+              <span class="keyword">cron</span>
+              
+              <span class="keyword">命令</span>
+              
+              <span class="keyword">运维</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><h1 id="cron-表达式参考手册"><strong>CRON 表达式参考手册</strong></h1>
+<p>本手册涵盖 <strong>标准 Unix CRON</strong> 和 <strong>扩展 CRON（支持秒）</strong> 的语法、示例及不同系统的支持情况，适用于 Linux、Spring、Quartz 等调度任务配置。</p>
+<hr />
+<h2 id="1-cron-表达式基础"><strong>1. CRON 表达式基础</strong></h2>
+<h3 id="11-标准-unix-cron56-字段不支持秒"><strong>1.1 标准 Unix CRON（5/6 字段，不支持秒）</strong></h3>
+<p><strong>语法：</strong></p>
+<div><pre class="hljs"><code>* * * * * <span class="hljs-selector-attr">[command]</span>
+│ │ │ │ │
+│ │ │ │ └── 星期几 (<span class="hljs-number">0</span>-<span class="hljs-number">6</span>, <span class="hljs-number">0</span>=周日)
+│ │ │ └──── 月份 (<span class="hljs-number">1</span>-<span class="hljs-number">12</span>)
+│ │ └────── 日 (<span class="hljs-number">1</span>-<span class="hljs-number">31</span>)
+│ └──────── 小时 (<span class="hljs-number">0</span>-<span class="hljs-number">23</span>)
+└────────── 分钟 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)</code></pre></div>
+<p><strong>示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>* * * * *</code></td>
+<td>每分钟执行</td>
+</tr>
+<tr>
+<td><code>*/5 * * * *</code></td>
+<td>每 5 分钟执行</td>
+</tr>
+<tr>
+<td><code>0 * * * *</code></td>
+<td>每小时执行（整点）</td>
+</tr>
+<tr>
+<td><code>0 3 * * *</code></td>
+<td>每天 3:00 AM 执行</td>
+</tr>
+<tr>
+<td><code>0 0 * * 0</code></td>
+<td>每周日午夜执行</td>
+</tr>
+<tr>
+<td><code>0 0 1 * *</code></td>
+<td>每月 1 号执行</td>
+</tr>
+<tr>
+<td><code>0 9-17 * * 1-5</code></td>
+<td>工作日（周一到周五）9AM-5PM 每小时执行</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="12-扩展-cron支持秒7-字段"><strong>1.2 扩展 CRON（支持秒，7 字段）</strong></h3>
+<p><strong>语法（如 Spring/Quartz）：</strong></p>
+<div><pre class="hljs"><code>* * * * * * * <span class="hljs-selector-attr">[command]</span>
+│ │ │ │ │ │ │
+│ │ │ │ │ │ └── 年（可选）
+│ │ │ │ │ └──── 星期几 (<span class="hljs-number">0</span>-<span class="hljs-number">6</span>, <span class="hljs-number">0</span>=周日)
+│ │ │ │ └────── 月份 (<span class="hljs-number">1</span>-<span class="hljs-number">12</span>)
+│ │ │ └──────── 日 (<span class="hljs-number">1</span>-<span class="hljs-number">31</span>)
+│ │ └────────── 小时 (<span class="hljs-number">0</span>-<span class="hljs-number">23</span>)
+│ └──────────── 分钟 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)
+└────────────── 秒 (<span class="hljs-number">0</span>-<span class="hljs-number">59</span>)</code></pre></div>
+<p><strong>示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*/10 * * * * *</code></td>
+<td>每 10 秒执行</td>
+</tr>
+<tr>
+<td><code>0 */30 * * * *</code></td>
+<td>每 30 分钟执行（整点 + 30 分）</td>
+</tr>
+<tr>
+<td><code>0 0 * * * *</code></td>
+<td>每小时整点执行</td>
+</tr>
+<tr>
+<td><code>0 30 9 * * *</code></td>
+<td>每天 9:30 AM 执行</td>
+</tr>
+<tr>
+<td><code>0 0 12 * * ?</code></td>
+<td>每天中午 12 点执行（Quartz 风格）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-特殊字符说明"><strong>2. 特殊字符说明</strong></h2>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>任意值</td>
+<td><code>* * * * *</code>（每分钟）</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>多个值</td>
+<td><code>0 3,15 * * *</code>（3AM 和 3PM）</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>范围</td>
+<td><code>0 9-17 * * *</code>（9AM-5PM 每小时）</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>间隔</td>
+<td><code>*/5 * * * *</code>（每 5 分钟）</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>不指定（仅用于日/周）</td>
+<td><code>0 0 * * ?</code>（每天午夜）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-不同系统的-cron-支持"><strong>3. 不同系统的 CRON 支持</strong></h2>
+<table>
+<thead>
+<tr>
+<th>系统/工具</th>
+<th>是否支持秒</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linux Cron</strong></td>
+<td>❌ 不支持</td>
+<td><code>* * * * *</code></td>
+</tr>
+<tr>
+<td><strong>Spring Cron</strong></td>
+<td>✅ 支持</td>
+<td><code>0/10 * * * * *</code>（每 10 秒）</td>
+</tr>
+<tr>
+<td><strong>Quartz Scheduler</strong></td>
+<td>✅ 支持</td>
+<td><code>0 */2 * * * ?</code>（每 2 分钟）</td>
+</tr>
+<tr>
+<td><strong>AWS CloudWatch</strong></td>
+<td>❌ 不支持</td>
+<td><code>rate(5 minutes)</code></td>
+</tr>
+<tr>
+<td><strong>Kubernetes CronJob</strong></td>
+<td>❌ 不支持</td>
+<td><code>*/5 * * * *</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-常见任务示例"><strong>4. 常见任务示例</strong></h2>
+<h3 id="41-标准-unix-cron"><strong>4.1 标准 Unix CRON</strong></h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每 30 分钟执行</td>
+<td><code>*/30 * * * *</code></td>
+</tr>
+<tr>
+<td>每天 3:15 AM 执行</td>
+<td><code>15 3 * * *</code></td>
+</tr>
+<tr>
+<td>每周一 8:00 AM 执行</td>
+<td><code>0 8 * * 1</code></td>
+</tr>
+<tr>
+<td>每月 1 号 0:00 执行</td>
+<td><code>0 0 1 * *</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-扩展-cron支持秒"><strong>4.2 扩展 CRON（支持秒）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每 15 秒执行</td>
+<td><code>*/15 * * * * *</code></td>
+</tr>
+<tr>
+<td>每 2 小时的第 30 分钟执行</td>
+<td><code>0 30 */2 * * *</code></td>
+</tr>
+<tr>
+<td>每天 10:30:45 PM 执行</td>
+<td><code>45 30 22 * * *</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-如何在-linux-实现秒级任务"><strong>5. 如何在 Linux 实现秒级任务？</strong></h2>
+<p>标准 <strong>Linux Cron</strong> 不支持秒，但可以通过以下方式模拟：</p>
+<h3 id="方法-1使用-sleep"><strong>方法 1：使用 <code>sleep</code></strong></h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 每 30 秒执行一次（每分钟运行 2 次）</span>
+* * * * * /path/to/<span class="hljs-built_in">command</span>
+* * * * * sleep 30; /path/to/<span class="hljs-built_in">command</span></code></pre></div>
+<h3 id="方法-2使用-watch"><strong>方法 2：使用 <code>watch</code></strong></h3>
+<div><pre class="hljs"><code>watch -n 30 /path/to/<span class="hljs-built_in">command</span></code></pre></div>
+<hr />
+<h2 id="6-总结"><strong>6. 总结</strong></h2>
+<ul>
+<li><strong>标准 Unix CRON</strong>（5/6 字段）不支持秒，适用于 Linux 定时任务。</li>
+<li><strong>扩展 CRON</strong>（7 字段）支持秒，适用于 Spring、Quartz 等调度框架。</li>
+<li>不同系统对 CRON 的支持不同，需根据环境选择合适的表达式。</li>
+</ul>
+<p><strong>推荐工具：</strong></p>
+<ul>
+<li><strong>Linux 定时任务</strong> → 标准 <code>crontab</code></li>
+<li><strong>Java/Spring 任务</strong> → <code>@Scheduled(cron = "0/10 * * * * *")</code></li>
+<li><strong>高级调度</strong> → <strong>Quartz Scheduler</strong></li>
+</ul>
+<hr />
+<p><strong>📌 提示：</strong> 在线 CRON 表达式生成器：</p>
+<ul>
+<li><a title="https://crontab.guru/" href="https://crontab.guru/">Crontab Guru</a>（标准 CRON）</li>
+<li><a title="https://www.freeformatter.com/cron-expression-generator-quartz.html" href="https://www.freeformatter.com/cron-expression-generator-quartz.html">Spring Cron Generator</a>（支持秒）</li>
+</ul>
+</div>
+      </article>
+    </div>
+    <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script src="/_assets/clipboardjs/clipboard.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .code-copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 2px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .code-block:hover .code-copy {
+        opacity: 1;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 初始化代码复制功能
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(code => {
+          const pre = code.parentNode;
+          pre.classList.add('code-block');
+          
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy';
+          copyBtn.textContent = '复制';
+          copyBtn.setAttribute('data-clipboard-text', code.textContent);
+          pre.appendChild(copyBtn);
+        });
+
+        // 创建Toast元素
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+
+        const clipboard = new ClipboardJS('.code-copy');
+        clipboard.on('success', function(e) {
+          toast.textContent = '复制成功!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+          e.clearSelection();
+        });
+        clipboard.on('error', function(e) {
+          toast.textContent = '复制失败，请手动选择后复制';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+
+        // 初始化图片查看器
+        const articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+          try {
+            // 创建图片容器
+            const viewerContainer = document.createElement('div');
+            viewerContainer.className = 'image-viewer-container';
+            
+            // 复制所有图片到容器
+            const images = articleContent.querySelectorAll('img');
+            images.forEach(img => {
+              const clone = img.cloneNode();
+              clone.src = img.src;
+              viewerContainer.appendChild(clone);
+            });
+
+            // 初始化Viewer并保存实例
+            const viewer = new Viewer(viewerContainer, {
+              inline: false,
+              button: true,
+              navbar: true,
+              title: false,
+              toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: true,
+                reset: true,
+                prev: true,
+                play: true,
+                next: true,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: true,
+                flipVertical: true,
+              }
+            });
+
+            // 点击原图时触发Viewer
+            images.forEach((img, index) => {
+              img.addEventListener('click', () => {
+                viewer.view(index);
+              });
+            });
+          } catch (e) {
+            console.error('Viewer initialization error:', e);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
