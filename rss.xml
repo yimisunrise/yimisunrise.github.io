@@ -4,9 +4,22 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Sun, 22 Jun 2025 04:06:46 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Jun 2025 13:24:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[运营管理工具-RACI模型]]></title>
+            <guid>ae6b8622768240198b7c94694e783aff</guid>
+            <pubDate>Wed, 25 Jun 2025 01:52:10 GMT</pubDate>
+            <content:encoded><![CDATA[<p><img src="/_resources/3c29b4c5c9cf48d994be8cb231d1ec43.webp" /></p>
+<p><img src="/_resources/0ada37b6e7084360a6283769f032c288.jpeg" /></p>
+<p><img src="/_resources/6445edaa2f1f4e8f806fbc9e95b4d09c.jpeg" /></p>
+<p><img src="/_resources/5e0aa992b99e417797ab2d5728a2aa2e.jpeg" /></p>
+<p><img src="/_resources/e3d59692c3fb4f9fbd75fbde2e41f3f0.jpeg" /></p>
+<p><img src="/_resources/dfb6bebede5e4e65ba876cad1ab57816.jpeg" /></p>
+<p><img src="/_resources/bd1702df3191433fb5e714ff2e2d1abd.jpeg" /></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[CRON表达式]]></title>
             <guid>2d6b413bcb7c449b8eeeaa841fa59dba</guid>
@@ -515,20 +528,20 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-0" checked="checked" /><label id="cb-label-md-checkbox-0" for="md-checkbox-0" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-1" /><label id="cb-label-md-checkbox-1" for="md-checkbox-1" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-2" /><label id="cb-label-md-checkbox-2" for="md-checkbox-2" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -1148,22 +1161,6 @@ css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
 </ol>
 <div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
 <p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Docker镜像加速配置]]></title>
-            <guid>4507feed2cc74362a68d3af70a58dee5</guid>
-            <pubDate>Thu, 13 Feb 2025 12:05:34 GMT</pubDate>
-            <content:encoded><![CDATA[<p>DaoCloud 提供了公共的 Docker Hub 镜像加速服务，无需注册即可使用。</p>
-<h2 id="一-加速地址">一、加速地址</h2>
-<p><a title="https://docker.m.daocloud.io" href="https://docker.m.daocloud.io">https://docker.m.daocloud.io</a></p>
-<h2 id="二-配置方法">二、配置方法</h2>
-<h3 id="1-修改配置文件">1、修改配置文件</h3>
-<p>在 Docker 配置文件中（如 <code>/etc/docker/daemon.json</code>）添加：</p>
-<div><pre class="hljs"><code><span class="hljs-punctuation">{</span><span class="hljs-attr">"registry-mirrors"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">"https://docker.m.daocloud.io"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">}</span></code></pre></div>
-<h3 id="2-重启-docker-服务">2、重启 Docker 服务</h3>
-<div><pre class="hljs"><code>sudo systemctl daemon-reload
-sudo systemctl restart docker</code></pre></div>
 ]]></content:encoded>
         </item>
     </channel>
