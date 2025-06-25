@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 25 Jun 2025 13:24:38 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Jun 2025 13:32:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -18,6 +18,8 @@
 <p><img src="/_resources/e3d59692c3fb4f9fbd75fbde2e41f3f0.jpeg" /></p>
 <p><img src="/_resources/dfb6bebede5e4e65ba876cad1ab57816.jpeg" /></p>
 <p><img src="/_resources/bd1702df3191433fb5e714ff2e2d1abd.jpeg" /></p>
+<p>感谢原作者 @渔野笑歌</p>
+<p>如有侵权请立即联系我</p>
 ]]></content:encoded>
         </item>
         <item>
@@ -278,6 +280,21 @@
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[ControlloidClient-一款开源移动模拟PS2的APP]]></title>
+            <guid>ed87b7721bf346b28574a98a5ee4e38f</guid>
+            <pubDate>Sun, 01 Jun 2025 03:20:59 GMT</pubDate>
+            <content:encoded><![CDATA[<p>一款开源移动应用程序，适用于 PC 游戏体验，支持 Linux 和 Windows 系统。可通过 WiFi、蓝牙、USB 等多种连接方式将手机与电脑无缝连接，甚至支持通过互联网远程控制。其核心功能包括模拟 PS2 控制器的所有按钮（除 L3 和 R3 外），支持多客户端连接，以及可自定义的模拟摇杆死区设置等。</p>
+<hr />
+<p>Controlloid - Client 可以通过以下方式下载：</p>
+<ul>
+<li><strong>F-Droid</strong>：可以访问<a title="https://mvgorcum.gitlab.io/fdroid-website/en/packages/com.controlloid/" href="https://mvgorcum.gitlab.io/fdroid-website/en/packages/com.controlloid/">F-Droid 官方网站</a>，在页面中找到 Controlloid - Client 进行下载。推荐安装 F - Droid 客户端，通过客户端下载安装 Controlloid - Client，这样能接收更新通知且更安全。</li>
+<li><strong>GitHub</strong>6：访问<a title="https://github.com/experiment322/controlloid-client" href="https://github.com/experiment322/controlloid-client">Controlloid - Client 的 GitHub 页面</a>，在页面中查找相关的下载链接或说明进行下载。4</li>
+</ul>
+<hr />
+<p><img src="/_resources/5f7b47a4984043258d17a480a07d902d.jpg" /></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[APT 和 DPKG 常用操作命令]]></title>
             <guid>d3802d6aada544aa9077fbe4e2f1605c</guid>
             <pubDate>Tue, 27 May 2025 11:03:22 GMT</pubDate>
@@ -528,20 +545,20 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-0" checked="checked" /><label id="cb-label-md-checkbox-0" for="md-checkbox-0" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-1" /><label id="cb-label-md-checkbox-1" for="md-checkbox-1" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-2" /><label id="cb-label-md-checkbox-2" for="md-checkbox-2" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -1027,140 +1044,6 @@ sudo pacman -S flameshot</code></pre></div>
 <li>在Joplin中“工具=》选项=》插件=》管理您的插件=》从文件安装”，如下图：</li>
 </ol>
 <p><img src="/_resources/1dc35eaa8819494cbe69244a85a3c3a4.png" /></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[GoldenDict开源词典配置搜狗翻译]]></title>
-            <guid>c244ec57827646a8a224636c15d96b09</guid>
-            <pubDate>Tue, 04 Mar 2025 12:25:31 GMT</pubDate>
-            <content:encoded><![CDATA[<ol>
-<li>编写python脚本，保存SogouTranslatorGD.py，放入指定目录下</li>
-</ol>
-<div><pre class="hljs"><code><span class="hljs-comment">#!/usr/bin/python3</span>
-<span class="hljs-keyword">import</span> urllib.request
-<span class="hljs-keyword">import</span> sys
-<span class="hljs-keyword">import</span> chardet
-<span class="hljs-keyword">from</span> html <span class="hljs-keyword">import</span> unescape
-<span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urljoin, quote
-<span class="hljs-keyword">import</span> io
-<span class="hljs-keyword">import</span> random
-
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_page</span>(<span class="hljs-params">url</span>):
-    <span class="hljs-comment"># 生成7到16之间的随机整数</span>
-    ios_version = random.randint(<span class="hljs-number">11</span>, <span class="hljs-number">17</span>)
-    <span class="hljs-comment"># 生成80到130之间的随机整数</span>
-    num2 = random.randint(<span class="hljs-number">118</span>, <span class="hljs-number">126</span>)
-    headers = {
-        <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">f'Mozilla/5.0 (iPhone; CPU iPhone OS <span class="hljs-subst">{ios_version}</span> like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) iOS/<span class="hljs-subst">{num2}</span>.0.6312.52 Mobile Safari/604.1'</span>,
-        <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>
-    }
-    request = urllib.request.Request(url, headers=headers)
-    response = urllib.request.urlopen(request)
-    html = response.read()
-    response.close()
-    <span class="hljs-keyword">return</span> html
-css = <span class="hljs-string">"""&lt;style type="text/css"&gt;
-.programs_html .tab-trans-main .dict .module+.module {
-    border-top-color: none !important;
-    border-top: 3px dashed #6f6f6c;
-}
-
-.programs_html .tab-trans-main .dict .module h3 {
-    color: rgb(229 149 33) !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-}
-
-.programs_html .header-wap-new,
-.programs_html .select-area,
-.programs_html .sort-select,
-.programs_html .sgui-content,
-.programs_html .trans-to .pronounce-box,
-.programs_html .operate-btn-box,
-.programs_html .footer-wap,
-.programs_html .loading-pc,
-.programs_html .input-area .btn-clear,
-.programs_html #encyclopedia,
-.programs_html .empty-space {
-    display: none !important;
-}
-
-.programs_html .trans-box {
-    cursor: not-allowed;
-    pointer-events: none;
-    box-shadow: #2A82DA 0px 16px 40px 0px !important;
-}
-
-.programs_html .trans-main a {
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.programs_html .word-details-card .word-details-con .word {
-    color: rgb(235, 98, 45) !important;
-}
-
-.programs_html .content-wrap {
-    padding-top: 0 !important;
-}
-
-.programs_html #trans-input,
-.programs_html #trans-result {
-    color: rgb(134, 170, 204) !important;
-    font-size: 16px !important;
-}
-
-.programs_html .input-area #trans-input {
-    width: 100% !important;
-    box-sizing: border-box;
-    padding-left: 10px !important;
-    height: auot !important;
-}
-
-.programs_html .input-area .btn-clear {
-    display: none !important;
-}
-&lt;/style&gt;"""</span>
-
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():
-    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sys.argv) &lt; <span class="hljs-number">2</span>:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Usage: python script.py &lt;url&gt;"</span>)
-        <span class="hljs-keyword">return</span>
-
-    <span class="hljs-comment"># 从命令行参数获取 URL 并进行编码</span>
-    url = <span class="hljs-string">' '</span>.join(sys.argv[<span class="hljs-number">1</span>:])
-    encoded_url = quote(url, safe=<span class="hljs-string">':/?&amp;='</span>)
-
-    <span class="hljs-keyword">try</span>:
-        html = get_page(encoded_url)
-        result = chardet.detect(html)
-        encoding = result[<span class="hljs-string">'encoding'</span>]
-        
-        <span class="hljs-comment"># 解码 HTML 内容</span>
-        decoded_html = unescape(html.decode(encoding, <span class="hljs-string">'ignore'</span>))
-
-        <span class="hljs-comment"># 将相对链接转换为绝对链接</span>
-        decoded_html = decoded_html.replace(<span class="hljs-string">'href="//'</span>, <span class="hljs-string">'href="https://'</span>)
-        decoded_html = decoded_html.replace(<span class="hljs-string">'src="//'</span>, <span class="hljs-string">'src="https://'</span>)
-
-        <span class="hljs-comment"># 设置 stdout 为 UTF-8 编码</span>
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=<span class="hljs-string">'utf-8'</span>)
-        
-        <span class="hljs-comment"># 直接打印获取的内容</span>
-        <span class="hljs-built_in">print</span>(decoded_html)
-        <span class="hljs-built_in">print</span>(css)
-    <span class="hljs-keyword">except</span> urllib.error.HTTPError <span class="hljs-keyword">as</span> e:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Downloading the page <span class="hljs-subst">{url}</span> failed with error code <span class="hljs-subst">{e.code}</span>.'</span>)
-    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'An error occurred: <span class="hljs-subst">{e}</span>'</span>)
-
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
-    main()</code></pre></div>
-<ol start="2">
-<li>在GoldenDict中添加“程序类词典”，命令行格式为</li>
-</ol>
-<div><pre class="hljs"><code>python <span class="hljs-string">"/xxxx/xxxx/SogouTranslatorGD.py"</span> <span class="hljs-string">"https://fanyi.sogou.com/text?keyword=%GDWORD%&amp;transfrom=auto&amp;transto=zh-CHS&amp;model=general"</span></code></pre></div>
-<p><img src="/_resources/0b1dbe97915d4820a29fa6ed44ea4858.png" /></p>
 ]]></content:encoded>
         </item>
     </channel>
