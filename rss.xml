@@ -4,7 +4,7 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Wed, 25 Jun 2025 13:41:01 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Jun 2025 13:44:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
         <item>
@@ -20,6 +20,16 @@
 <p><img src="/_resources/bd1702df3191433fb5e714ff2e2d1abd.jpeg" /></p>
 <p>感谢原作者 @渔野笑歌</p>
 <p>如有侵权请立即联系我</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Kdenlive一款免费、开源且功能强大的非线性视频编辑软件]]></title>
+            <guid>7abe241915204458802512e036084630</guid>
+            <pubDate>Sat, 07 Jun 2025 02:28:07 GMT</pubDate>
+            <content:encoded><![CDATA[<p>‌Kdenlive是一款免费、开源且功能强大的非线性视频编辑软件，支持多轨道编辑、多种视频特效和跨平台使用（Windows、macOS和Linux）。</p>
+<hr />
+<p>Github</p>
+<p><a title="https://github.com/KDE/kdenlive" href="https://github.com/KDE/kdenlive">https://github.com/KDE/kdenlive</a></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -545,20 +555,20 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-6" checked="checked" /><label id="cb-label-md-checkbox-6" for="md-checkbox-6" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-9" checked="checked" /><label id="cb-label-md-checkbox-9" for="md-checkbox-9" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-7" /><label id="cb-label-md-checkbox-7" for="md-checkbox-7" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-10" /><label id="cb-label-md-checkbox-10" for="md-checkbox-10" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-8" /><label id="cb-label-md-checkbox-8" for="md-checkbox-8" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-11" /><label id="cb-label-md-checkbox-11" for="md-checkbox-11" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -999,51 +1009,6 @@ sudo pacman -S flameshot</code></pre></div>
 <hr />
 <h2 id="结语">结语</h2>
 <p>Flameshot 是一款兼具效率与功能的截图工具，通过快捷键和丰富的标注工具，能显著提升工作/学习场景中的信息传达效率。立即体验，让截图编辑变得更专业！</p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Joplin插件：笔记目录管理与系统文件夹管理深度结合]]></title>
-            <guid>faf5ad1a7f8b42ab84d9d57d8cd68d56</guid>
-            <pubDate>Sat, 08 Mar 2025 06:52:24 GMT</pubDate>
-            <content:encoded><![CDATA[<p><strong>突破笔记与文件系统的次元壁，构建一体化数字工作流</strong></p>
-<p><em>支持Windows/macOS/Linux系统深度整合</em></p>
-<hr />
-<p>这款专为 Joplin 笔记软件打造的插件，能够将 Joplin 中的笔记本目录精准映射到系统指定根目录下的同路径目录。借助该插件，用户可直接从 Joplin 笔记本跳转至对应的系统文件夹，轻松实现笔记目录管理与系统文件夹管理的深度融合，显著提升工作效率。</p>
-<h1 id="github">Github</h1>
-<p><a title="https://github.com/yimisunrise/joplin-folder-mapping" href="https://github.com/yimisunrise/joplin-folder-mapping">https://github.com/yimisunrise/joplin-folder-mapping</a></p>
-<h1 id="效果截图">效果截图</h1>
-<h2 id="插件配置界面">插件配置界面</h2>
-<p><img src="/_resources/ebf711299fa741da8f9aaf2f480cb716.png" /></p>
-<h2 id="显示系统文件">显示系统文件</h2>
-<p>选中笔记本目录=&gt;可查看该目录对应系统文件夹下的文件</p>
-<p><img src="/_resources/4bfa5c9a01054b6ea331e323d78f2e5e.png" /></p>
-<h2 id="打开选中目录">打开选中目录</h2>
-<p>笔记本目录右键点击=&gt;可直接打开目录对应的文件夹</p>
-<p><img src="/_resources/198087b3340a40e7ac9b28f79c4807db.png" /></p>
-<h1 id="插件安装">插件安装</h1>
-<h2 id="joplin中安装">Joplin中安装</h2>
-<blockquote>
-<p>提示：因 <code>城墙</code> 的原因，需要 <code>梯子</code> 才能搜索安装</p>
-</blockquote>
-<ol>
-<li>在Joplin中“工具=》选项=》插件”，搜索框中输入 <code>Folder Mapping</code> ，如下图：</li>
-</ol>
-<p><img src="/_resources/dac619c713a640899c7d373c51ceead9.png" /></p>
-<ol start="2">
-<li>在搜索出的结果中找到插件，点击 <code>安装</code> 即可。</li>
-</ol>
-<h2 id="本地安装">本地安装</h2>
-<ol>
-<li>将插件压缩包下载到本地目录并解压</li>
-</ol>
-<p><a type="application/zip" href="/_resources/2d4528887d014b8cbddc676181a09037.zip">store.yimi.joplin-folder-mapping_v1.0.3.zip</a></p>
-<blockquote>
-<p>其中<code>.jpl</code>的文件就是Joplin插件文件</p>
-</blockquote>
-<ol start="2">
-<li>在Joplin中“工具=》选项=》插件=》管理您的插件=》从文件安装”，如下图：</li>
-</ol>
-<p><img src="/_resources/1dc35eaa8819494cbe69244a85a3c3a4.png" /></p>
 ]]></content:encoded>
         </item>
     </channel>
