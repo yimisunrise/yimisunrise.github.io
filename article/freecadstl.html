@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="/_assets/main.css" />
 <link rel="stylesheet" href="/_assets/background/tech.css" />
 <script src="/_assets/background/tech.js"></script>
-    <title>2.5寸双层PCB重山AT32圈圈机 - YIMI&#39;s Blog</title>
+    <title>FreeCAD中将STL文件变为可编辑模型 - YIMI&#39;s Blog</title>
     <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
-    <meta name="keywords" content="航模,穿越机,DIY">
+    <meta name="keywords" content="博文,应用">
   </head>
   <body>
     <header class="header">
@@ -32,17 +32,17 @@
     <div class="main">
       <article>
         <header>
-          <h1 class="article-title">2.5寸双层PCB重山AT32圈圈机</h1>
+          <h1 class="article-title">FreeCAD中将STL文件变为可编辑模型</h1>
           <div class="article-info">
             <div>
               <span
-                >Created At：<time datetime="1742616432731"
-                  >2025-03-22 12:07</time
+                >Created At：<time datetime="1682056567554"
+                  >2023-04-21 13:56</time
                 ></span
               >
               <span
-                >Updated At：<time datetime="1745038379480"
-                  >2025-04-19 12:52</time
+                >Updated At：<time datetime="1736522247501"
+                  >2025-01-10 23:17</time
                 ></span
               >
             </div>
@@ -50,161 +50,49 @@
             <div>
               Keywords: 
               
-              <span class="keyword">航模</span>
+              <span class="keyword">博文</span>
               
-              <span class="keyword">穿越机</span>
-              
-              <span class="keyword">DIY</span>
+              <span class="keyword">应用</span>
               
             </div>
             
           </div>
         </header>
-        <div class="article-content markdown-body"><p>本机2.5寸穿越机的机架主体结构，采用双层 PCB 结合 3D 打印圈的设计方案。我的目标是以最经济的方式，打造出一款对我而言最为便捷且稳定的小飞机。它具有以下几个显著特点：炸机成本低，配件复用度高，飞行稳定性佳，安全性强。</p>
+        <div class="article-content markdown-body"><p>将已经打包好的stl格式文件变为可以在freeCAD中自由编辑的对象，具体操作步骤如下：</p>
 <hr />
-<h2 id="一-配置清单">一、配置清单</h2>
-<table>
-<thead>
-<tr>
-<th>配件类型</th>
-<th>品牌/型号</th>
-<th>数量</th>
-<th>价格</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>飞控</td>
-<td>重山AT32 F435RGT7飞控</td>
-<td>1</td>
-<td>约 120元 / 个</td>
-<td></td>
-</tr>
-<tr>
-<td>电调</td>
-<td>Aocoda-RC MINI</td>
-<td>1</td>
-<td>约 120元 / 个</td>
-<td></td>
-</tr>
-<tr>
-<td>图传</td>
-<td>5.8G EWRF模拟图传接收</td>
-<td>1</td>
-<td>约 70元 / 个</td>
-<td></td>
-</tr>
-<tr>
-<td>电机</td>
-<td>1104白菜电机</td>
-<td>4</td>
-<td>约 12元 / 个</td>
-<td>更推荐1404的电机</td>
-</tr>
-<tr>
-<td>接收</td>
-<td>2.4G ELRS DIY接收机</td>
-<td>1</td>
-<td>约 25元 / 个</td>
-<td></td>
-</tr>
-<tr>
-<td>机架</td>
-<td>2.5寸PCB仿怪像机架</td>
-<td>1</td>
-<td>0元 / 个</td>
-<td>嘉立创PCB免费打印</td>
-</tr>
-<tr>
-<td>机架</td>
-<td>3D打印保护圈整套</td>
-<td>1</td>
-<td>约 48元 / 套</td>
-<td>嘉立创3D打印，8001（半透） SLA光固化</td>
-</tr>
-<tr>
-<td>桨叶</td>
-<td>2345三叶桨</td>
-<td>4</td>
-<td>约 20元 / 20个</td>
-<td></td>
-</tr>
-<tr>
-<td>螺柱</td>
-<td>M2 0.8mm螺柱</td>
-<td>4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>螺柱</td>
-<td>M2 10mm螺柱</td>
-<td>6</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>螺帽</td>
-<td>M2</td>
-<td></td>
-<td></td>
-<td>待补充</td>
-</tr>
-<tr>
-<td>螺丝</td>
-<td>M2</td>
-<td></td>
-<td></td>
-<td>待补充</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<h2 id="二-整套价格">二、整套价格</h2>
-<p>总计：约450元 / 套</p>
-<p> </p>
-<h2 id="三-整机重量">三、整机重量</h2>
-<ul>
-<li>单机重量：约146g</li>
-<li>带电重量：约218g （850mAh电池）</li>
-</ul>
-<p> </p>
+<p><strong>1、导入需要转换的stl文件，作为被修改的对象</strong></p>
+<p>左上角“文件”-&gt;“导入”-&gt; 选择stl文件，导入成功后如下</p>
+<p><strong><img src="/_resources/0d09a9df83d7439e83a4588f1ad04fb2.png" alt="e8a432d0e2d4010e443c8c2c1e13a1c4.png" width="781" height="441" class="jop-noMdConv" /></strong></p>
 <hr />
-<h2 id="四-成品展示">四、成品展示</h2>
-<p><img src="/_resources/cd99ad526cdb423ea92bac6922aadb76.jpg" /></p>
-<p><img src="/_resources/6f834d5ae2b245b6aba2ffc3d7fc9a7f.jpg" /></p>
-<p><img src="/_resources/a9aa7607ccf44be6971b290030660afa.jpg" /></p>
-<h2 id="五-验证结果">五、验证结果</h2>
-<h3 id="20250321首飞尝试">(20250321)首飞尝试</h3>
-<blockquote>
-<p>稳定性暂时感觉还行</p>
-<p>8001(半透)SLA光固化打印的圈圈是脆的，已经炸断一个圈了</p>
-<img src="/_resources/2d0ee605e15f4b6680782e2d5d675461.jpg" alt="IMG_20250419_100804.jpg" width="552" height="460" class="jop-noMdConv" />
-</blockquote>
-<h2 id="六-改进计划">六、改进计划</h2>
-<ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-6" checked="checked" /><label id="cb-label-md-checkbox-6" for="md-checkbox-6" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
-</ul>
-<blockquote>
-<p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
-<p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
-</blockquote>
-<ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-7" /><label id="cb-label-md-checkbox-7" for="md-checkbox-7" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
-</ul>
-<blockquote>
-<p>已经完成PCB的设计，待下个月打印板子后尝试</p>
-</blockquote>
-<ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-8" /><label id="cb-label-md-checkbox-8" for="md-checkbox-8" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
-</ul>
-<blockquote>
-<p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
-</blockquote>
+<p><strong>2、调整工作台为Part工作台</strong></p>
+<p><strong><img src="/_resources/aa3c60248a1941a8a190f2aba9563bea.png" alt="cf7c21fa0b88184e299d74044848896d.png" width="786" height="312" class="jop-noMdConv" /></strong></p>
 <hr />
-<h2 id="七-开源地址">七、开源地址</h2>
-<p><a title="https://oshwhub.com/yimisunrise/2-5-cun-fpv-chuan-yue-ji-ji-jia" href="https://oshwhub.com/yimisunrise/2-5-cun-fpv-chuan-yue-ji-ji-jia">嘉立创开源项目地址</a></p>
+<p><strong>3、选择工具栏“零件”中的“从网格中创建形状”</strong></p>
+<img src="/_resources/9ba42eaaac774dc99d1a414e647a32c7.jpg" width="206" class="Bq4DA jop-noMdConv" height="529" style="border:0px;border-radius:13px;margin:0px auto" />
+<hr />
+<p><strong>4、默认选择公差为0.1，点击“OK”即可</strong></p>
+<p><strong><img src="/_resources/582daa5a415e4ef68dfe50861d998694.png" alt="ab944723ba92594bb715bda2ae7bef28.png" width="821" height="415" class="jop-noMdConv" /></strong></p>
+<hr />
+<p><strong>5、就得到了一个实体文件</strong></p>
+<img src="/_resources/3d716c264e3c4a46a69c18ac9c1eac6d.png" alt="f8a2375de7b0c73b8e6f7ed77f6ebacd.png" width="819" height="228" class="jop-noMdConv" />
+<hr />
+<p><strong>6、删除原始stl文件生成的Mesh文件，也就是界面中绿色颜色的文件</strong></p>
+<p><strong><img src="/_resources/f352131b0c7b465b98a401d18a9ce0c1.png" alt="003523d71c97626c5ec0014bd3316385.png" width="816" height="364" class="jop-noMdConv" /></strong></p>
+<hr />
+<p><strong>7、再次选择“零件”工具栏，选择“形体构建器”</strong></p>
+<img src="/_resources/4951034d4fcc42fdbb8180c27d5b25e7.jpg" width="341" class="Bq4DA jop-noMdConv" style="border:0px;border-radius:13px;margin:0px auto" />
+<hr />
+<p><strong>8、选择“壳生成体”选型，然后选择需要构建的实体，也就是所需的形状，就可以得到一个可被编辑的freeCAD的实体了</strong></p>
+<p><strong><img src="/_resources/d7f78c97f6894a7bb440cb79b81e05da.png" alt="748e082f00312f54c2196096d3df9c5a.png" width="567" height="641" class="jop-noMdConv" /></strong></p>
+<p><strong>注意：可能会遇到“仅选择一个零件对象”的错误提示，如下图</strong></p>
+<p><strong><img src="/_resources/7a33165995c1434caf7e4d0d927813d2.png" alt="348d56f7910b12c4abf265e3e311c373.png" width="484" height="284" class="jop-noMdConv" /></strong></p>
+<p><strong>切换回“模型”选中零件对象</strong></p>
+<p><strong><img src="/_resources/f912fc3553da49eab200c4ba5e73e486.png" alt="483e2e2cd4b8629184633ed1b648cc62.png" width="478" height="256" class="jop-noMdConv" /></strong></p>
+<p><strong>然后切换回“任务”-&gt;"创建"即可，"任务"需要手工“Close”。</strong></p>
+<hr />
+<p><strong>9、创建成功之后会得到一个solid名字的文件，将除了这个文件之外的图形删除，获得最终的可编辑对象</strong></p>
+<p><strong><img src="/_resources/305279ba198b45de9b48b04e7de74abb.png" alt="f5663e40e866eca0431c20ef5d80c738.png" width="829" height="354" class="jop-noMdConv" /></strong></p>
+<p> </p>
 </div>
       </article>
     </div>
