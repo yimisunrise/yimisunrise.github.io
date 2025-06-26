@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>BF调参软件中的PID起到什么作用？ - YIMI&#39;s Blog</title>
+    <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
+    <meta name="keywords" content="">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">BF调参软件中的PID起到什么作用？</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1655480994356"
+                  >2022-06-17 23:49</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1655481032786"
+                  >2022-06-17 23:50</time
+                ></span
+              >
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><p>1.比例积分微分控制，简称PID控制；</p>
+<p>2.P（比例）的作用就是减少打杆时产生的误差(误差越大矫正力就越大）；</p>
+<p>3.I（积分）的作用是消除静差（时间误差），正常平稳飞行时可能会随着时间和气流的影响，飞机会有微小的晃动，而I就是帮助飞机去消除这个误差；</p>
+<p>4.D（微分）的作用是能反映偏差信号的变化趋势(变化速率)，并能在偏差信号值变得太大之前，在系统中引入一个有效的早期修正信号，从而加快系统的动作速度，通俗理解就是消除P产生的超调（消除快速打杆时出现的晃动），而D容易引入噪音，D越大噪音越大很影响飞行手感或损坏配件；</p>
+<p>5.所有的值不是越大越好的，太大可能会造成反效果甚至造成飞机损坏，一般现在市场上主流配置使用默认参数即可，而到后期可以根据自己的需求去调整（建议每次调整不要太大）。</p>
+<p><img src="/_resources/77c5835ef0384ecb93bd43e9c2c475a5.png" /></p>
+</div>
+      </article>
+    </div>
+    <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script src="/_assets/clipboardjs/clipboard.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .code-copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 2px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .code-block:hover .code-copy {
+        opacity: 1;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 初始化代码复制功能
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(code => {
+          const pre = code.parentNode;
+          pre.classList.add('code-block');
+          
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy';
+          copyBtn.textContent = '复制';
+          copyBtn.setAttribute('data-clipboard-text', code.textContent);
+          pre.appendChild(copyBtn);
+        });
+
+        // 创建Toast元素
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+
+        const clipboard = new ClipboardJS('.code-copy');
+        clipboard.on('success', function(e) {
+          toast.textContent = '复制成功!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+          e.clearSelection();
+        });
+        clipboard.on('error', function(e) {
+          toast.textContent = '复制失败，请手动选择后复制';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+
+        // 初始化图片查看器
+        const articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+          try {
+            // 创建图片容器
+            const viewerContainer = document.createElement('div');
+            viewerContainer.className = 'image-viewer-container';
+            
+            // 复制所有图片到容器
+            const images = articleContent.querySelectorAll('img');
+            images.forEach(img => {
+              const clone = img.cloneNode();
+              clone.src = img.src;
+              viewerContainer.appendChild(clone);
+            });
+
+            // 初始化Viewer并保存实例
+            const viewer = new Viewer(viewerContainer, {
+              inline: false,
+              button: true,
+              navbar: true,
+              title: false,
+              toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: true,
+                reset: true,
+                prev: true,
+                play: true,
+                next: true,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: true,
+                flipVertical: true,
+              }
+            });
+
+            // 点击原图时触发Viewer
+            images.forEach((img, index) => {
+              img.addEventListener('click', () => {
+                viewer.view(index);
+              });
+            });
+          } catch (e) {
+            console.error('Viewer initialization error:', e);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
