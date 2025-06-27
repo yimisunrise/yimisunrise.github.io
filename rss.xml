@@ -4,9 +4,401 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 26 Jun 2025 16:37:14 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Jun 2025 06:08:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[Markdown 导出 PDF 分页技巧：用 HTML 标签精准控制页面布局]]></title>
+            <guid>33ba28e9893949c09c751aa238f961d5</guid>
+            <pubDate>Fri, 27 Jun 2025 00:19:09 GMT</pubDate>
+            <content:encoded><![CDATA[<p>在技术写作、学术论文、产品手册等长文档的创作中，将 Markdown 格式内容导出为 PDF 时，合理的分页设置能显著提升文档的可读性和专业性。本文将详细解析如何通过插入 HTML 标签实现精准分页控制，帮助你打造结构清晰的 PDF 文档。</p>
+<h2 id="一-为什么需要分页控制">一、为什么需要分页控制？</h2>
+<p>当 Markdown 文档包含多个章节、独立模块或需要适配打印场景时，自然分页往往无法满足需求：</p>
+<ul>
+<li><strong>结构清晰化</strong>：书籍章节、报告分节需要强制分页，避免内容跨页断裂</li>
+<li><strong>打印友好性</strong>：简历、合同等文档要求特定内容固定在单页</li>
+<li><strong>阅读体验</strong>：长表格、图表需要单独占页，防止跨页显示影响查看</li>
+</ul>
+<p>传统 Markdown 依赖内容自动填充页面的机制，在复杂文档中常导致章节开头出现在页中、图表截断等问题。而 HTML 标签的介入能实现「人工干预分页」，让文档结构完全符合预期。</p>
+<h2 id="二-核心技巧插入-html-分页标签">二、核心技巧：插入 HTML 分页标签</h2>
+<h3 id="1-基础语法与实现原理">1. 基础语法与实现原理;</h3>
+<p>在 Markdown 中直接插入 HTML 代码<code>&lt;div style="page-break-after: always;"&gt;&lt;/div&gt;</code>，该标签会被解析为「强制分页符」。其原理是利用 CSS 的<code>page-break-after</code>属性，告诉 PDF 渲染引擎在此处进行页面分割。</p>
+<div><pre class="hljs"><code>## 第一章 引言
+
+
+这里是章节内容...
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- 强制分页 --&gt;</span>
+
+
+## 第二章 核心技术
+
+
+这里是下一章内容...</code></pre></div>
+<h3 id="2-操作注意事项">2. 操作注意事项;</h3>
+<ul>
+<li><strong>标签位置</strong>：必须插入在普通文本段落中，避免放入代码块（<code> </code>）或列表项内</li>
+<li><strong>格式规范</strong>：标签前后建议保留空行（如上文示例），提升 Markdown 可读性</li>
+<li><strong>工具兼容性</strong>：主流导出工具（Typora/Pandoc/Markdown Here）均支持该语法，导出时会自动忽略标签可视化显示</li>
+</ul>
+<h2 id="三-多场景应用示例">三、多场景应用示例</h2>
+<h3 id="场景-1书籍章节强制分页">场景 1：书籍章节强制分页;</h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 第一篇 基础篇</span>
+
+
+<span class="hljs-comment">## 第一章 开发环境搭建</span>
+
+
+[内容<span class="hljs-string">...</span>]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;<span class="hljs-string">/div</span>&gt;
+
+
+<span class="hljs-comment">## 第二章 基础语法入门</span>
+
+
+[内容<span class="hljs-string">...</span>]</code></pre></div>
+<p>确保每章内容从新页开始，符合书籍排版规范。</p>
+<h3 id="场景-2报告分模块独立显示">场景 2：报告分模块独立显示;</h3>
+<div><pre class="hljs"><code>### 一、市场现状分析
+
+
+[数据图表与详细分析...]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;/div&gt;
+
+
+### 二、竞争态势研究
+
+
+[竞品分析表格与对比图...]</code></pre></div>
+<p>让每个核心模块单独占页，方便汇报时重点展示。</p>
+<h3 id="场景-3简历分页控制">场景 3：简历分页控制;</h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 个人简历</span>
+
+
+<span class="hljs-comment">## 基本信息</span>
+
+
+[姓名/联系方式/地址<span class="hljs-string">...</span>]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;<span class="hljs-string">/div</span>&gt;
+
+
+<span class="hljs-comment">## 工作经历</span>
+
+
+[详细履历<span class="hljs-string">...</span>]</code></pre></div>
+<p>确保简历内容不会在「基本信息」与「工作经历」之间分页，保持单页显示（如需跨页则无需标签）。</p>
+<h2 id="四-常见问题与解决方案">四、常见问题与解决方案</h2>
+<h3 id="问题-1分页标签无效">问题 1：分页标签无效;</h3>
+<ul>
+<li><strong>可能原因</strong>：导出工具未启用 HTML 解析（如某些极简转换器）</li>
+<li><strong>解决方法</strong>：</li>
+</ul>
+<ol>
+<li>
+<p>检查工具设置：Typora 需在「文件 - 导出 - PDF」中保持默认设置（自动解析 HTML）</p>
+</li>
+<li>
+<p>改用专业工具：Pandoc 命令行导出时添加参数<code>--pdf-engine=weasyprint</code>增强 HTML 支持</p>
+</li>
+</ol>
+<h3 id="问题-2分页后出现空白页">问题 2：分页后出现空白页
+</h3>
+<ul>
+<li><strong>可能原因</strong>：当前页剩余空间不足以容纳下一段落</li>
+<li><strong>优化技巧</strong>：搭配<code>page-break-inside: avoid</code>属性防止段落内分页</li>
+</ul>
+<div><pre class="hljs"><code>&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"page-break-after: always; page-break-inside: avoid;"</span>&gt;
+
+
+[完整段落内容，避免被分页截断]
+
+
+&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
+<h3 id="问题-3表格-图片跨页显示">问题 3：表格 / 图片跨页显示;</h3>
+<p><strong>解决方案</strong>：在图表前后添加双分页符</p>
+<div><pre class="hljs"><code>![关键数据图表](image.png)
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- 强制下一页开始 --&gt;</span>
+
+
+[图表分析文字...]</code></pre></div>
+<h2 id="五-进阶用-html-实现页面样式控制">五、进阶：用 HTML 实现页面样式控制</h2>
+<p>除了分页，还可通过 HTML 标签设置 PDF 页面基础样式（需结合支持 CSS 的导出工具）：</p>
+<h3 id="1-页面边距设置">1. 页面边距设置;</h3>
+<div><pre class="hljs"><code>&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"page-break-after: always; margin: 2cm;"</span>&gt;
+
+
+[内容区域，四周留白<span class="hljs-number">2</span>厘米]
+
+
+&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
+<h3 id="2-页眉页脚添加">2. 页眉页脚添加;</h3>
+<div><pre class="hljs"><code><span class="language-xml"><span class="hljs-comment">&lt;!-- 页眉（顶部居中） --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: fixed; top: 0; left: 0; right: 0; text-align: center;"</span>&gt;</span>
+
+
+<span class="hljs-symbol">&amp;#x20;</span> 《技术白皮书》 | 第</span><span class="hljs-template-variable">{page}</span><span class="language-xml">页
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- 页脚（底部右侧） --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: fixed; bottom: 0; right: 1cm;"</span>&gt;</span>
+
+
+<span class="hljs-symbol">&amp;#x20;</span> Copyright © 2025 技术团队
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre></div>
+<blockquote>
+<p>注意：页眉页脚需配合 Pandoc 等工具的 CSS 模板使用，具体语法需根据工具文档调整</p>
+</blockquote>
+<h3 id="3-避免内容截断">3. 避免内容截断
+</h3>
+<div><pre class="hljs"><code><span class="hljs-comment">&lt;!-- 防止段落中间分页 --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-inside: avoid;"</span>&gt;</span>
+
+
+# 重要章节标题
+
+
+[完整段落内容，确保不会在段落中间强制分页]
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<h2 id="六-最佳实践总结">六、最佳实践总结</h2>
+<ol>
+<li><strong>标签管理</strong>：在 Markdown 中使用注释标注分页位置（如<code>&lt;!-- 新章开始 --&gt;</code>），方便后期修改</li>
+<li><strong>导出测试</strong>：重要文档导出后需检查 3 个关键位置：分页处、图表页、章节开头页</li>
+<li><strong>工具适配</strong>：复杂样式建议使用 Pandoc + 自定义 CSS 方案，基础分页推荐 Typora 直接导出</li>
+<li><strong>移动设备优化</strong>：针对屏幕阅读可减少强制分页，打印场景则需严格控制每页内容量</li>
+</ol>
+<p>通过合理使用 HTML 分页标签，我们能在保持 Markdown 轻量化写作体验的同时，实现专业级 PDF 文档的排版效果。无论是学术论文的章节分隔，还是商业报告的模块划分，这种「Markdown+HTML」的混合写法都能让你的文档在格式控制上更加游刃有余。建议在实际使用中结合具体场景灵活调整，逐步形成适合自己的文档排版规范。</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[一款笔记软件助力效率提升]]></title>
+            <guid>2846936e1b694b2ab9bf2399fcc645f0</guid>
+            <pubDate>Thu, 26 Jun 2025 12:45:28 GMT</pubDate>
+            <content:encoded><![CDATA[<h2 id="一款笔记软件助力效率提升">一款笔记软件助力效率提升</h2>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<h2 id="一-你是否有以下困扰">一、你是否有以下困扰？</h2>
+<ol>
+<li>工作记录<strong>零散无序</strong></li>
+<li>磁盘文件<strong>杂乱无章</strong></li>
+<li>知识内容<strong>无法沉淀</strong></li>
+<li>成果展现<strong>思绪混乱</strong></li>
+</ol>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<p><strong>是否想过有一款软件可以解决以上<span style="color:red" class="jop-noMdConv">所有困扰</span>！</strong></p>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<h2 id="二-joplin笔记软件解你困扰">二、Joplin笔记软件解你困扰</h2>
+<p><a title="https://joplinapp.org" href="https://joplinapp.org">https://joplinapp.org</a></p>
+<p>一款免费开源的笔记应用，功能丰富，安全高效，多端同步</p>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<section class="jop-noMdConv">
+<h2 id="三-软件特定">三、软件特定</h2>
+<ol>
+<li>完全开源且社区活跃</li>
+<li>Markdown语法完美加持</li>
+<li>跨平台、跨终端支持</li>
+<li>插件资源丰富灵活扩展</li>
+</ol>
+</section>
+<section class="jop-noMdConv">
+<h3 id="1-完全开源且社区活跃">1. 完全开源且社区活跃</h3>
+<p>Github地址：<a title="https://github.com/laurent22/joplin" href="https://github.com/laurent22/joplin">https://github.com/laurent22/joplin</a></p>
+<p><img src="/_resources/c68ef241cf7f43aa9bca8a80ef5b41ff.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="2-markdown语法加持">2. Markdown语法加持</h3>
+<p>Markdown语法：<a title="https://markdown.com.cn/" href="https://markdown.com.cn/">https://markdown.com.cn/</a></p>
+<p><img src="/_resources/d9ee7983f49243c5b1a1b884719def18.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="3-跨平台-跨终端支持">3. 跨平台、跨终端支持</h3>
+<ul>
+<li>PC端（Windos、MacOS、Linux）</li>
+<li>移动端（IOS、Android）</li>
+</ul>
+<p><img src="/_resources/fd0b4627fb4246b0bb2e92ea397b70c6.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="4-插件资源丰富灵活扩展">4. 插件资源丰富灵活扩展</h3>
+<p>Github：<a title="https://github.com/joplin/plugins" href="https://github.com/joplin/plugins">https://github.com/joplin/plugins</a></p>
+<ul>
+<li>插件市场如果不能满足需求，自己手搓一个也不是不行</li>
+<li><a title="https://joplinapp.org/help/api/get_started/plugins/" href="https://joplinapp.org/help/api/get_started/plugins/">教程：https://joplinapp.org/help/api/get_started/plugins/</a></li>
+</ul>
+<p><img src="/_resources/0726fcf255884972a17721c327a7bffb.png" /></p>
+</section>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<section class="jop-noMdConv">
+<h2 id="四-效率提升">四、效率提升</h2>
+<ol>
+<li>灵感、思绪：随心记录</li>
+<li>笔记、文件：清晰管理</li>
+<li>笔记、知识：便捷沉淀</li>
+<li>成果、灵感：酷炫展现</li>
+</ol>
+<p><code>充分运用好软件能力，助力工作效率提升</code></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="1-灵感-思绪随心记录">1. 灵感、思绪：随心记录</h3>
+<p>Markdown 就像一个 “灵活的思维容器”，既能接住一闪而过的灵感火花，又能在后续打磨中逐渐生长为完整的思路体系，让每一次记录都高效且有价值。</p>
+<ul>
+<li>恰好Joplin完美兼容Markdown的格式，并且支持Mermaid 语法、Katex 语法、 Latex 语法等</li>
+<li>花半天时间轻松拿捏 Markdown 语法，绝对让你收益巨大</li>
+</ul>
+</section>
+<section class="jop-noMdConv">
+<h3 id="2-笔记-文件清晰管理">2. 笔记、文件：清晰管理</h3>
+<p>Joplin支持 <code>笔记本-&gt;笔记</code> 的无限树形目录管理，可以根据自己需求轻松管理自己的笔记内容。</p>
+<ul>
+<li>安装 <code>Folder Mapping</code> 插件效率翻倍</li>
+<li>笔记维护与磁盘文件管理保持思路同步(给大脑减负)</li>
+</ul>
+<p><img src="/_resources/4f7e99496766427e85ac0f1c8be1a348.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="3-笔记-知识便捷沉淀">3. 笔记、知识：便捷沉淀</h3>
+<p>日常零碎笔记用Markdown格式化后，能通过标题、列表、加粗等功能梳理条理，让零散信息形成关联网络，且其轻量化特性便于持续整理，轻松实现从碎片化记录到体系化知识库的沉淀。</p>
+<ul>
+<li>可轻松导出多种格式分享给他人</li>
+</ul>
+<p><img src="/_resources/bb604d9aea3d4401a2cc2bbd39ef997a.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="4-成果-灵感酷炫展现">4. 成果、灵感：酷炫展现</h3>
+<p>整理的笔记内容如果要在会上给人演示，以往为了效果还得编写PPT，费时、费力、重复劳作。</p>
+<ul>
+<li>安装 <code>RevealJS Integration</code> 插件轻松实现笔记像PPT一样播放，效果酷炫，非常亮眼</li>
+</ul>
+<p><img src="/_resources/1c94805fd9a54e3e927b4c9bb246d96f.png" /></p>
+</section>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<section class="jop-noMdConv">
+<h2 id="五-插件推荐">五、插件推荐</h2>
+<ol>
+<li>Favorites-收藏</li>
+<li>Folder Mapping-文件映射</li>
+<li>Outline-目录</li>
+<li>Inline TODO-待办工作项</li>
+<li>Draw.io-绘图</li>
+<li>Kity Minder-思维导图</li>
+<li>更多推荐</li>
+</ol>
+</section>
+<section class="jop-noMdConv">
+<h3 id="1-favorites-收藏">1.  Favorites-收藏</h3>
+<ul>
+<li>Github：<a title="https://github.com/benji300/joplin-favorites" href="https://github.com/benji300/joplin-favorites">https://github.com/benji300/joplin-favorites</a></li>
+</ul>
+<p>在额外的面板视图中将任何笔记本、笔记、待办事项、标签或搜索另存为收藏夹，以便快速访问。</p>
+<p><img src="/_resources/c2090d6a392c42d695294d553338698b.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="2-folder-mapping-文件映射">2.  Folder Mapping-文件映射</h3>
+<ul>
+<li>Github：<a title="https://github.com/yimisunrise/joplin-folder-mapping" href="https://github.com/yimisunrise/joplin-folder-mapping">https://github.com/yimisunrise/joplin-folder-mapping</a></li>
+</ul>
+<p>能够将 Joplin 中的笔记本目录精准映射到系统指定根目录下的同路径目录。借助该插件，用户可直接从 Joplin 笔记本跳转至对应的系统文件夹，轻松实现笔记目录管理与系统文件夹管理的深度融合，显著提升工作效率。</p>
+<p><img src="/_resources/384ca95ca9334881919d7f83624286ac.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="3-outline-目录">3.  Outline-目录</h3>
+<p>Github：<a title="https://github.com/cqroot/joplin-outline" href="https://github.com/cqroot/joplin-outline">https://github.com/cqroot/joplin-outline</a></p>
+<p>Joplin的一个markdown outline (TOC)工具条插件，可以直观查看笔记内容的目录结构，帮助文档编写。</p>
+<p><img src="/_resources/3f7ebb3555f545eeb71ad74b66939976.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="4-inline-todo-待办工作项">4. Inline TODO-待办工作项</h3>
+<p>Github：<a title="https://github.com/CalebJohn/joplin-inline-todo" href="https://github.com/CalebJohn/joplin-inline-todo">https://github.com/CalebJohn/joplin-inline-todo</a></p>
+<p>在任何笔记中书写待办事项，可以在一个文件中查看所有待办。</p>
+<p><img src="/_resources/b4831ad9bfa84179a4f823c5a418e1ff.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="5-drawio-绘图">5.  Draw.io-绘图</h3>
+<p>Github：<a title="https://github.com/marc0l92/joplin-plugin-drawio" href="https://github.com/marc0l92/joplin-plugin-drawio">https://github.com/marc0l92/joplin-plugin-drawio</a></p>
+<p>这个插件允许你使用编辑器 diagrams.net (又名draw.io)进行绘图。（该插件需要联网才能工作）</p>
+<p><img src="/_resources/89f8dd1377ce4b4c9abbe30d5b484c8c.png" /></p>
+<p><img src="/_resources/ba3b173a35c641d282692c2b8c69f85c.png" /></p>
+<p>更多的效果</p>
+<p><img src="/_resources/1ecee5a8024345fbb3362258ebd00132.png" /></p>
+<p><img src="/_resources/81ed546186504df894265fb5c69c6b7d.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="6-kity-minder-思维导图">6.  Kity Minder-思维导图</h3>
+<p>Github：<a title="https://github.com/xeden3/joplin-plugin-kity-minder" href="https://github.com/xeden3/joplin-plugin-kity-minder">https://github.com/xeden3/joplin-plugin-kity-minder</a></p>
+<p>可以在笔记中插入思维导图的工具，并且支持随时对思维导图进行再次修改编辑。</p>
+<p><img src="/_resources/788c19f11bfe445caebdc137c76af995.png" /></p>
+<p><img src="/_resources/7bc78221338f4837afa4356488117da2.png" /></p>
+</section>
+<section class="jop-noMdConv">
+<h3 id="7-更多推荐">7.  更多推荐</h3>
+<ul>
+<li>Pages Publisher：可以将笔记生成博客网页推送到Github</li>
+<li>Quick Links：快速创建指向其他笔记的链接</li>
+<li>Journal：为今天或从日期选取器中选择的另一个日期创建或打开便笺</li>
+</ul>
+<p><code>以上是我个人觉得好用的插件，推荐给大家！</code></p>
+<p><code>你也可以在插件超市中寻找适合你自己的插件！</code></p>
+</section>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<h2 id="六-插件安装">六、插件安装</h2>
+<ol>
+<li>以安装 <code>Folder Mapping</code> 插件为例，其他插件类似</li>
+<li>因 <code>已知</code> 原因，需要 <code>合理上网</code> 才能下载插件</li>
+</ol>
+<h3 id="1-直接搜索安装">1. 直接搜索安装</h3>
+<p>1).  在Joplin中“工具=》选项=》插件”，搜索框中输入 <code>Folder Mapping</code> ，如下图：</p>
+<p><img src="/_resources/dac619c713a640899c7d373c51ceead9.png" /></p>
+<p>2).  在搜索出的结果中找到插件，点击 <code>安装</code> 即可，安装成功后需要重启软件才能生效。</p>
+<h3 id="2-本地文件安装">2. 本地文件安装</h3>
+<p>1).  将插件压缩包下载到本地目录并解压</p>
+<p><img src="/_resources/53d06411fdf44ccb9aaa70c143baf909.png" /></p>
+<blockquote>
+<p>其中<code>.jpl</code>的文件就是Joplin插件文件</p>
+</blockquote>
+<p>2).  在Joplin中“工具=》选项=》插件=》管理您的插件=》从文件安装”，如下图：</p>
+<p><img src="/_resources/1dc35eaa8819494cbe69244a85a3c3a4.png" /></p>
+<hr />
+<div style="page-break-after:always" class="jop-noMdConv"></div>
+<h2 id="end">END</h2>
+<p><strong>以上内容仅个人使用经验，希望对大家有所帮助！</strong></p>
+<p><strong>大家还有其他实用、增效的工具，欢迎一起交流！</strong></p>
+<p><strong>个人邮箱</strong></p>
+<p>yimisunrise@126.com</p>
+<p><strong>个人博客</strong></p>
+<p><a title="https://yimisunrise.github.io/" href="https://yimisunrise.github.io/">https://yimisunrise.github.io/</a></p>
+<p><code>以上内容仅Joplin的冰山一角，欢迎大家一起探索</code></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[运营管理工具-RACI模型]]></title>
             <guid>ae6b8622768240198b7c94694e783aff</guid>
@@ -557,20 +949,20 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 </blockquote>
 <h2 id="六-改进计划">六、改进计划</h2>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-3" checked="checked" /><label id="cb-label-md-checkbox-3" for="md-checkbox-3" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-0" checked="checked" /><label id="cb-label-md-checkbox-0" for="md-checkbox-0" class="checkbox-label-checked">@DONE //2025-03-27 重新选用更耐炸的材质3D打印圈圈</label></div></li>
 </ul>
 <blockquote>
 <p>重新打印了TPU的圈圈，希望这次不会这么容易的被炸断</p>
 <p><img src="/_resources/4c59aa4dc70141a3846625c4f7aa1785.jpg" alt="TPU保护圈.jpg" width="554" height="562" class="jop-noMdConv" /> <img src="/_resources/7281968ca3274334868893eb930256a5.jpg" alt="IMG_20250419_124402.jpg" width="554" height="725" class="jop-noMdConv" /></p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-4" /><label id="cb-label-md-checkbox-4" for="md-checkbox-4" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-1" /><label id="cb-label-md-checkbox-1" for="md-checkbox-1" class="checkbox-label-unchecked">@DOING //2025-04-30 在原有上层PCB板子上添加BB响和LED灯</label></div></li>
 </ul>
 <blockquote>
 <p>已经完成PCB的设计，待下个月打印板子后尝试</p>
 </blockquote>
 <ul>
-<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-5" /><label id="cb-label-md-checkbox-5" for="md-checkbox-5" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
+<li class="md-checkbox joplin-checkbox"><div class="checkbox-wrapper"><input type="checkbox" id="md-checkbox-2" /><label id="cb-label-md-checkbox-2" for="md-checkbox-2" class="checkbox-label-unchecked">@TODO 切碳纤维上层板与PCB重叠使用，提升机架强度</label></div></li>
 </ul>
 <blockquote>
 <p>用PCB的板子验证得差不多了，再切碳纤维的板子</p>
@@ -723,294 +1115,6 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 <li>论坛支持：<a title="https://discourse.joplinapp.org" href="https://discourse.joplinapp.org">https://discourse.joplinapp.org</a></li>
 </ul>
 <p>通过这个教程，你可以快速开始使用Joplin进行知识管理。随着使用深入，可以逐步探索更多高级功能！</p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[MarkText开源Markdown编辑器图文教程]]></title>
-            <guid>3316d2c7ca994ee3a2bc825ec8426f11</guid>
-            <pubDate>Fri, 14 Mar 2025 12:20:46 GMT</pubDate>
-            <content:encoded><![CDATA[<p>以下是一篇关于使用 <strong>MarkText</strong> 的图文教程，以简洁易懂的方式帮助你快速上手这款强大的 Markdown 编辑器。</p>
-<hr />
-<h3 id="marktext-图文教程轻松编写优雅的-markdown-文档">MarkText 图文教程：轻松编写优雅的 Markdown 文档</h3>
-<h4 id="一-什么是-marktext">一、什么是 MarkText？</h4>
-<p><strong>MarkText</strong> 是一款免费开源的 Markdown 编辑器，支持实时预览、多种主题、数学公式、流程图等功能。界面简洁，适合写作、笔记、技术文档等场景。</p>
-<p><strong>适用人群</strong>：</p>
-<ul>
-<li>需要高效编写 Markdown 的用户</li>
-<li>希望摆脱复杂工具栏、专注内容的创作者</li>
-<li>需要导出 PDF/HTML 的技术写作者</li>
-</ul>
-<hr />
-<h4 id="二-安装-marktext">二、安装 MarkText</h4>
-<ol>
-<li>
-<p><strong>下载地址</strong><br />
-访问官网 <a title="https://www.marktext.cc/%EF%BC%8C%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%88Windows/macOS/Linux%EF%BC%89%E3%80%82" href="https://www.marktext.cc/%EF%BC%8C%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%88Windows/macOS/Linux%EF%BC%89%E3%80%82">https://www.marktext.cc/，选择对应系统的版本（Windows/macOS/Linux）。</a><br />
-GitHub地址：<a title="https://github.com/marktext/marktext" href="https://github.com/marktext/marktext">https://github.com/marktext/marktext</a> <img src="/_resources/0555e746f22d44fa8f4eec5bbf3937c9.png" /></p>
-</li>
-<li>
-<p><strong>安装步骤</strong></p>
-<ul>
-<li><strong>Windows</strong>：双击 <code>.exe</code> 文件，按提示安装。</li>
-<li><strong>macOS</strong>：拖拽 <code>.dmg</code> 文件到「应用程序」文件夹。</li>
-<li><strong>Linux</strong>：解压后运行 <code>./marktext-x86_64.AppImage</code>。</li>
-</ul>
-</li>
-</ol>
-<hr />
-<h4 id="三-界面与基础操作">三、界面与基础操作</h4>
-<ol>
-<li>
-<p><strong>主界面概览</strong> <img src="/_resources/a62a91b765d445a6ac2bafd869ea0779.png" /></p>
-<ul>
-<li><strong>左侧</strong>：文件目录树（需手动打开文件夹）</li>
-<li><strong>中间</strong>：编辑区（支持实时预览）</li>
-<li><strong>右侧</strong>：无干扰写作模式（按 <code>Ctrl+/</code> 切换）</li>
-</ul>
-</li>
-<li>
-<p><strong>新建与保存文件</strong></p>
-<ul>
-<li>快捷键：<code>Ctrl+N</code> 新建，<code>Ctrl+S</code> 保存为 <code>.md</code> 文件。</li>
-<li>支持自动保存（需在设置中开启）。</li>
-</ul>
-</li>
-</ol>
-<hr />
-<h4 id="四-markdown-基础语法演示">四、Markdown 基础语法演示</h4>
-<p>MarkText 支持通用 Markdown 语法，以下为常用示例：</p>
-<ol>
-<li><strong>标题与文字格式</strong></li>
-</ol>
-<div><pre class="hljs"><code>   # 一级标题
-   ## 二级标题
-   <span class="hljs-strong">**加粗**</span> <span class="hljs-emphasis">*斜体*</span> ~~删除线~~</code></pre></div>
-<p><img src="/_resources/14761a9f29be499b9825abc5af2a773b.png" /></p>
-<ol start="2">
-<li><strong>列表与任务</strong></li>
-</ol>
-<div><pre class="hljs"><code><span class="hljs-bullet">   -</span> 无序列表
-<span class="hljs-bullet">   1.</span> 有序列表
-<span class="hljs-bullet">   -</span> [ ] 未完成任务
-<span class="hljs-bullet">   -</span> [x] 已完成任务</code></pre></div>
-<p><img src="/_resources/125b3d3de590449f9cf4d8bd692d1322.png" /></p>
-<ol start="3">
-<li><strong>插入图片与链接</strong></li>
-</ol>
-<div><pre class="hljs"><code>   ![<span class="hljs-string">图片描述</span>](<span class="hljs-link">图片路径</span>)
-   [<span class="hljs-string">链接文字</span>](<span class="hljs-link">https://example.com</span>)</code></pre></div>
-<p>直接拖拽图片到编辑区可自动插入！</p>
-<p><img src="/_resources/19a5cdb5ab4d4b6c9ee063f544676f0e.png" /></p>
-<hr />
-<h4 id="五-高级功能">五、高级功能</h4>
-<ol>
-<li><strong>数学公式（LaTeX）</strong><br />
-用 <code>$$</code> 包裹公式：</li>
-</ol>
-<div><pre class="hljs"><code>$$
-E = mc^2
-$$</code></pre></div>
-<p><img src="/_resources/a388e4361f1e4d55830b62815d6480f9.png" /></p>
-<ol start="2">
-<li><strong>流程图与图表</strong><br />
-使用代码块标记语言（需手动启用）：</li>
-</ol>
-<div><pre class="hljs"><code><span class="hljs-code">```mermaid
-graph LR
-A[开始] --&gt; B{条件}
-B --&gt;|是| C[执行]
-B --&gt;|否| D[结束]</span></code></pre></div>
-<div><pre class="hljs"><code>![<span class="hljs-string">0e0900706d6a5a3aae0257a2ae8e4fc1.png</span>](<span class="hljs-link">:/1a1b8bf4c3fe4ae3a5c2f6692a752e47</span>)
-
-<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
-
-<span class="hljs-section">#### 六、导出与分享</span>
-
-<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**导出为 PDF/HTML**</span>
-<span class="hljs-bullet">    -</span> 点击菜单栏 <span class="hljs-code">`File`</span> → <span class="hljs-code">`Export`</span> → 选择格式（PDF/HTML）。
-<span class="hljs-bullet">    -</span> <span class="hljs-strong">**PDF 导出效果**</span>：
-
-![<span class="hljs-string">b01c707656784db208f5ff1f42a7a8c7.png</span>](<span class="hljs-link">:/7b461ee3943c468d94605d62065ab4b8</span>)
-
-<span class="hljs-bullet">2.</span>  <span class="hljs-strong">**直接复制 HTML**</span>  
-<span class="hljs-code">    按 `Ctrl+Shift+C` 复制带样式的 HTML 代码，可直接粘贴到网站。
-</span>
-<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
-
-<span class="hljs-section">#### 七、个性化设置</span>
-
-<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**更换主题**</span>  
-<span class="hljs-code">    `Preferences` → `Theme` → 选择深色/浅色/自定义主题。
-    
-2.  **快捷键自定义**  
-    在 `Keybindings` 中修改常用操作的快捷键。
-    
-</span>
-<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
-
-<span class="hljs-section">#### 八、小结与推荐</span>
-
-<span class="hljs-strong">**MarkText 优点**</span>：
-
-✅ 实时预览，写作流畅  
-✅ 开源免费，无广告  
-✅ 支持高级语法（公式、流程图）
-
-<span class="hljs-strong">**适用场景**</span>：技术文档、个人博客、课堂笔记、开源项目 README。
-
-<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
-
-<span class="hljs-section">#### 九、常见问题（FAQ）</span>
-
-<span class="hljs-bullet">1.</span>  <span class="hljs-strong">**如何解决中文输入法兼容问题？**</span>
-<span class="hljs-code">    
-    - 升级到最新版本或切换为英文输入法临时解决。
-2.  **文件保存在哪里？**
-    
-    - 默认保存路径为手动打开的文件夹，建议先指定工作目录。
-3.  **如何导入现有 Markdown 文件？**
-    
-    - 直接拖拽文件到编辑区，或通过 `File` → `Open` 打开。
-</span>
-<span class="hljs-bullet">*</span> <span class="hljs-emphasis">* *</span>
-
-通过这篇教程，你可以快速掌握 MarkText 的核心功能。开始享受沉浸式的 Markdown 写作吧！ 🚀</code></pre></div>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Flameshot开源截图工具图文教程]]></title>
-            <guid>b1d9cfabf61a45e68af4e9d2fc45f921</guid>
-            <pubDate>Fri, 14 Mar 2025 05:10:15 GMT</pubDate>
-            <content:encoded><![CDATA[<h2 id="目录">目录</h2>
-<ol>
-<li><a title="#%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9">功能特点</a></li>
-<li><a title="#%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">安装方法</a></li>
-<li><a title="#%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" href="#%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">基础功能介绍</a></li>
-<li><a title="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4">使用步骤</a></li>
-<li><a title="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></li>
-</ol>
-<hr />
-<h2 id="功能特点">功能特点</h2>
-<ul>
-<li><strong>开源免费</strong>：跨平台支持（Linux/Windows/macOS）</li>
-<li><strong>轻量高效</strong>：快速启动，低内存占用</li>
-<li><strong>丰富标注工具</strong>：箭头、矩形、圆形、文字、模糊、高亮等</li>
-<li><strong>快捷键支持</strong>：自定义截图快捷键</li>
-<li><strong>即时分享</strong>：支持保存到本地或直接上传图床</li>
-<li><strong>贴图功能</strong>：将截图悬浮在桌面随时查看</li>
-</ul>
-<hr />
-<h2 id="安装方法">安装方法</h2>
-<h3 id="linux-系统">Linux 系统</h3>
-<div><pre class="hljs"><code><span class="hljs-comment"># Ubuntu/Debian</span>
-sudo apt install flameshot
-
-<span class="hljs-comment"># Fedora</span>
-sudo dnf install flameshot
-
-<span class="hljs-comment"># Arch</span>
-sudo pacman -S flameshot</code></pre></div>
-<h3 id="macos">macOS</h3>
-<div><pre class="hljs"><code>brew install --cask flameshot</code></pre></div>
-<h3 id="windows">Windows</h3>
-<ul>
-<li>从 <a title="https://github.com/flameshot-org/flameshot/releases" href="https://github.com/flameshot-org/flameshot/releases">GitHub Releases</a> 下载安装包</li>
-</ul>
-<hr />
-<h2 id="基础功能介绍">基础功能介绍</h2>
-<p><img src="/_resources/fb2a084c200346f8bf04304f71b51360.png" /></p>
-<p>（<em>示意图：标注工具栏展示</em>）</p>
-<table>
-<thead>
-<tr>
-<th>工具</th>
-<th>快捷键</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>矩形选区</td>
-<td><code>R</code></td>
-<td>截取指定区域</td>
-</tr>
-<tr>
-<td>箭头</td>
-<td><code>A</code></td>
-<td>添加指示箭头</td>
-</tr>
-<tr>
-<td>画笔</td>
-<td><code>P</code></td>
-<td>自由绘制线条</td>
-</tr>
-<tr>
-<td>文本</td>
-<td><code>T</code></td>
-<td>插入文字标注</td>
-</tr>
-<tr>
-<td>模糊</td>
-<td><code>B</code></td>
-<td>打码敏感信息</td>
-</tr>
-<tr>
-<td>撤销</td>
-<td><code>Ctrl+Z</code></td>
-<td>撤销上一步操作</td>
-</tr>
-<tr>
-<td>保存</td>
-<td><code>Ctrl+S</code></td>
-<td>保存截图到本地</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="使用步骤">使用步骤</h2>
-<h3 id="步骤1启动程序">步骤1：启动程序</h3>
-<ul>
-<li><strong>命令行启动</strong>：终端输入 <code>flameshot gui</code></li>
-<li><strong>快捷键启动</strong>：默认 <code>PrintScreen</code> 键（可自定义）</li>
-</ul>
-<h3 id="步骤2选择截图区域">步骤2：选择截图区域</h3>
-<ol>
-<li>拖动鼠标选择截图范围</li>
-<li>按 <code>Enter</code> 确认选区</li>
-</ol>
-<h3 id="步骤3使用标注工具">步骤3：使用标注工具</h3>
-<ul>
-<li>点击工具栏图标或使用快捷键添加标注</li>
-<li>示例：用箭头+文字说明重点内容<br />
-<img src="/_resources/cfe0189eb0e54b87909d5e82ebd72dc3.png" /></li>
-</ul>
-<h3 id="步骤4保存或分享">步骤4：保存或分享</h3>
-<ul>
-<li><strong>保存本地</strong>：点击磁盘图标或按 <code>Ctrl+S</code></li>
-<li><strong>复制到剪贴板</strong>：点击剪贴板图标或按 <code>Ctrl+C</code></li>
-<li><strong>上传图床</strong>：点击云上传图标（需配置API）</li>
-</ul>
-<hr />
-<h2 id="常见问题">常见问题</h2>
-<h3 id="q1截图后无法保存">Q1：截图后无法保存？</h3>
-<ul>
-<li>检查文件保存路径权限</li>
-<li>尝试更换保存路径：<code>设置 -&gt; 保存 -&gt; 修改默认路径</code></li>
-</ul>
-<h3 id="q2快捷键冲突">Q2：快捷键冲突？</h3>
-<ul>
-<li>打开设置页面：<code>flameshot config</code></li>
-<li>修改快捷键：<code>General -&gt; 快捷键</code></li>
-</ul>
-<h3 id="q3如何模糊敏感信息">Q3：如何模糊敏感信息？</h3>
-<ol>
-<li>点击工具栏「模糊」工具（或按 <code>B</code>）</li>
-<li>涂抹需要隐藏的区域</li>
-<li>支持调整模糊强度：右键选择模糊程度</li>
-</ol>
-<hr />
-<h2 id="结语">结语</h2>
-<p>Flameshot 是一款兼具效率与功能的截图工具，通过快捷键和丰富的标注工具，能显著提升工作/学习场景中的信息传达效率。立即体验，让截图编辑变得更专业！</p>
 ]]></content:encoded>
         </item>
     </channel>

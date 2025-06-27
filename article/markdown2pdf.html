@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="/_assets/main.css" />
+<link rel="stylesheet" href="/_assets/background/tech.css" />
+<script src="/_assets/background/tech.js"></script>
+    <title>Markdown 导出 PDF 分页技巧：用 HTML 标签精准控制页面布局 - YIMI&#39;s Blog</title>
+    <link rel="stylesheet" href="/_assets/viewerjs/viewer.min.css">
+    <meta name="keywords" content="博文,经验,markdown">
+  <link rel="stylesheet" href="/_markdown_plugin_assets/highlight.js/atom-one-light.css" /></head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div>
+          <a href="/" class="header-title">YIMI&#39;s Blog</a>
+          <div class="header-subtitle">笔记是一种心态！</div>
+        </div>
+        <nav class="header-nav">
+          
+          <a href="/archives">笔记库</a>
+          
+          <a href="/index">首页</a>
+          
+          <a href="/about">关于</a>
+          
+        </nav>
+      </div>
+    </header>
+    <div class="main">
+      <article>
+        <header>
+          <h1 class="article-title">Markdown 导出 PDF 分页技巧：用 HTML 标签精准控制页面布局</h1>
+          <div class="article-info">
+            <div>
+              <span
+                >Created At：<time datetime="1750983549284"
+                  >2025-06-27 08:19</time
+                ></span
+              >
+              <span
+                >Updated At：<time datetime="1750985988775"
+                  >2025-06-27 08:59</time
+                ></span
+              >
+            </div>
+            
+            <div>
+              Keywords: 
+              
+              <span class="keyword">博文</span>
+              
+              <span class="keyword">经验</span>
+              
+              <span class="keyword">markdown</span>
+              
+            </div>
+            
+          </div>
+        </header>
+        <div class="article-content markdown-body"><p>在技术写作、学术论文、产品手册等长文档的创作中，将 Markdown 格式内容导出为 PDF 时，合理的分页设置能显著提升文档的可读性和专业性。本文将详细解析如何通过插入 HTML 标签实现精准分页控制，帮助你打造结构清晰的 PDF 文档。</p>
+<h2 id="一-为什么需要分页控制">一、为什么需要分页控制？</h2>
+<p>当 Markdown 文档包含多个章节、独立模块或需要适配打印场景时，自然分页往往无法满足需求：</p>
+<ul>
+<li><strong>结构清晰化</strong>：书籍章节、报告分节需要强制分页，避免内容跨页断裂</li>
+<li><strong>打印友好性</strong>：简历、合同等文档要求特定内容固定在单页</li>
+<li><strong>阅读体验</strong>：长表格、图表需要单独占页，防止跨页显示影响查看</li>
+</ul>
+<p>传统 Markdown 依赖内容自动填充页面的机制，在复杂文档中常导致章节开头出现在页中、图表截断等问题。而 HTML 标签的介入能实现「人工干预分页」，让文档结构完全符合预期。</p>
+<h2 id="二-核心技巧插入-html-分页标签">二、核心技巧：插入 HTML 分页标签</h2>
+<h3 id="1-基础语法与实现原理">1. 基础语法与实现原理;</h3>
+<p>在 Markdown 中直接插入 HTML 代码<code>&lt;div style="page-break-after: always;"&gt;&lt;/div&gt;</code>，该标签会被解析为「强制分页符」。其原理是利用 CSS 的<code>page-break-after</code>属性，告诉 PDF 渲染引擎在此处进行页面分割。</p>
+<div><pre class="hljs"><code>## 第一章 引言
+
+
+这里是章节内容...
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- 强制分页 --&gt;</span>
+
+
+## 第二章 核心技术
+
+
+这里是下一章内容...</code></pre></div>
+<h3 id="2-操作注意事项">2. 操作注意事项;</h3>
+<ul>
+<li><strong>标签位置</strong>：必须插入在普通文本段落中，避免放入代码块（<code> </code>）或列表项内</li>
+<li><strong>格式规范</strong>：标签前后建议保留空行（如上文示例），提升 Markdown 可读性</li>
+<li><strong>工具兼容性</strong>：主流导出工具（Typora/Pandoc/Markdown Here）均支持该语法，导出时会自动忽略标签可视化显示</li>
+</ul>
+<h2 id="三-多场景应用示例">三、多场景应用示例</h2>
+<h3 id="场景-1书籍章节强制分页">场景 1：书籍章节强制分页;</h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 第一篇 基础篇</span>
+
+
+<span class="hljs-comment">## 第一章 开发环境搭建</span>
+
+
+[内容<span class="hljs-string">...</span>]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;<span class="hljs-string">/div</span>&gt;
+
+
+<span class="hljs-comment">## 第二章 基础语法入门</span>
+
+
+[内容<span class="hljs-string">...</span>]</code></pre></div>
+<p>确保每章内容从新页开始，符合书籍排版规范。</p>
+<h3 id="场景-2报告分模块独立显示">场景 2：报告分模块独立显示;</h3>
+<div><pre class="hljs"><code>### 一、市场现状分析
+
+
+[数据图表与详细分析...]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;/div&gt;
+
+
+### 二、竞争态势研究
+
+
+[竞品分析表格与对比图...]</code></pre></div>
+<p>让每个核心模块单独占页，方便汇报时重点展示。</p>
+<h3 id="场景-3简历分页控制">场景 3：简历分页控制;</h3>
+<div><pre class="hljs"><code><span class="hljs-comment"># 个人简历</span>
+
+
+<span class="hljs-comment">## 基本信息</span>
+
+
+[姓名/联系方式/地址<span class="hljs-string">...</span>]
+
+
+&lt;div style=<span class="hljs-string">"page-break-after: always;"</span>&gt;&lt;<span class="hljs-string">/div</span>&gt;
+
+
+<span class="hljs-comment">## 工作经历</span>
+
+
+[详细履历<span class="hljs-string">...</span>]</code></pre></div>
+<p>确保简历内容不会在「基本信息」与「工作经历」之间分页，保持单页显示（如需跨页则无需标签）。</p>
+<h2 id="四-常见问题与解决方案">四、常见问题与解决方案</h2>
+<h3 id="问题-1分页标签无效">问题 1：分页标签无效;</h3>
+<ul>
+<li><strong>可能原因</strong>：导出工具未启用 HTML 解析（如某些极简转换器）</li>
+<li><strong>解决方法</strong>：</li>
+</ul>
+<ol>
+<li>
+<p>检查工具设置：Typora 需在「文件 - 导出 - PDF」中保持默认设置（自动解析 HTML）</p>
+</li>
+<li>
+<p>改用专业工具：Pandoc 命令行导出时添加参数<code>--pdf-engine=weasyprint</code>增强 HTML 支持</p>
+</li>
+</ol>
+<h3 id="问题-2分页后出现空白页">问题 2：分页后出现空白页
+</h3>
+<ul>
+<li><strong>可能原因</strong>：当前页剩余空间不足以容纳下一段落</li>
+<li><strong>优化技巧</strong>：搭配<code>page-break-inside: avoid</code>属性防止段落内分页</li>
+</ul>
+<div><pre class="hljs"><code>&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"page-break-after: always; page-break-inside: avoid;"</span>&gt;
+
+
+[完整段落内容，避免被分页截断]
+
+
+&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
+<h3 id="问题-3表格-图片跨页显示">问题 3：表格 / 图片跨页显示;</h3>
+<p><strong>解决方案</strong>：在图表前后添加双分页符</p>
+<div><pre class="hljs"><code>![关键数据图表](image.png)
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-after: always;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- 强制下一页开始 --&gt;</span>
+
+
+[图表分析文字...]</code></pre></div>
+<h2 id="五-进阶用-html-实现页面样式控制">五、进阶：用 HTML 实现页面样式控制</h2>
+<p>除了分页，还可通过 HTML 标签设置 PDF 页面基础样式（需结合支持 CSS 的导出工具）：</p>
+<h3 id="1-页面边距设置">1. 页面边距设置;</h3>
+<div><pre class="hljs"><code>&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-string">"page-break-after: always; margin: 2cm;"</span>&gt;
+
+
+[内容区域，四周留白<span class="hljs-number">2</span>厘米]
+
+
+&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
+<h3 id="2-页眉页脚添加">2. 页眉页脚添加;</h3>
+<div><pre class="hljs"><code><span class="language-xml"><span class="hljs-comment">&lt;!-- 页眉（顶部居中） --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: fixed; top: 0; left: 0; right: 0; text-align: center;"</span>&gt;</span>
+
+
+<span class="hljs-symbol">&amp;#x20;</span> 《技术白皮书》 | 第</span><span class="hljs-template-variable">{page}</span><span class="language-xml">页
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+<span class="hljs-comment">&lt;!-- 页脚（底部右侧） --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: fixed; bottom: 0; right: 1cm;"</span>&gt;</span>
+
+
+<span class="hljs-symbol">&amp;#x20;</span> Copyright © 2025 技术团队
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></code></pre></div>
+<blockquote>
+<p>注意：页眉页脚需配合 Pandoc 等工具的 CSS 模板使用，具体语法需根据工具文档调整</p>
+</blockquote>
+<h3 id="3-避免内容截断">3. 避免内容截断
+</h3>
+<div><pre class="hljs"><code><span class="hljs-comment">&lt;!-- 防止段落中间分页 --&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"page-break-inside: avoid;"</span>&gt;</span>
+
+
+# 重要章节标题
+
+
+[完整段落内容，确保不会在段落中间强制分页]
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<h2 id="六-最佳实践总结">六、最佳实践总结</h2>
+<ol>
+<li><strong>标签管理</strong>：在 Markdown 中使用注释标注分页位置（如<code>&lt;!-- 新章开始 --&gt;</code>），方便后期修改</li>
+<li><strong>导出测试</strong>：重要文档导出后需检查 3 个关键位置：分页处、图表页、章节开头页</li>
+<li><strong>工具适配</strong>：复杂样式建议使用 Pandoc + 自定义 CSS 方案，基础分页推荐 Typora 直接导出</li>
+<li><strong>移动设备优化</strong>：针对屏幕阅读可减少强制分页，打印场景则需严格控制每页内容量</li>
+</ol>
+<p>通过合理使用 HTML 分页标签，我们能在保持 Markdown 轻量化写作体验的同时，实现专业级 PDF 文档的排版效果。无论是学术论文的章节分隔，还是商业报告的模块划分，这种「Markdown+HTML」的混合写法都能让你的文档在格式控制上更加游刃有余。建议在实际使用中结合具体场景灵活调整，逐步形成适合自己的文档排版规范。</p>
+</div>
+      </article>
+    </div>
+    <script src="/_assets/viewerjs/viewer.min.js"></script>
+    <script src="/_assets/clipboardjs/clipboard.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .code-copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 2px 8px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .code-block:hover .code-copy {
+        opacity: 1;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 初始化代码复制功能
+        const codeBlocks = document.querySelectorAll('pre code');
+        codeBlocks.forEach(code => {
+          const pre = code.parentNode;
+          pre.classList.add('code-block');
+          
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy';
+          copyBtn.textContent = '复制';
+          copyBtn.setAttribute('data-clipboard-text', code.textContent);
+          pre.appendChild(copyBtn);
+        });
+
+        // 创建Toast元素
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+
+        const clipboard = new ClipboardJS('.code-copy');
+        clipboard.on('success', function(e) {
+          toast.textContent = '复制成功!';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+          e.clearSelection();
+        });
+        clipboard.on('error', function(e) {
+          toast.textContent = '复制失败，请手动选择后复制';
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+
+        // 初始化图片查看器
+        const articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+          try {
+            // 创建图片容器
+            const viewerContainer = document.createElement('div');
+            viewerContainer.className = 'image-viewer-container';
+            
+            // 复制所有图片到容器
+            const images = articleContent.querySelectorAll('img');
+            images.forEach(img => {
+              const clone = img.cloneNode();
+              clone.src = img.src;
+              viewerContainer.appendChild(clone);
+            });
+
+            // 初始化Viewer并保存实例
+            const viewer = new Viewer(viewerContainer, {
+              inline: false,
+              button: true,
+              navbar: true,
+              title: false,
+              toolbar: {
+                zoomIn: true,
+                zoomOut: true,
+                oneToOne: true,
+                reset: true,
+                prev: true,
+                play: true,
+                next: true,
+                rotateLeft: true,
+                rotateRight: true,
+                flipHorizontal: true,
+                flipVertical: true,
+              }
+            });
+
+            // 点击原图时触发Viewer
+            images.forEach((img, index) => {
+              img.addEventListener('click', () => {
+                viewer.view(index);
+              });
+            });
+          } catch (e) {
+            console.error('Viewer initialization error:', e);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
