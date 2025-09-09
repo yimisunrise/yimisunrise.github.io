@@ -4,9 +4,65 @@
         <title></title>
         <link>undefined</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 27 Jun 2025 06:08:47 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Sep 2025 00:42:23 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Joplin Pages Publisher</generator>
+        <item>
+            <title><![CDATA[DIY壁柜书架方案]]></title>
+            <guid>2dee05ffee4840f0a6241615e7532b58</guid>
+            <pubDate>Fri, 22 Aug 2025 01:03:33 GMT</pubDate>
+            <content:encoded><![CDATA[<h2 id="一-背景">一、背景</h2>
+<p>家里孩子的房间本就不大，添置衣柜后，连摆放书架的位置都没了。看着闲置的廊道，想着要是能合理利用起来，既不浪费空间，又能解决孩子的书籍收纳问题，简直一举两得。然而，在网上反复挑选成品书架时，却发现了不少问题。书架的高度、宽度、深度，总是无法精准适配廊道空间，不是太占地方影响通行，就是容量不足。在这种情况下，自己动手 DIY 一款专属书架的想法愈发强烈。后来在网上偶然看到一款心仪的成品书架，便决定参考其样式，购买铝型材和板材，开启这场充满挑战与创意的 DIY 之旅。</p>
+<img src="/_resources/8a71c2cf5c6344949730e217b4a00417.png" alt="ef6359bc56aca45e0db80ea309830991.png" width="499" height="624" class="jop-noMdConv" />
+<h2 id="二-设计">二、设计</h2>
+<p>单位：mm</p>
+<hr />
+<p>整体空高：2440</p>
+<p>铝型材高度：2282 至 2310  取中间值 2230</p>
+<p>脚杯高度：65 至 79</p>
+<p>整体长度：1740</p>
+<p>整体深度：220</p>
+<hr />
+<p>2400 x 6 根</p>
+<p>总长：42640 mm = 42.61 m</p>
+<hr />
+<p>分层最小高度 30</p>
+<p>若安排 7 层，需要 6 层隔板；单块 150 长度，需要 12 块隔板</p>
+<p><img src="/_resources/648e37ecfa544910b2c1d65e03806e82.png" /></p>
+<hr />
+<p>计算两块板子重叠部分的长度，用于计算在重叠部分的中间位置开孔</p>
+<p>x为重叠部分的长度</p>
+<p>x + y=1<br />
+2y + x=1.75</p>
+<p>x = 0.25<br />
+y = 0.75</p>
+<p>打孔边距<br />
+0.125m = 125mm</p>
+<p>125mm x 2 = 250mm<br />
+750mm的跨度</p>
+<h2 id="三-采购">三、采购</h2>
+<p><strong>3030铝型材：小计380.04元</strong></p>
+<p><img src="/_resources/d8e0e695ea7c446f89db250924f96951.png" /></p>
+<p><img src="/_resources/02062e9f86b64eed834ca67b84a995ed.png" /></p>
+<p><strong>松木木板：小计213.07元</strong></p>
+<p><strong><img src="/_resources/433c098749344ea8b38162f932fc7886.png" /></strong></p>
+<p><strong>3030开孔器：小计3.6元</strong></p>
+<p><img src="/_resources/d1d953e34dcc488ca2c5c5e00a5944cb.png" /></p>
+<p><strong>开槽凿刀：小计6.48元</strong></p>
+<p><img src="/_resources/e3ac8b0dd0a046d2a4f686db430574e2.png" /></p>
+<p><strong>不锈钢安全拉绳：小计3.96元</strong></p>
+<p><img src="/_resources/866c2b438c11498a91df0fc092a0e450.png" /></p>
+<p><strong>M8x130螺丝：小计4.94元</strong></p>
+<p><img src="/_resources/5b52e72ec361453d88b66f77b722c9ff.png" /></p>
+<p><strong>5mm内6角螺丝刀：小计3.84元</strong></p>
+<p><img src="/_resources/3616ed59ac194f99ac4ee6d3073792c0.png" /></p>
+<p><strong>电钻转往复锯：小计10.8元</strong></p>
+<p><img src="/_resources/bbb1a1079af44e3eb84c3fa17c8da8aa.png" /></p>
+<h2 id="四-效果">四、效果</h2>
+<p><img src="/_resources/be30565a0b0e44ed970e26ea1da4c887.jpg" /></p>
+<p><img src="/_resources/ddf90d18af6643949d5c7779bc0d3b46.jpg" /></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Markdown 导出 PDF 分页技巧：用 HTML 标签精准控制页面布局]]></title>
             <guid>33ba28e9893949c09c751aa238f961d5</guid>
@@ -993,128 +1049,6 @@ cat /var/<span class="hljs-built_in">log</span>/dpkg.log           <span class="
 <p><img src="/_resources/4e1a3944be23420a9da3a3214410d79f.png" /></p>
 <p><img src="/_resources/03bb2d211bdd472bb08a2b3d1adc8ce9.png" /></p>
 <p><img src="/_resources/158687432b9246e0a2f76866cca7dd19.png" /></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Joplin开源笔记软件图文教程]]></title>
-            <guid>ffcfd41ed14d43f39bef1bc07adafaf3</guid>
-            <pubDate>Fri, 14 Mar 2025 12:44:24 GMT</pubDate>
-            <content:encoded><![CDATA[<p>以下是一篇简单通用的Joplin开源笔记软件图文教程：</p>
-<hr />
-<h1 id="joplin-入门图文教程">Joplin 入门图文教程</h1>
-<h2 id="一-什么是joplin">一、什么是Joplin？</h2>
-<p>Joplin 是一款免费开源的笔记应用，支持：
-✅ Markdown格式
-✅ 多平台同步（Windows/macOS/Linux/iOS/Android）
-✅ 端到端加密
-✅ 笔记本层级管理
-✅ 离线使用</p>
-<h2 id="二-安装与设置">二、安装与设置</h2>
-<ol>
-<li>官网下载：访问 <a title="https://joplinapp.org" href="https://joplinapp.org">https://joplinapp.org</a></li>
-<li>选择对应系统版本安装</li>
-</ol>
-<h2 id="三-基础操作">三、基础操作</h2>
-<h3 id="1-创建笔记本">1. 创建笔记本</h3>
-<ul>
-<li>点击左侧栏 ➕ 按钮</li>
-<li>输入笔记本名称（例如：“工作笔记”）</li>
-<li>支持多级嵌套（右键创建子笔记本）</li>
-</ul>
-<h3 id="2-新建笔记">2. 新建笔记</h3>
-<ol>
-<li>选中目标笔记本</li>
-<li>点击顶部工具栏 “新建笔记” 按钮</li>
-<li>输入标题和内容：</li>
-</ol>
-<div><pre class="hljs"><code>   # 这是标题
-   ## 二级标题
-<span class="hljs-bullet">   -</span> 列表项
-   <span class="hljs-strong">**加粗文本**</span></code></pre></div>
-<h3 id="3-markdown快捷操作">3. Markdown快捷操作</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl+B</code></td>
-<td>加粗文本</td>
-</tr>
-<tr>
-<td><code>Ctrl+I</code></td>
-<td>斜体文本</td>
-</tr>
-<tr>
-<td><code>Ctrl+K</code></td>
-<td>插入链接</td>
-</tr>
-<tr>
-<td><code>Ctrl+Shift+I</code></td>
-<td>插入图片</td>
-</tr>
-</tbody>
-</table>
-<h2 id="四-同步设置以webdav为例">四、同步设置（以WebDAV为例）</h2>
-<ol>
-<li>点击菜单栏：工具 &gt; 同步</li>
-<li>选择同步目标：
-<ul>
-<li>Dropbox</li>
-<li>OneDrive</li>
-<li>WebDAV</li>
-<li>本地文件夹</li>
-</ul>
-</li>
-<li>输入账号信息完成授权</li>
-<li>点击立即同步按钮 🔄</li>
-</ol>
-<h2 id="五-高级功能">五、高级功能</h2>
-<h3 id="1-添加标签">1. 添加标签</h3>
-<ul>
-<li>在笔记编辑界面右侧栏</li>
-<li>点击 “添加标签” 创建分类</li>
-<li>支持通过标签筛选笔记</li>
-</ul>
-<h3 id="2-待办事项">2. 待办事项</h3>
-<div><pre class="hljs"><code><span class="hljs-bullet">-</span> [ ] 未完成任务
-<span class="hljs-bullet">-</span> [x] 已完成任务</code></pre></div>
-<h3 id="3-搜索功能">3. 搜索功能</h3>
-<ul>
-<li>使用 <code>Ctrl+F</code> 快速搜索</li>
-<li>支持语法：<code>tag:重要 notebook:工作</code></li>
-</ul>
-<h2 id="六-移动端使用">六、移动端使用</h2>
-<ol>
-<li>在应用商店搜索 Joplin</li>
-<li>安装后配置同步设置（需与桌面端相同）</li>
-<li>支持相机扫描文档 📷</li>
-</ol>
-<h2 id="七-数据导出">七、数据导出</h2>
-<ul>
-<li>支持导出为：
-<ul>
-<li>Markdown</li>
-<li>PDF</li>
-<li>HTML</li>
-<li>JEX（Joplin专用格式）</li>
-</ul>
-</li>
-</ul>
-<hr />
-<p><strong>小贴士</strong>：
-🔹 使用 <code>Ctrl+/</code> 切换Markdown源码视图
-🔹 定期使用 “检查同步配置” 功能
-🔹 重要笔记建议启用加密</p>
-<p><strong>官方资源</strong>：</p>
-<ul>
-<li>用户手册：<a title="https://joplinapp.org/help/" href="https://joplinapp.org/help/">https://joplinapp.org/help/</a></li>
-<li>论坛支持：<a title="https://discourse.joplinapp.org" href="https://discourse.joplinapp.org">https://discourse.joplinapp.org</a></li>
-</ul>
-<p>通过这个教程，你可以快速开始使用Joplin进行知识管理。随着使用深入，可以逐步探索更多高级功能！</p>
 ]]></content:encoded>
         </item>
     </channel>
